@@ -1,0 +1,765 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="description" content="Complete API reference documentation for Alius Agent Team. Includes detailed explanations of all API endpoints for authentication, Agent management, task management, team management, etc."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><title>API Reference — Alius Docs</title><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><link rel="alternate" hreflang="en" href="https://alius.tech/docs/agent-team/api-reference/"><link rel="alternate" hreflang="zh" href="https://alius.tech/zh/docs/agent-team/api-reference/"><link rel="alternate" hreflang="ja" href="https://alius.tech/ja/docs/agent-team/api-reference/"><link rel="alternate" hreflang="x-default" href="https://alius.tech/docs/agent-team/api-reference/"><!-- Prevent FOUC (Flash of Unstyled Content) --><script>
+      const theme = localStorage.getItem('theme')
+        || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script><link rel="stylesheet" href="/_astro/about.JOGSV8ml.css">
+<link rel="stylesheet" href="/_astro/_slug_.qEm98n9R.css"></head> <body class="bg-surface-50 dark:bg-surface-900 text-surface-900 dark:text-surface-100 antialiased">  <div data-pagefind-ignore> <header class="fixed top-0 left-0 right-0 z-50 bg-surface-50/80 dark:bg-surface-900/80 backdrop-blur-lg border-b border-surface-200/60 dark:border-surface-700/60"> <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"> <!-- Logo --> <a href="/" class="flex items-center gap-2.5 group"> <div class="flex items-center justify-center"> <svg class="w-10 h-10 text-brand-600 dark:text-brand-400 group-hover:text-brand-700 dark:group-hover:text-brand-500 transition-colors" viewBox="0 0 1254 1254" fill="currentColor"> <path d="M 724.500 257.681 C 653.011 263.851, 596.450 286.096, 552.842 325.196 C 526.718 348.619, 504.076 385.367, 495.662 418 C 490.377 438.500, 489.841 444.119, 488.990 488 C 488.241 526.596, 488.012 530.305, 485.720 541 C 480.488 565.412, 470.577 586.090, 446.176 623.500 C 419.896 663.790, 417 668.902, 417 674.999 C 417 684.972, 422.785 690.700, 441.926 699.682 C 461.465 708.850, 463.666 710.080, 468.039 714.275 C 477.891 723.725, 478.404 734.135, 469.861 751.221 C 465.594 759.755, 466.212 766.445, 471.810 772.312 C 473.285 773.858, 477.986 777.365, 482.257 780.104 L 490.022 785.085 486.997 788.293 C 477.778 798.069, 477.830 811.145, 487.115 817.580 C 492.428 821.261, 496.839 826.425, 499.391 831.949 C 501.239 835.949, 501.502 838.439, 501.562 852.500 C 501.641 871.026, 502.653 875.318, 509.271 885.191 C 520.290 901.629, 541.944 909.250, 573 907.620 C 609.539 905.701, 640.124 893.708, 660.990 873.115 C 666.221 867.953, 669.990 863.546, 669.367 863.321 C 668.744 863.096, 662.894 864.250, 656.367 865.886 C 617.558 875.616, 588.645 879.071, 572.749 875.878 C 564.128 874.147, 557.075 870.149, 552.903 864.630 C 547.893 858.001, 546.632 853.243, 547.039 842.500 C 547.974 817.834, 546.907 814.078, 536.032 803.739 C 528.569 796.645, 527.095 793.272, 528.973 787.583 C 530.264 783.670, 533.306 781.160, 544.250 774.979 C 548.513 772.572, 552 770.328, 552 769.994 C 552 769.659, 548.737 768.560, 544.750 767.550 C 530.731 764.002, 519.300 758.149, 517.143 753.415 C 515.178 749.101, 515.811 743.996, 519.016 738.317 C 524.409 728.762, 526.425 716.439, 523.830 708.899 C 520.688 699.772, 514.681 694.497, 501.168 688.998 C 487.709 683.520, 481.241 680.043, 476.465 675.717 C 472.523 672.147, 471.730 670.799, 471.294 666.926 C 470.672 661.397, 471.493 659.645, 483.721 640.427 C 510.115 598.944, 520.233 579.092, 525.688 558.085 C 527.883 549.633, 528.274 545.368, 528.992 522 C 529.890 492.768, 531.161 483.297, 536.606 465.263 C 548.221 426.795, 568.988 393.128, 600.987 360.895 C 655.132 306.351, 731.811 270.026, 814.928 259.545 C 821.763 258.683, 827.576 257.758, 827.845 257.489 C 828.385 256.949, 730.887 257.130, 724.500 257.681 M 594.691 505.093 C 574.985 507.975, 555.799 520.107, 541.959 538.438 C 536.940 545.085, 536.703 544.135, 546.280 555.742 C 556.587 568.233, 571.755 578.343, 588 583.550 C 598.883 587.037, 615.804 587.964, 626.644 585.666 C 646.931 581.366, 665.500 569.650, 682.089 550.685 L 690.123 541.500 684.811 536.566 C 674.416 526.908, 652.033 513.948, 637.347 509.083 C 623.806 504.596, 608.120 503.130, 594.691 505.093 M 594.782 529.553 C 587.417 531.338, 578.568 535.850, 573.500 540.403 L 569.500 543.997 573.723 547.861 C 578.482 552.215, 588.779 557.845, 597 560.590 C 600.953 561.909, 605.314 562.407, 612.500 562.359 C 620.991 562.302, 623.556 561.873, 629.500 559.513 C 636.685 556.660, 648.219 549.626, 651.307 546.213 C 652.977 544.368, 652.897 544.197, 649.191 541.745 C 631.708 530.175, 611.184 525.576, 594.782 529.553 M 735.424 737.418 C 733.733 738.154, 730.727 740.967, 728.744 743.667 C 711.731 766.844, 678.312 782.304, 640.309 784.580 C 627.059 785.373, 623.722 786.858, 621.957 792.750 C 620.452 797.773, 622.553 803.116, 627.190 806.054 C 630.206 807.966, 631.484 808.101, 641.593 807.581 C 670.537 806.090, 695.762 798.168, 718.036 783.574 C 734.351 772.884, 751 754.806, 751 747.779 C 751 743.675, 748.445 739.282, 745.033 737.517 C 741.482 735.681, 739.461 735.660, 735.424 737.418" fill-rule="evenodd"></path> </svg> </div> <span class="text-xl font-bold text-surface-900 dark:text-surface-100 tracking-tight">Alius</span> </a> <!-- Desktop Nav --> <div class="hidden lg:flex items-center gap-0.5"> <a href="/" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> Home </a><div class="relative" id="products-dropdown-trigger"> <button class="px-3 py-2 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors flex items-center gap-1" id="products-toggle"> Products <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div id="products-dropdown" class="hidden absolute left-0 top-full mt-1 bg-white dark:bg-surface-800 rounded-xl border border-surface-200 dark:border-surface-700 shadow-xl py-2 min-w-[240px] z-50"> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">Hardware</div> <a href="/products/joint-module" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Robot Joint Module </a><a href="/products/mocap-device" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Motion Capture System </a><a href="/products/dcu-controller" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Robot DCU Domain Controller </a><a href="/products/usb2can-debugger" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> USB2CAN Dual-Channel Debugger </a> <div class="border-t border-surface-100 dark:border-surface-700 my-1"></div> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">Software</div> <a href="/products/ai-agent" class="block px-4 py-2.5 text-sm font-medium text-surface-900 dark:text-surface-100 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Alius Agent </a> <a href="/product" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 pl-8 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+Agent CLI
+</a> <a href="/products/agent-team" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 pl-8 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Agent Team </a> </div> </div><a href="/solutions" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> Solutions </a><a href="/docs" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> Docs </a><a href="/faq" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> FAQ </a><a href="/about" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> About </a><a href="/contact" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> Contact </a> </div> <!-- CTA + Lang Switcher + Mobile Toggle --> <div class="flex items-center gap-3"> <!-- Theme Toggle --> <button id="theme-toggle" class="p-2 rounded-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors hidden sm:flex" aria-label="Toggle theme"> <!-- Sun icon (shown in dark mode) --> <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <!-- Moon icon (shown in light mode) --> <svg class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <script type="module">const o=document.getElementById("theme-toggle");function r(){const e=localStorage.getItem("theme");return e==="light"||e==="dark"?e:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function t(e){document.documentElement.classList.toggle("dark",e==="dark"),localStorage.setItem("theme",e)}function c(){const e=r();t(e==="light"?"dark":"light")}o?.addEventListener("click",c);window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{localStorage.getItem("theme")||t(e.matches?"dark":"light")});</script> <!-- Language Switcher --> <div class="relative" id="lang-switcher"> <button id="lang-toggle" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors" aria-label="Switch language"> <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <circle cx="12" cy="12" r="10"></circle> <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path> </svg> English </button> <div id="lang-dropdown" class="hidden absolute right-0 top-full mt-1 bg-white dark:bg-surface-800 rounded-lg border border-surface-200 dark:border-surface-700 shadow-lg py-1 min-w-[120px] z-50"> <a href="/docs/agent-team/api-reference/" class="block px-4 py-2 text-sm transition-colors text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 font-medium"> English </a><a href="/zh/docs/agent-team/api-reference/" class="block px-4 py-2 text-sm transition-colors text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700"> 中文 </a><a href="/ja/docs/agent-team/api-reference/" class="block px-4 py-2 text-sm transition-colors text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700"> 日本語 </a> </div> </div>  <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-surface-700 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors" aria-label="Toggle menu"> <svg class="w-5 h-5" id="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> <svg class="w-5 h-5 hidden" id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"> <line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line> </svg> </button> </div> </nav> <!-- Mobile menu --> <div id="mobile-menu" class="hidden lg:hidden border-t border-surface-200/60 dark:border-surface-700/60 bg-surface-50/95 dark:bg-surface-900/95 backdrop-blur-lg"> <div class="px-6 py-4 space-y-1"> <a href="/" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> Home </a><div> <button class="mobile-products-toggle w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors"> Products <svg class="w-4 h-4 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div class="mobile-products-list hidden pl-4 space-y-1"> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">Hardware</div> <a href="/products/joint-module" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Robot Joint Module </a><a href="/products/mocap-device" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Motion Capture System </a><a href="/products/dcu-controller" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Robot DCU Domain Controller </a><a href="/products/usb2can-debugger" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> USB2CAN Dual-Channel Debugger </a> <div class="border-t border-surface-100 dark:border-surface-700 my-1"></div> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">Software</div> <a href="/products/ai-agent" class="block px-4 py-2 text-sm font-medium text-surface-900 dark:text-surface-100 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Alius Agent </a> <a href="/product" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 pl-8 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+Agent CLI
+</a> <a href="/products/agent-team" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 pl-8 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Agent Team </a> </div> </div><a href="/solutions" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> Solutions </a><a href="/docs" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> Docs </a><a href="/faq" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> FAQ </a><a href="/about" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> About </a><a href="/contact" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> Contact </a> <!-- Mobile language links --> <div class="flex items-center gap-2 px-4 py-2.5"> <a href="/docs/agent-team/api-reference/" class="px-3 py-1.5 rounded-lg text-sm transition-colors bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 font-medium"> English </a><a href="/zh/docs/agent-team/api-reference/" class="px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 中文 </a><a href="/ja/docs/agent-team/api-reference/" class="px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 日本語 </a> </div>  <div class="px-4 py-2.5"> <button id="theme-toggle" class="p-2 rounded-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors flex w-full justify-center" aria-label="Toggle theme"> <!-- Sun icon (shown in dark mode) --> <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <!-- Moon icon (shown in light mode) --> <svg class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button>  </div> </div> </div> </header> <script type="module">const c=document.getElementById("mobile-menu-btn"),s=document.getElementById("mobile-menu"),l=document.getElementById("menu-icon"),i=document.getElementById("close-icon");c?.addEventListener("click",()=>{s?.classList.toggle("hidden"),l?.classList.toggle("hidden"),i?.classList.toggle("hidden")});const g=document.getElementById("lang-toggle"),t=document.getElementById("lang-dropdown");g?.addEventListener("click",e=>{e.stopPropagation(),t?.classList.toggle("hidden")});const m=document.getElementById("products-toggle"),n=document.getElementById("products-dropdown");m?.addEventListener("click",e=>{e.stopPropagation(),n?.classList.toggle("hidden")});document.querySelectorAll(".mobile-products-toggle").forEach(e=>{e.addEventListener("click",()=>{const o=e.nextElementSibling,d=e.querySelector("svg");o?.classList.toggle("hidden"),d?.classList.toggle("rotate-180")})});document.addEventListener("click",()=>{t?.classList.add("hidden"),n?.classList.add("hidden")});</script> </div> <div class="pt-16"> <div class="max-w-screen-2xl mx-auto"> <div class="flex"> <!-- Mobile sidebar toggle --> <button id="sidebar-toggle" class="lg:hidden fixed bottom-6 right-6 z-50 w-12 h-12 bg-brand-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-700 transition-colors" aria-label="Toggle sidebar"> <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> </button> <!-- Left sidebar --> <aside id="sidebar-panel" class="hidden lg:block w-[280px] flex-shrink-0 border-r border-surface-200/70 dark:border-surface-700/70 bg-white dark:bg-surface-800"> <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-4 py-8"> <!-- Search trigger --> <button id="docs-search-btn" class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-surface-400 dark:text-surface-500 hover:bg-surface-50 dark:hover:bg-surface-700 border border-surface-200 dark:border-surface-600 mb-6 transition-colors"> <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> Search docs... <kbd class="ml-auto hidden sm:inline-flex items-center px-1.5 py-0.5 bg-surface-100 dark:bg-surface-700 rounded text-xs text-surface-400 dark:text-surface-500">
+Ctrl+K
+</kbd> </button> <nav id="sidebar-agent-team"> <div class="mb-5" data-section="overview"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="overview"> <span>Overview</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="overview" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="overview"> <li> <a href="/docs/agent-team/overview" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Alius Agent Team Overview </a> </li> </ul> </div><div class="mb-5" data-section="getting-started"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="getting-started"> <span>Getting Started</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="getting-started" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="getting-started"> <li> <a href="/docs/agent-team/getting-started" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Getting Started </a> </li> </ul> </div><div class="mb-5" data-section="architecture"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="architecture"> <span>Architecture</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="architecture" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="architecture"> <li> <a href="/docs/agent-team/architecture" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> System Architecture </a> </li> </ul> </div><div class="mb-5" data-section="agent-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="agent-management"> <span>Agent Management</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="agent-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="agent-management"> <li> <a href="/docs/agent-team/agent-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Agent Management </a> </li> </ul> </div><div class="mb-5" data-section="task-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="task-management"> <span>Task Management</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="task-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="task-management"> <li> <a href="/docs/agent-team/task-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Task Management </a> </li> </ul> </div><div class="mb-5" data-section="team-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="team-management"> <span>Team Management</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="team-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="team-management"> <li> <a href="/docs/agent-team/team-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Team Management </a> </li> </ul> </div><div class="mb-5" data-section="security"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="security"> <span>Security &amp; Permissions</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="security" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="security"> <li> <a href="/docs/agent-team/security" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Security and Permissions </a> </li> </ul> </div><div class="mb-5" data-section="cross-platform"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="cross-platform"> <span>Cross-Platform Console</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="cross-platform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="cross-platform"> <li> <a href="/docs/agent-team/cross-platform" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Cross-Platform Support </a> </li> </ul> </div><div class="mb-5" data-section="api-reference"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="api-reference"> <span>API Reference</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="api-reference" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="api-reference"> <li> <a href="/docs/agent-team/api-reference" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-brand-600 font-medium border-l-2 border-brand-500 pl-2.5 bg-brand-50/50"> API Reference </a> </li> </ul> </div> </nav> <script type="module">function r(e){const s=document.getElementById(e);if(!s)return;const i=s.querySelectorAll("[data-collapse-toggle]"),d=JSON.parse(localStorage.getItem(`sidebar-collapse-${e}`)||"{}");i.forEach(c=>{const a=c.getAttribute("data-collapse-toggle"),t=s.querySelector(`[data-section-content="${a}"]`),o=s.querySelector(`[data-chevron="${a}"]`);t?.querySelector("a.border-brand-500")?(t?.classList.remove("hidden"),o?.classList.remove("-rotate-90")):d[a]===!0&&(t?.classList.add("hidden"),o?.classList.add("-rotate-90")),c.addEventListener("click",()=>{t?.classList.toggle("hidden"),o?.classList.toggle("-rotate-90");const l=JSON.parse(localStorage.getItem(`sidebar-collapse-${e}`)||"{}");l[a]=t?.classList.contains("hidden"),localStorage.setItem(`sidebar-collapse-${e}`,JSON.stringify(l))})})}document.querySelectorAll('[id^="sidebar-"]').forEach(e=>{r(e.id)});document.addEventListener("astro:page-load",()=>{document.querySelectorAll('[id^="sidebar-"]').forEach(e=>{r(e.id)})});</script> </div> </aside> <!-- Main content --> <main class="flex-1 min-w-0 bg-white dark:bg-surface-900"> <div class="max-w-3xl mx-auto px-6 lg:px-16 py-10"> <nav class="mb-6 flex items-center gap-1.5 text-sm text-surface-500 dark:text-surface-400 flex-wrap"> <a href="/" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Home</a> <span class="text-surface-300 dark:text-surface-600">/</span> <a href="/docs/agent-team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Documentation</a> <span class="text-surface-300 dark:text-surface-600">/</span> <a href="/docs/agent-team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Agent Team</a> <span class="text-surface-300 dark:text-surface-600">/</span> <span class="text-surface-900 dark:text-surface-100 font-medium">API Reference</span> </nav> <article class="prose prose-lg prose-surface dark:prose-invert max-w-none
+                prose-headings:scroll-mt-20
+                prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline
+                prose-code:before:content-none prose-code:after:content-none
+                prose-pre:bg-surface-50 dark:prose-pre:bg-surface-800 prose-pre:border prose-pre:border-surface-200 dark:prose-pre:border-surface-700
+                prose-img:rounded-xl
+                " data-pagefind-body>  <h1 id="api-reference">API Reference</h1>
+<p>Alius Agent Team provides a complete REST API that supports programmatic interaction with the system. This document details all API endpoints, request parameters, and response formats.</p>
+<h2 id="api-overview">API Overview</h2>
+<h3 id="basic-information">Basic Information</h3>
+<ul>
+<li><strong>Base URL</strong>: <code>https://api.alius.ai/v1</code></li>
+<li><strong>API Version</strong>: v1</li>
+<li><strong>Protocol</strong>: HTTPS only</li>
+<li><strong>Data Format</strong>: JSON</li>
+<li><strong>Character Encoding</strong>: UTF-8</li>
+</ul>
+<h3 id="authentication-methods">Authentication Methods</h3>
+<p>API supports the following authentication methods:</p>
+<h4 id="bearer-token">Bearer Token</h4>
+<p>Add Authorization field in request header:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>Authorization: Bearer YOUR_API_TOKEN</span></span></code></pre>
+<h4 id="api-key">API Key</h4>
+<p>Add X-API-Key field in request header:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>X-API-Key: YOUR_API_KEY</span></span></code></pre>
+<h3 id="rate-limiting">Rate Limiting</h3>
+<p>API implements rate limiting to ensure system stability:</p>
+<ul>
+<li><strong>Default Limit</strong>: 60 requests per minute</li>
+<li><strong>Batch Operations</strong>: 10 requests per minute</li>
+<li><strong>Response headers include rate limit information</strong>:
+<ul>
+<li><code>X-RateLimit-Limit</code>: Rate limit</li>
+<li><code>X-RateLimit-Remaining</code>: Remaining request count</li>
+<li><code>X-RateLimit-Reset</code>: Rate limit reset time</li>
+</ul>
+</li>
+</ul>
+<h3 id="error-handling">Error Handling</h3>
+<p>API uses standard HTTP status codes to indicate request results:</p>
+<h4 id="success-status-codes">Success Status Codes</h4>
+<ul>
+<li><code>200 OK</code>: Request successful</li>
+<li><code>201 Created</code>: Resource created successfully</li>
+<li><code>202 Accepted</code>: Request accepted, being processed</li>
+<li><code>204 No Content</code>: Request successful, no content returned</li>
+</ul>
+<h4 id="client-error-status-codes">Client Error Status Codes</h4>
+<ul>
+<li><code>400 Bad Request</code>: Request parameter error</li>
+<li><code>401 Unauthorized</code>: Not authenticated</li>
+<li><code>403 Forbidden</code>: No permission</li>
+<li><code>404 Not Found</code>: Resource doesn’t exist</li>
+<li><code>409 Conflict</code>: Resource conflict</li>
+<li><code>422 Unprocessable Entity</code>: Request format correct but semantic error</li>
+<li><code>429 Too Many Requests</code>: Too many requests</li>
+</ul>
+<h4 id="server-error-status-codes">Server Error Status Codes</h4>
+<ul>
+<li><code>500 Internal Server Error</code>: Server internal error</li>
+<li><code>502 Bad Gateway</code>: Gateway error</li>
+<li><code>503 Service Unavailable</code>: Service unavailable</li>
+<li><code>504 Gateway Timeout</code>: Gateway timeout</li>
+</ul>
+<h4 id="error-response-format">Error Response Format</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;error&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;code&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;INVALID_REQUEST&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;message&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Request parameter error&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;details&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;field&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;email&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;issue&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Invalid email format&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="authentication-api">Authentication API</h2>
+<h3 id="sms-login">SMS Login</h3>
+<p><strong>Endpoint</strong>: <code>POST /auth/login/sms</code></p>
+<p><strong>Description</strong>: Login using SMS verification code</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;phone&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;+8613800138000&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;code&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;123456&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><strong>Response</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;success&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;data&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;accessToken&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;refreshToken&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;expiresIn&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">3600</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;user&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;id&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;user_12345&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;username&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;example_user&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;email&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;user@example.com&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="send-sms-verification-code">Send SMS Verification Code</h3>
+<p><strong>Endpoint</strong>: <code>POST /auth/sms/send</code></p>
+<p><strong>Description</strong>: Send SMS verification code</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;phone&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;+8613800138000&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><strong>Response</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;success&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;data&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;expiresIn&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">300</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;requestId&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;req_12345&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="apple-login">Apple Login</h3>
+<p><strong>Endpoint</strong>: <code>POST /auth/login/apple</code></p>
+<p><strong>Description</strong>: Login using Apple ID</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;identityToken&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;apple_identity_token&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;authorizationCode&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;apple_auth_code&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;user&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;email&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;user@example.com&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;name&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Example User&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="wechat-login">WeChat Login</h3>
+<p><strong>Endpoint</strong>: <code>POST /auth/login/wechat</code></p>
+<p><strong>Description</strong>: Login using WeChat</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;code&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;wechat_auth_code&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="refresh-token">Refresh Token</h3>
+<p><strong>Endpoint</strong>: <code>POST /auth/refresh</code></p>
+<p><strong>Description</strong>: Use refresh token to get new access token</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;refreshToken&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="logout">Logout</h3>
+<p><strong>Endpoint</strong>: <code>POST /auth/logout</code></p>
+<p><strong>Description</strong>: Logout, invalidate token</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;refreshToken&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="agent-api">Agent API</h2>
+<h3 id="list-agents">List Agents</h3>
+<p><strong>Endpoint</strong>: <code>GET /agents</code></p>
+<p><strong>Description</strong>: Get Agent list</p>
+<p><strong>Query Parameters</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>page</td><td>number</td><td>No</td><td>Page number, default 1</td></tr><tr><td>limit</td><td>number</td><td>No</td><td>Items per page, default 20, max 100</td></tr><tr><td>status</td><td>string</td><td>No</td><td>Filter by status</td></tr><tr><td>type</td><td>string</td><td>No</td><td>Filter by type</td></tr><tr><td>teamId</td><td>string</td><td>No</td><td>Filter by team</td></tr><tr><td>search</td><td>string</td><td>No</td><td>Search keyword</td></tr></tbody></table>
+<p><strong>Response</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;success&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;data&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;items&quot;</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">      {</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;id&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;agent_12345&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;name&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;My Code Assistant&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;description&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Agent specialized for code generation and review&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;type&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;codegen&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;status&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;active&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;health&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          &quot;score&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">95</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          &quot;lastCheck&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;2024-01-15T10:00:00Z&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;config&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">          &quot;model&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;gpt-4&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          &quot;temperature&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.2</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">          &quot;maxTokens&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">4096</span></span>
+<span class="line"><span style="color:#E1E4E8">        },</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;createdAt&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;2024-01-01T00:00:00Z&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;updatedAt&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;2024-01-15T10:00:00Z&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;ownerId&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;user_12345&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        &quot;teamId&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;team_12345&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">      }</span></span>
+<span class="line"><span style="color:#E1E4E8">    ],</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;pagination&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;page&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">1</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;limit&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">20</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;total&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">45</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;totalPages&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">3</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="create-agent">Create Agent</h3>
+<p><strong>Endpoint</strong>: <code>POST /agents</code></p>
+<p><strong>Description</strong>: Create new Agent</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;name&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;My Code Assistant&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;description&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Agent specialized for code generation and review&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;type&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;codegen&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;config&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;model&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;gpt-4&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;temperature&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.2</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;maxTokens&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">4096</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;teamId&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;team_12345&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p><strong>Response</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;success&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;data&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;id&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;agent_12345&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;name&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;My Code Assistant&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;status&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;inactive&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;createdAt&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;2024-01-15T10:00:00Z&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="get-agent-details">Get Agent Details</h3>
+<p><strong>Endpoint</strong>: <code>GET /agents/:id</code></p>
+<p><strong>Description</strong>: Get detailed information of specified Agent</p>
+<p><strong>Path Parameters</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>string</td><td>Yes</td><td>Agent ID</td></tr></tbody></table>
+<p><strong>Response</strong>: Same as single Agent object in List Agents</p>
+<h3 id="update-agent">Update Agent</h3>
+<p><strong>Endpoint</strong>: <code>PUT /agents/:id</code></p>
+<p><strong>Description</strong>: Update Agent information</p>
+<p><strong>Path Parameters</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>string</td><td>Yes</td><td>Agent ID</td></tr></tbody></table>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;name&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Updated Agent Name&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;description&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Updated description&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;config&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;temperature&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">0.3</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="delete-agent">Delete Agent</h3>
+<p><strong>Endpoint</strong>: <code>DELETE /agents/:id</code></p>
+<p><strong>Description</strong>: Delete Agent</p>
+<p><strong>Path Parameters</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>string</td><td>Yes</td><td>Agent ID</td></tr></tbody></table>
+<h3 id="start-agent">Start Agent</h3>
+<p><strong>Endpoint</strong>: <code>POST /agents/:id/actions/start</code></p>
+<p><strong>Description</strong>: Start Agent</p>
+<p><strong>Path Parameters</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>id</td><td>string</td><td>Yes</td><td>Agent ID</td></tr></tbody></table>
+<h3 id="stop-agent">Stop Agent</h3>
+<p><strong>Endpoint</strong>: <code>POST /agents/:id/actions/stop</code></p>
+<p><strong>Description</strong>: Stop Agent</p>
+<h3 id="restart-agent">Restart Agent</h3>
+<p><strong>Endpoint</strong>: <code>POST /agents/:id/actions/restart</code></p>
+<p><strong>Description</strong>: Restart Agent</p>
+<h3 id="get-agent-logs">Get Agent Logs</h3>
+<p><strong>Endpoint</strong>: <code>GET /agents/:id/logs</code></p>
+<p><strong>Description</strong>: Get Agent execution logs</p>
+<p><strong>Query Parameters</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>level</td><td>string</td><td>No</td><td>Log level filter</td></tr><tr><td>startTime</td><td>string</td><td>No</td><td>Start time</td></tr><tr><td>endTime</td><td>string</td><td>No</td><td>End time</td></tr><tr><td>limit</td><td>number</td><td>No</td><td>Return count, default 100</td></tr><tr><td>offset</td><td>number</td><td>No</td><td>Offset, default 0</td></tr></tbody></table>
+<h2 id="task-api">Task API</h2>
+<h3 id="list-tasks">List Tasks</h3>
+<p><strong>Endpoint</strong>: <code>GET /tasks</code></p>
+<p><strong>Description</strong>: Get task list</p>
+<p><strong>Query Parameters</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>page</td><td>number</td><td>No</td><td>Page number</td></tr><tr><td>limit</td><td>number</td><td>No</td><td>Items per page</td></tr><tr><td>status</td><td>string</td><td>No</td><td>Filter by status</td></tr><tr><td>agentId</td><td>string</td><td>No</td><td>Filter by Agent</td></tr><tr><td>priority</td><td>string</td><td>No</td><td>Filter by priority</td></tr><tr><td>assigneeId</td><td>string</td><td>No</td><td>Filter by assignee</td></tr></tbody></table>
+<h3 id="create-task">Create Task</h3>
+<p><strong>Endpoint</strong>: <code>POST /tasks</code></p>
+<p><strong>Description</strong>: Create new task</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;title&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Code Review&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;description&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Review the code quality of the following Pull Request&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;agentId&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;agent_12345&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;priority&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;high&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;deadline&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;2024-01-20T17:00:00Z&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;attachments&quot;</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;type&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;url&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;url&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;https://github.com/example/repo/pull/123&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="get-task-details">Get Task Details</h3>
+<p><strong>Endpoint</strong>: <code>GET /tasks/:id</code></p>
+<p><strong>Description</strong>: Get detailed information of specified task</p>
+<h3 id="update-task">Update Task</h3>
+<p><strong>Endpoint</strong>: <code>PUT /tasks/:id</code></p>
+<p><strong>Description</strong>: Update task information</p>
+<h3 id="delete-task">Delete Task</h3>
+<p><strong>Endpoint</strong>: <code>DELETE /tasks/:id</code></p>
+<p><strong>Description</strong>: Delete task</p>
+<h3 id="cancel-task">Cancel Task</h3>
+<p><strong>Endpoint</strong>: <code>POST /tasks/:id/actions/cancel</code></p>
+<p><strong>Description</strong>: Cancel task</p>
+<h3 id="retry-task">Retry Task</h3>
+<p><strong>Endpoint</strong>: <code>POST /tasks/:id/actions/retry</code></p>
+<p><strong>Description</strong>: Retry failed task</p>
+<h3 id="get-task-result">Get Task Result</h3>
+<p><strong>Endpoint</strong>: <code>GET /tasks/:id/result</code></p>
+<p><strong>Description</strong>: Get task execution result</p>
+<h2 id="team-api">Team API</h2>
+<h3 id="list-teams">List Teams</h3>
+<p><strong>Endpoint</strong>: <code>GET /teams</code></p>
+<p><strong>Description</strong>: Get list of teams the user belongs to</p>
+<h3 id="create-team">Create Team</h3>
+<p><strong>Endpoint</strong>: <code>POST /teams</code></p>
+<p><strong>Description</strong>: Create new team</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;name&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;My Team&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;description&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;This is my team&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;visibility&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;private&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="get-team-details">Get Team Details</h3>
+<p><strong>Endpoint</strong>: <code>GET /teams/:id</code></p>
+<p><strong>Description</strong>: Get detailed information of specified team</p>
+<h3 id="update-team">Update Team</h3>
+<p><strong>Endpoint</strong>: <code>PUT /teams/:id</code></p>
+<p><strong>Description</strong>: Update team information</p>
+<h3 id="delete-team">Delete Team</h3>
+<p><strong>Endpoint</strong>: <code>DELETE /teams/:id</code></p>
+<p><strong>Description</strong>: Delete team</p>
+<h3 id="invite-member">Invite Member</h3>
+<p><strong>Endpoint</strong>: <code>POST /teams/:id/members/invite</code></p>
+<p><strong>Description</strong>: Invite user to join team</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;email&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;user@example.com&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;role&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;member&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="remove-member">Remove Member</h3>
+<p><strong>Endpoint</strong>: <code>DELETE /teams/:id/members/:userId</code></p>
+<p><strong>Description</strong>: Remove team member</p>
+<h3 id="update-member-role">Update Member Role</h3>
+<p><strong>Endpoint</strong>: <code>PUT /teams/:id/members/:userId/role</code></p>
+<p><strong>Description</strong>: Update team member role</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;role&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;admin&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="user-api">User API</h2>
+<h3 id="get-current-user-info">Get Current User Info</h3>
+<p><strong>Endpoint</strong>: <code>GET /users/me</code></p>
+<p><strong>Description</strong>: Get current authenticated user’s information</p>
+<h3 id="update-user-info">Update User Info</h3>
+<p><strong>Endpoint</strong>: <code>PUT /users/me</code></p>
+<p><strong>Description</strong>: Update current user information</p>
+<h3 id="get-user-list-team">Get User List (Team)</h3>
+<p><strong>Endpoint</strong>: <code>GET /teams/:teamId/users</code></p>
+<p><strong>Description</strong>: Get team member list (requires team admin permission)</p>
+<h2 id="notification-api">Notification API</h2>
+<h3 id="list-notifications">List Notifications</h3>
+<p><strong>Endpoint</strong>: <code>GET /notifications</code></p>
+<p><strong>Description</strong>: Get notification list</p>
+<p><strong>Query Parameters</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Parameter</th><th>Type</th><th>Required</th><th>Description</th></tr></thead><tbody><tr><td>page</td><td>number</td><td>No</td><td>Page number</td></tr><tr><td>limit</td><td>number</td><td>No</td><td>Items per page</td></tr><tr><td>read</td><td>boolean</td><td>No</td><td>Filter by read status</td></tr><tr><td>type</td><td>string</td><td>No</td><td>Filter by type</td></tr></tbody></table>
+<h3 id="mark-notification-as-read">Mark Notification as Read</h3>
+<p><strong>Endpoint</strong>: <code>PUT /notifications/:id/read</code></p>
+<p><strong>Description</strong>: Mark specified notification as read</p>
+<h3 id="mark-all-notifications-as-read">Mark All Notifications as Read</h3>
+<p><strong>Endpoint</strong>: <code>PUT /notifications/read-all</code></p>
+<p><strong>Description</strong>: Mark all notifications as read</p>
+<h3 id="delete-notification">Delete Notification</h3>
+<p><strong>Endpoint</strong>: <code>DELETE /notifications/:id</code></p>
+<p><strong>Description</strong>: Delete specified notification</p>
+<h2 id="session-api">Session API</h2>
+<h3 id="list-sessions">List Sessions</h3>
+<p><strong>Endpoint</strong>: <code>GET /sessions</code></p>
+<p><strong>Description</strong>: Get session list</p>
+<h3 id="get-session-details">Get Session Details</h3>
+<p><strong>Endpoint</strong>: <code>GET /sessions/:id</code></p>
+<p><strong>Description</strong>: Get detailed information of specified session</p>
+<h3 id="close-session">Close Session</h3>
+<p><strong>Endpoint</strong>: <code>POST /sessions/:id/actions/close</code></p>
+<p><strong>Description</strong>: Close specified session</p>
+<h2 id="webhook">Webhook</h2>
+<h3 id="webhook-events">Webhook Events</h3>
+<p>Alius Agent Team supports Webhooks, which can send HTTP POST requests to a URL you specify when specific events occur.</p>
+<h4 id="supported-event-types">Supported Event Types</h4>
+<ul>
+<li><code>agent.created</code>: Agent created</li>
+<li><code>agent.updated</code>: Agent updated</li>
+<li><code>agent.deleted</code>: Agent deleted</li>
+<li><code>agent.status_changed</code>: Agent status changed</li>
+<li><code>task.created</code>: Task created</li>
+<li><code>task.updated</code>: Task updated</li>
+<li><code>task.completed</code>: Task completed</li>
+<li><code>task.failed</code>: Task failed</li>
+<li><code>team.member_joined</code>: Member joined team</li>
+<li><code>team.member_left</code>: Member left team</li>
+</ul>
+<h4 id="webhook-payload-example">Webhook Payload Example</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;event&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;task.completed&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;data&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;taskId&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;task_12345&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;agentId&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;agent_12345&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;status&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;completed&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;result&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;output&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Task execution result...&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;timestamp&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;2024-01-15T10:30:00Z&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;signature&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;webhook_signature&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="configure-webhook">Configure Webhook</h3>
+<p><strong>Endpoint</strong>: <code>POST /webhooks</code></p>
+<p><strong>Description</strong>: Create Webhook configuration</p>
+<p><strong>Request Body</strong>:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;url&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;https://your-server.com/webhook&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;events&quot;</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">&quot;task.completed&quot;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&quot;agent.status_changed&quot;</span><span style="color:#E1E4E8">],</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;secret&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;your_webhook_secret&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="sdk-and-examples">SDK and Examples</h2>
+<h3 id="official-sdks">Official SDKs</h3>
+<p>Alius Agent Team provides the following official SDKs:</p>
+<ul>
+<li><strong>JavaScript/TypeScript</strong>: <code>@alius/agent-team-sdk</code></li>
+<li><strong>Python</strong>: <code>alius-agent-team-sdk</code></li>
+<li><strong>Go</strong>: <code>github.com/alius/agent-team-sdk-go</code></li>
+<li><strong>Java</strong>: <code>com.alius.agent-team-sdk</code></li>
+</ul>
+<h3 id="javascript-sdk-example">JavaScript SDK Example</h3>
+<h4 id="installation">Installation</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">npm</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> @alius/agent-team-sdk</span></span></code></pre>
+<h4 id="usage-example">Usage Example</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { AliusClient } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &#39;@alius/agent-team-sdk&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Initialize client</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> client</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> AliusClient</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  apiKey: </span><span style="color:#9ECBFF">&#39;YOUR_API_KEY&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  baseURL: </span><span style="color:#9ECBFF">&#39;https://api.alius.ai/v1&#39;</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// List Agents</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> agents</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> client.agents.</span><span style="color:#B392F0">list</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  status: </span><span style="color:#9ECBFF">&#39;active&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  limit: </span><span style="color:#79B8FF">10</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(agents);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Create task</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> task</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> client.tasks.</span><span style="color:#B392F0">create</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  title: </span><span style="color:#9ECBFF">&#39;Code Review&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  description: </span><span style="color:#9ECBFF">&#39;Review PR #123&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  agentId: </span><span style="color:#9ECBFF">&#39;agent_12345&#39;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  priority: </span><span style="color:#9ECBFF">&#39;high&#39;</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(task);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Listen to Webhook events</span></span>
+<span class="line"><span style="color:#E1E4E8">client.webhooks.</span><span style="color:#B392F0">on</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;task.completed&#39;</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">data</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;Task completed:&#39;</span><span style="color:#E1E4E8">, data);</span></span>
+<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre>
+<h3 id="python-sdk-example">Python SDK Example</h3>
+<h4 id="installation-1">Installation</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">pip</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> alius-agent-team-sdk</span></span></code></pre>
+<h4 id="usage-example-1">Usage Example</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">from</span><span style="color:#E1E4E8"> alius_agent_team </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> AliusClient</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Initialize client</span></span>
+<span class="line"><span style="color:#E1E4E8">client </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> AliusClient(</span><span style="color:#FFAB70">api_key</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;YOUR_API_KEY&quot;</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># List Agents</span></span>
+<span class="line"><span style="color:#E1E4E8">agents </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> client.agents.list(</span><span style="color:#FFAB70">status</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;active&quot;</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">limit</span><span style="color:#F97583">=</span><span style="color:#79B8FF">10</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(agents)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Create task</span></span>
+<span class="line"><span style="color:#E1E4E8">task </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> client.tasks.create(</span></span>
+<span class="line"><span style="color:#FFAB70">    title</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;Code Review&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    description</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;Review PR #123&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    agent_id</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;agent_12345&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#FFAB70">    priority</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;high&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(task)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Get task result</span></span>
+<span class="line"><span style="color:#E1E4E8">result </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> client.tasks.get_result(task.id)</span></span>
+<span class="line"><span style="color:#79B8FF">print</span><span style="color:#E1E4E8">(result)</span></span></code></pre>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="api-call-optimization">API Call Optimization</h3>
+<ul>
+<li><strong>Use Pagination</strong>: For requests with large amounts of data, use pagination to avoid timeouts</li>
+<li><strong>Batch Operations</strong>: Use batch APIs to reduce number of requests</li>
+<li><strong>Cache Responses</strong>: Cache data that doesn’t change frequently</li>
+<li><strong>Use Webhooks</strong>: For scenarios with high real-time requirements, use Webhooks instead of polling</li>
+</ul>
+<h3 id="error-handling-1">Error Handling</h3>
+<ul>
+<li><strong>Implement Retry Logic</strong>: For recoverable errors (e.g., 429, 503), implement exponential backoff retry</li>
+<li><strong>Log Errors</strong>: Log all API errors for troubleshooting</li>
+<li><strong>User-Friendly Prompts</strong>: Display user-friendly error messages</li>
+</ul>
+<h3 id="security">Security</h3>
+<ul>
+<li><strong>Protect API Keys</strong>: Don’t hardcode API keys in frontend code</li>
+<li><strong>Use Least Privilege</strong>: Only request necessary permissions</li>
+<li><strong>Verify Webhook Signatures</strong>: Verify Webhook request signatures to ensure trusted source</li>
+</ul>
+<h2 id="changelog">Changelog</h2>
+<h3 id="v100-2024-01-01">v1.0.0 (2024-01-01)</h3>
+<ul>
+<li>Initial API version release</li>
+<li>Support basic Agent, Task, Team management</li>
+<li>Support SMS, Apple, WeChat login</li>
+</ul>
+<h3 id="v110-2024-02-15">v1.1.0 (2024-02-15)</h3>
+<ul>
+<li>New Session API</li>
+<li>New Webhook support</li>
+<li>Improved error handling</li>
+</ul>
+<h3 id="v120-2024-03-30">v1.2.0 (2024-03-30)</h3>
+<ul>
+<li>New batch operation API</li>
+<li>New advanced search features</li>
+<li>Performance optimization</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<p>Alius Agent Team API provides complete programmatic access capabilities, supporting various integration and automation scenarios. If you have any API-related questions or suggestions, please contact our technical support team.</p>
+<p>For detailed error code list, more advanced usage examples, and latest API updates, please visit our developer portal: <a href="https://developers.alius.ai">https://developers.alius.ai</a></p>  </article> <!-- Previous / Next navigation --> <nav class="mt-16 pt-8 border-t border-surface-200 dark:border-surface-700 flex items-center justify-between gap-4"> <a href="/docs/agent-team/cross-platform" class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M19 12H5M12 19l-7-7 7-7"></path> </svg> <span class="font-medium">Cross-Platform Support</span> </a> <div></div> </nav> </div> </main> <!-- Right sidebar (TOC) --> <aside class="hidden xl:block w-56 flex-shrink-0"> <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-4 py-10"> <nav><h4 class="text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider mb-3">On this page</h4><ul class="space-y-1.5" id="toc-list"><li><a href="#api-overview" data-toc-slug="api-overview" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">API Overview</a></li><li><a href="#basic-information" data-toc-slug="basic-information" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Basic Information</a></li><li><a href="#authentication-methods" data-toc-slug="authentication-methods" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Authentication Methods</a></li><li><a href="#rate-limiting" data-toc-slug="rate-limiting" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Rate Limiting</a></li><li><a href="#error-handling" data-toc-slug="error-handling" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Error Handling</a></li><li><a href="#authentication-api" data-toc-slug="authentication-api" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Authentication API</a></li><li><a href="#sms-login" data-toc-slug="sms-login" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">SMS Login</a></li><li><a href="#send-sms-verification-code" data-toc-slug="send-sms-verification-code" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Send SMS Verification Code</a></li><li><a href="#apple-login" data-toc-slug="apple-login" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Apple Login</a></li><li><a href="#wechat-login" data-toc-slug="wechat-login" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">WeChat Login</a></li><li><a href="#refresh-token" data-toc-slug="refresh-token" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Refresh Token</a></li><li><a href="#logout" data-toc-slug="logout" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Logout</a></li><li><a href="#agent-api" data-toc-slug="agent-api" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Agent API</a></li><li><a href="#list-agents" data-toc-slug="list-agents" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">List Agents</a></li><li><a href="#create-agent" data-toc-slug="create-agent" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Create Agent</a></li><li><a href="#get-agent-details" data-toc-slug="get-agent-details" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Get Agent Details</a></li><li><a href="#update-agent" data-toc-slug="update-agent" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Update Agent</a></li><li><a href="#delete-agent" data-toc-slug="delete-agent" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Delete Agent</a></li><li><a href="#start-agent" data-toc-slug="start-agent" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Start Agent</a></li><li><a href="#stop-agent" data-toc-slug="stop-agent" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Stop Agent</a></li><li><a href="#restart-agent" data-toc-slug="restart-agent" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Restart Agent</a></li><li><a href="#get-agent-logs" data-toc-slug="get-agent-logs" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Get Agent Logs</a></li><li><a href="#task-api" data-toc-slug="task-api" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Task API</a></li><li><a href="#list-tasks" data-toc-slug="list-tasks" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">List Tasks</a></li><li><a href="#create-task" data-toc-slug="create-task" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Create Task</a></li><li><a href="#get-task-details" data-toc-slug="get-task-details" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Get Task Details</a></li><li><a href="#update-task" data-toc-slug="update-task" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Update Task</a></li><li><a href="#delete-task" data-toc-slug="delete-task" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Delete Task</a></li><li><a href="#cancel-task" data-toc-slug="cancel-task" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Cancel Task</a></li><li><a href="#retry-task" data-toc-slug="retry-task" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Retry Task</a></li><li><a href="#get-task-result" data-toc-slug="get-task-result" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Get Task Result</a></li><li><a href="#team-api" data-toc-slug="team-api" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Team API</a></li><li><a href="#list-teams" data-toc-slug="list-teams" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">List Teams</a></li><li><a href="#create-team" data-toc-slug="create-team" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Create Team</a></li><li><a href="#get-team-details" data-toc-slug="get-team-details" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Get Team Details</a></li><li><a href="#update-team" data-toc-slug="update-team" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Update Team</a></li><li><a href="#delete-team" data-toc-slug="delete-team" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Delete Team</a></li><li><a href="#invite-member" data-toc-slug="invite-member" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Invite Member</a></li><li><a href="#remove-member" data-toc-slug="remove-member" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Remove Member</a></li><li><a href="#update-member-role" data-toc-slug="update-member-role" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Update Member Role</a></li><li><a href="#user-api" data-toc-slug="user-api" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">User API</a></li><li><a href="#get-current-user-info" data-toc-slug="get-current-user-info" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Get Current User Info</a></li><li><a href="#update-user-info" data-toc-slug="update-user-info" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Update User Info</a></li><li><a href="#get-user-list-team" data-toc-slug="get-user-list-team" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Get User List (Team)</a></li><li><a href="#notification-api" data-toc-slug="notification-api" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Notification API</a></li><li><a href="#list-notifications" data-toc-slug="list-notifications" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">List Notifications</a></li><li><a href="#mark-notification-as-read" data-toc-slug="mark-notification-as-read" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Mark Notification as Read</a></li><li><a href="#mark-all-notifications-as-read" data-toc-slug="mark-all-notifications-as-read" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Mark All Notifications as Read</a></li><li><a href="#delete-notification" data-toc-slug="delete-notification" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Delete Notification</a></li><li><a href="#session-api" data-toc-slug="session-api" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Session API</a></li><li><a href="#list-sessions" data-toc-slug="list-sessions" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">List Sessions</a></li><li><a href="#get-session-details" data-toc-slug="get-session-details" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Get Session Details</a></li><li><a href="#close-session" data-toc-slug="close-session" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Close Session</a></li><li><a href="#webhook" data-toc-slug="webhook" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Webhook</a></li><li><a href="#webhook-events" data-toc-slug="webhook-events" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Webhook Events</a></li><li><a href="#configure-webhook" data-toc-slug="configure-webhook" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Configure Webhook</a></li><li><a href="#sdk-and-examples" data-toc-slug="sdk-and-examples" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">SDK and Examples</a></li><li><a href="#official-sdks" data-toc-slug="official-sdks" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Official SDKs</a></li><li><a href="#javascript-sdk-example" data-toc-slug="javascript-sdk-example" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">JavaScript SDK Example</a></li><li><a href="#python-sdk-example" data-toc-slug="python-sdk-example" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Python SDK Example</a></li><li><a href="#best-practices" data-toc-slug="best-practices" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Best Practices</a></li><li><a href="#api-call-optimization" data-toc-slug="api-call-optimization" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">API Call Optimization</a></li><li><a href="#error-handling-1" data-toc-slug="error-handling-1" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Error Handling</a></li><li><a href="#security" data-toc-slug="security" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Security</a></li><li><a href="#changelog" data-toc-slug="changelog" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Changelog</a></li><li><a href="#v100-2024-01-01" data-toc-slug="v100-2024-01-01" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">v1.0.0 (2024-01-01)</a></li><li><a href="#v110-2024-02-15" data-toc-slug="v110-2024-02-15" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">v1.1.0 (2024-02-15)</a></li><li><a href="#v120-2024-03-30" data-toc-slug="v120-2024-03-30" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">v1.2.0 (2024-03-30)</a></li><li><a href="#summary" data-toc-slug="summary" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Summary</a></li></ul></nav><script type="module">function l(){const c=document.getElementById("toc-list");if(!c)return;const a=c.querySelectorAll("[data-toc-slug]");if(a.length===0)return;const n=[];if(a.forEach(d=>{const s=d.getAttribute("data-toc-slug"),t=document.getElementById(s||"");t&&n.push(t)}),n.length===0)return;let e=null;function o(){let s=0;for(let i=n.length-1;i>=0;i--)if(n[i].getBoundingClientRect().top<=100){s=i;break}const t=a[s];t!==e&&(e&&(e.classList.remove("text-brand-600","dark:text-brand-400","font-medium"),e.classList.add("text-surface-500","dark:text-surface-400")),t.classList.add("text-brand-600","dark:text-brand-400","font-medium"),t.classList.remove("text-surface-500","dark:text-surface-400"),e=t)}o();let r=!1;window.addEventListener("scroll",()=>{r||(requestAnimationFrame(()=>{o(),r=!1}),r=!0)},{passive:!0})}l();document.addEventListener("astro:page-load",l);</script> </div> </aside> </div> </div> </div> <div data-pagefind-ignore> <footer class="bg-surface-900 dark:bg-surface-950 text-surface-300 dark:text-surface-400"> <div class="max-w-7xl mx-auto px-6 pt-16 pb-8"> <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mb-12"> <!-- Brand column --> <div class="col-span-2 md:col-span-1"> <a href="/" class="flex items-center gap-2.5 mb-4"> <div class="w-8 h-8 bg-brand-500 dark:bg-brand-600 rounded-lg flex items-center justify-center"> <svg class="w-5 h-5 text-white" viewBox="0 0 1254 1254" fill="currentColor"> <path d="M 724.500 257.681 C 653.011 263.851, 596.450 286.096, 552.842 325.196 C 526.718 348.619, 504.076 385.367, 495.662 418 C 490.377 438.500, 489.841 444.119, 488.990 488 C 488.241 526.596, 488.012 530.305, 485.720 541 C 480.488 565.412, 470.577 586.090, 446.176 623.500 C 419.896 663.790, 417 668.902, 417 674.999 C 417 684.972, 422.785 690.700, 441.926 699.682 C 461.465 708.850, 463.666 710.080, 468.039 714.275 C 477.891 723.725, 478.404 734.135, 469.861 751.221 C 465.594 759.755, 466.212 766.445, 471.810 772.312 C 473.285 773.858, 477.986 777.365, 482.257 780.104 L 490.022 785.085 486.997 788.293 C 477.778 798.069, 477.830 811.145, 487.115 817.580 C 492.428 821.261, 496.839 826.425, 499.391 831.949 C 501.239 835.949, 501.502 838.439, 501.562 852.500 C 501.641 871.026, 502.653 875.318, 509.271 885.191 C 520.290 901.629, 541.944 909.250, 573 907.620 C 609.539 905.701, 640.124 893.708, 660.990 873.115 C 666.221 867.953, 669.990 863.546, 669.367 863.321 C 668.744 863.096, 662.894 864.250, 656.367 865.886 C 617.558 875.616, 588.645 879.071, 572.749 875.878 C 564.128 874.147, 557.075 870.149, 552.903 864.630 C 547.893 858.001, 546.632 853.243, 547.039 842.500 C 547.974 817.834, 546.907 814.078, 536.032 803.739 C 528.569 796.645, 527.095 793.272, 528.973 787.583 C 530.264 783.670, 533.306 781.160, 544.250 774.979 C 548.513 772.572, 552 770.328, 552 769.994 C 552 769.659, 548.737 768.560, 544.750 767.550 C 530.731 764.002, 519.300 758.149, 517.143 753.415 C 515.178 749.101, 515.811 743.996, 519.016 738.317 C 524.409 728.762, 526.425 716.439, 523.830 708.899 C 520.688 699.772, 514.681 694.497, 501.168 688.998 C 487.709 683.520, 481.241 680.043, 476.465 675.717 C 472.523 672.147, 471.730 670.799, 471.294 666.926 C 470.672 661.397, 471.493 659.645, 483.721 640.427 C 510.115 598.944, 520.233 579.092, 525.688 558.085 C 527.883 549.633, 528.274 545.368, 528.992 522 C 529.890 492.768, 531.161 483.297, 536.606 465.263 C 548.221 426.795, 568.988 393.128, 600.987 360.895 C 655.132 306.351, 731.811 270.026, 814.928 259.545 C 821.763 258.683, 827.576 257.758, 827.845 257.489 C 828.385 256.949, 730.887 257.130, 724.500 257.681 M 594.691 505.093 C 574.985 507.975, 555.799 520.107, 541.959 538.438 C 536.940 545.085, 536.703 544.135, 546.280 555.742 C 556.587 568.233, 571.755 578.343, 588 583.550 C 598.883 587.037, 615.804 587.964, 626.644 585.666 C 646.931 581.366, 665.500 569.650, 682.089 550.685 L 690.123 541.500 684.811 536.566 C 674.416 526.908, 652.033 513.948, 637.347 509.083 C 623.806 504.596, 608.120 503.130, 594.691 505.093 M 594.782 529.553 C 587.417 531.338, 578.568 535.850, 573.500 540.403 L 569.500 543.997 573.723 547.861 C 578.482 552.215, 588.779 557.845, 597 560.590 C 600.953 561.909, 605.314 562.407, 612.500 562.359 C 620.991 562.302, 623.556 561.873, 629.500 559.513 C 636.685 556.660, 648.219 549.626, 651.307 546.213 C 652.977 544.368, 652.897 544.197, 649.191 541.745 C 631.708 530.175, 611.184 525.576, 594.782 529.553 M 735.424 737.418 C 733.733 738.154, 730.727 740.967, 728.744 743.667 C 711.731 766.844, 678.312 782.304, 640.309 784.580 C 627.059 785.373, 623.722 786.858, 621.957 792.750 C 620.452 797.773, 622.553 803.116, 627.190 806.054 C 630.206 807.966, 631.484 808.101, 641.593 807.581 C 670.537 806.090, 695.762 798.168, 718.036 783.574 C 734.351 772.884, 751 754.806, 751 747.779 C 751 743.675, 748.445 739.282, 745.033 737.517 C 741.482 735.681, 739.461 735.660, 735.424 737.418" fill-rule="evenodd"></path> </svg> </div> <span class="text-xl font-bold text-white dark:text-surface-100 tracking-tight">Alius</span> </a> <p class="text-sm text-surface-400 dark:text-surface-500 leading-relaxed"> Robotics + AI Agent Platform. Hardware. Software. Intelligence. </p> <div class="flex items-center gap-4 mt-6"> <a href="https://github.com/AliusTech/alius" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="GitHub"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg> </a> <a href="https://twitter.com/alius_tech" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="Twitter"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg> </a> <a href="https://discord.gg/alius" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="Discord"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 00-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 00-5.487 0 12.36 12.36 0 00-.617-1.23A.077.077 0 008.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 00-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 00.031.055 20.03 20.03 0 005.993 2.98.078.078 0 00.084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 01-1.872-.878.075.075 0 01-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 01.078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 01.079.009c.12.098.245.195.372.288a.075.075 0 01-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 00-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 00.084.028 19.963 19.963 0 006.002-2.981.076.076 0 00.032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 00-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"></path></svg> </a> </div> </div> <!-- Link columns --> <div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">Hardware</h3> <ul class="space-y-3"> <li> <a href="/products/joint-module" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Robot Joint Module </a> </li><li> <a href="/products/mocap-device" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Motion Capture System </a> </li><li> <a href="/products/dcu-controller" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Robot DCU Domain Controller </a> </li><li> <a href="/products/usb2can-debugger" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> USB2CAN Dual-Channel Debugger </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">Software</h3> <ul class="space-y-3"> <li> <a href="/products/ai-agent" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Alius Agent </a> </li><li> <a href="/product" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Agent CLI </a> </li><li> <a href="/products/agent-team" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Agent Team </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">Resources</h3> <ul class="space-y-3"> <li> <a href="/docs" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Documentation </a> </li><li> <a href="/docs/api" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> API Reference </a> </li><li> <a href="/docs/examples" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Examples </a> </li><li> <a href="/community" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Community </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">Company</h3> <ul class="space-y-3"> <li> <a href="/about" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> About </a> </li><li> <a href="/solutions" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Solutions </a> </li><li> <a href="/blog" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Blog </a> </li><li> <a href="/careers" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Careers </a> </li><li> <a href="/faq" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> FAQ </a> </li><li> <a href="/contact" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Contact </a> </li> </ul> </div> </div> <div class="border-t border-surface-800 dark:border-surface-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"> <p class="text-sm text-surface-500 dark:text-surface-600">&copy; 2026 Alius Tech. All rights reserved.</p> <div class="flex items-center gap-6"> <a href="/privacy" class="text-sm text-surface-500 dark:text-surface-600 hover:text-surface-300 dark:hover:text-surface-400 transition-colors">Privacy</a> <a href="/terms" class="text-sm text-surface-500 dark:text-surface-600 hover:text-surface-300 dark:hover:text-surface-400 transition-colors">Terms</a> </div> </div> </div> </footer> </div>  <div id="docs-search" class="hidden fixed inset-0 z-50"> <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="search-backdrop"></div> <div class="relative max-w-2xl mx-auto mt-24 px-4"> <div class="bg-white dark:bg-surface-800 rounded-2xl shadow-2xl overflow-hidden border border-surface-200 dark:border-surface-700"> <div id="pagefind-search" class="p-4"></div> </div> </div> </div>  <script src="/pagefind/pagefind.js" async></script> </body> </html> <script type="module">const l=document.getElementById("sidebar-toggle"),n=document.getElementById("sidebar-panel");l?.addEventListener("click",()=>{n?.classList.toggle("hidden"),n?.classList.toggle("fixed"),n?.classList.toggle("inset-0"),n?.classList.toggle("z-40"),n?.classList.toggle("bg-white"),n?.classList.toggle("dark:bg-surface-800"),n?.classList.toggle("overflow-y-auto")});const g=document.getElementById("docs-search-btn"),a=document.getElementById("docs-search"),u=document.getElementById("search-backdrop");let c=!1;async function i(){if(a?.classList.remove("hidden"),!c){await new Promise(t=>{if(window.PagefindUI){t();return}const o=document.createElement("script");o.src="/pagefind/pagefind-ui.js",o.onload=()=>t(),o.onerror=()=>t(),document.head.appendChild(o)});const e=window.PagefindUI;e&&(new e({element:"#pagefind-search",showSubResults:!0,showImages:!1}),c=!0)}setTimeout(()=>{document.querySelector("#pagefind-search input")?.focus()},100)}g?.addEventListener("click",i);u?.addEventListener("click",()=>{a?.classList.add("hidden")});document.addEventListener("keydown",e=>{e.key==="Escape"&&a?.classList.add("hidden"),(e.ctrlKey||e.metaKey)&&e.key==="k"&&(e.preventDefault(),i())});function r(){document.querySelectorAll("pre").forEach(e=>{if(e.querySelector(".code-copy-btn"))return;e.style.position="relative";const t=document.createElement("button");t.className="code-copy-btn absolute top-2 right-2 px-2 py-1 text-xs rounded-md bg-surface-200/80 text-surface-600 hover:bg-surface-300 hover:text-surface-800 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100",t.setAttribute("aria-label","Copy code"),t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',e.classList.add("group"),e.appendChild(t),t.addEventListener("click",async()=>{const s=e.querySelector("code")?.textContent||e.textContent||"";try{await navigator.clipboard.writeText(s),t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>',t.classList.add("text-green-600"),setTimeout(()=>{t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',t.classList.remove("text-green-600")},2e3)}catch{}})})}function d(){document.querySelectorAll("[data-color-copy]").forEach(e=>{e.dataset.colorCopyInit||(e.dataset.colorCopyInit="true",e.addEventListener("click",async()=>{const t=e.getAttribute("data-color-copy");if(t)try{await navigator.clipboard.writeText(t);const o=e.querySelector(".color-hex");if(o){const s=o.textContent;o.textContent="Copied!",o.classList.add("!text-green-600","!font-semibold"),setTimeout(()=>{o.textContent=s,o.classList.remove("!text-green-600","!font-semibold")},1200)}}catch{}}))})}r();d();document.addEventListener("astro:page-load",r);document.addEventListener("astro:page-load",d);</script>

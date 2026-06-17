@@ -1,0 +1,507 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="description" content="Alius Agent Teamがデスクトップ、タブレット、携帯電話、Apple Watchで一貫したユーザー体験を提供する方法を学びます。このドキュメントは、各プラットフォームの機能と適応ガイドラインをカバーします。"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><title>クロスプラットフォームサポート — Alius Docs</title><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><link rel="alternate" hreflang="en" href="https://alius.tech/docs/agent-team/cross-platform/"><link rel="alternate" hreflang="zh" href="https://alius.tech/zh/docs/agent-team/cross-platform/"><link rel="alternate" hreflang="ja" href="https://alius.tech/ja/docs/agent-team/cross-platform/"><link rel="alternate" hreflang="x-default" href="https://alius.tech/docs/agent-team/cross-platform/"><!-- Prevent FOUC (Flash of Unstyled Content) --><script>
+      const theme = localStorage.getItem('theme')
+        || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script><link rel="stylesheet" href="/_astro/about.JOGSV8ml.css">
+<link rel="stylesheet" href="/_astro/_slug_.qEm98n9R.css"></head> <body class="bg-surface-50 dark:bg-surface-900 text-surface-900 dark:text-surface-100 antialiased">  <div data-pagefind-ignore> <header class="fixed top-0 left-0 right-0 z-50 bg-surface-50/80 dark:bg-surface-900/80 backdrop-blur-lg border-b border-surface-200/60 dark:border-surface-700/60"> <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"> <!-- Logo --> <a href="/ja/" class="flex items-center gap-2.5 group"> <div class="flex items-center justify-center"> <svg class="w-10 h-10 text-brand-600 dark:text-brand-400 group-hover:text-brand-700 dark:group-hover:text-brand-500 transition-colors" viewBox="0 0 1254 1254" fill="currentColor"> <path d="M 724.500 257.681 C 653.011 263.851, 596.450 286.096, 552.842 325.196 C 526.718 348.619, 504.076 385.367, 495.662 418 C 490.377 438.500, 489.841 444.119, 488.990 488 C 488.241 526.596, 488.012 530.305, 485.720 541 C 480.488 565.412, 470.577 586.090, 446.176 623.500 C 419.896 663.790, 417 668.902, 417 674.999 C 417 684.972, 422.785 690.700, 441.926 699.682 C 461.465 708.850, 463.666 710.080, 468.039 714.275 C 477.891 723.725, 478.404 734.135, 469.861 751.221 C 465.594 759.755, 466.212 766.445, 471.810 772.312 C 473.285 773.858, 477.986 777.365, 482.257 780.104 L 490.022 785.085 486.997 788.293 C 477.778 798.069, 477.830 811.145, 487.115 817.580 C 492.428 821.261, 496.839 826.425, 499.391 831.949 C 501.239 835.949, 501.502 838.439, 501.562 852.500 C 501.641 871.026, 502.653 875.318, 509.271 885.191 C 520.290 901.629, 541.944 909.250, 573 907.620 C 609.539 905.701, 640.124 893.708, 660.990 873.115 C 666.221 867.953, 669.990 863.546, 669.367 863.321 C 668.744 863.096, 662.894 864.250, 656.367 865.886 C 617.558 875.616, 588.645 879.071, 572.749 875.878 C 564.128 874.147, 557.075 870.149, 552.903 864.630 C 547.893 858.001, 546.632 853.243, 547.039 842.500 C 547.974 817.834, 546.907 814.078, 536.032 803.739 C 528.569 796.645, 527.095 793.272, 528.973 787.583 C 530.264 783.670, 533.306 781.160, 544.250 774.979 C 548.513 772.572, 552 770.328, 552 769.994 C 552 769.659, 548.737 768.560, 544.750 767.550 C 530.731 764.002, 519.300 758.149, 517.143 753.415 C 515.178 749.101, 515.811 743.996, 519.016 738.317 C 524.409 728.762, 526.425 716.439, 523.830 708.899 C 520.688 699.772, 514.681 694.497, 501.168 688.998 C 487.709 683.520, 481.241 680.043, 476.465 675.717 C 472.523 672.147, 471.730 670.799, 471.294 666.926 C 470.672 661.397, 471.493 659.645, 483.721 640.427 C 510.115 598.944, 520.233 579.092, 525.688 558.085 C 527.883 549.633, 528.274 545.368, 528.992 522 C 529.890 492.768, 531.161 483.297, 536.606 465.263 C 548.221 426.795, 568.988 393.128, 600.987 360.895 C 655.132 306.351, 731.811 270.026, 814.928 259.545 C 821.763 258.683, 827.576 257.758, 827.845 257.489 C 828.385 256.949, 730.887 257.130, 724.500 257.681 M 594.691 505.093 C 574.985 507.975, 555.799 520.107, 541.959 538.438 C 536.940 545.085, 536.703 544.135, 546.280 555.742 C 556.587 568.233, 571.755 578.343, 588 583.550 C 598.883 587.037, 615.804 587.964, 626.644 585.666 C 646.931 581.366, 665.500 569.650, 682.089 550.685 L 690.123 541.500 684.811 536.566 C 674.416 526.908, 652.033 513.948, 637.347 509.083 C 623.806 504.596, 608.120 503.130, 594.691 505.093 M 594.782 529.553 C 587.417 531.338, 578.568 535.850, 573.500 540.403 L 569.500 543.997 573.723 547.861 C 578.482 552.215, 588.779 557.845, 597 560.590 C 600.953 561.909, 605.314 562.407, 612.500 562.359 C 620.991 562.302, 623.556 561.873, 629.500 559.513 C 636.685 556.660, 648.219 549.626, 651.307 546.213 C 652.977 544.368, 652.897 544.197, 649.191 541.745 C 631.708 530.175, 611.184 525.576, 594.782 529.553 M 735.424 737.418 C 733.733 738.154, 730.727 740.967, 728.744 743.667 C 711.731 766.844, 678.312 782.304, 640.309 784.580 C 627.059 785.373, 623.722 786.858, 621.957 792.750 C 620.452 797.773, 622.553 803.116, 627.190 806.054 C 630.206 807.966, 631.484 808.101, 641.593 807.581 C 670.537 806.090, 695.762 798.168, 718.036 783.574 C 734.351 772.884, 751 754.806, 751 747.779 C 751 743.675, 748.445 739.282, 745.033 737.517 C 741.482 735.681, 739.461 735.660, 735.424 737.418" fill-rule="evenodd"></path> </svg> </div> <span class="text-xl font-bold text-surface-900 dark:text-surface-100 tracking-tight">Alius</span> </a> <!-- Desktop Nav --> <div class="hidden lg:flex items-center gap-0.5"> <a href="/ja/" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ホーム </a><div class="relative" id="products-dropdown-trigger"> <button class="px-3 py-2 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors flex items-center gap-1" id="products-toggle"> 製品 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div id="products-dropdown" class="hidden absolute left-0 top-full mt-1 bg-white dark:bg-surface-800 rounded-xl border border-surface-200 dark:border-surface-700 shadow-xl py-2 min-w-[240px] z-50"> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ハードウェア</div> <a href="/ja/products/joint-module" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット関節モジュール </a><a href="/ja/products/mocap-device" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> モーションキャプチャシステム </a><a href="/ja/products/dcu-controller" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット DCU ドメインコントローラー </a><a href="/ja/products/usb2can-debugger" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> USB2CAN デュアルチャンネルデバッガー </a> <div class="border-t border-surface-100 dark:border-surface-700 my-1"></div> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ソフトウェア</div> <a href="/ja/products/ai-agent" class="block px-4 py-2.5 text-sm font-medium text-surface-900 dark:text-surface-100 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Alius Agent </a> <a href="/ja/product" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 pl-8 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+Agent CLI
+</a> <a href="/ja/products/agent-team" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 pl-8 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Agent Team </a> </div> </div><a href="/ja/solutions" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ソリューション </a><a href="/ja/docs" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ドキュメント </a><a href="/ja/faq" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> よくある質問 </a><a href="/ja/about" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 概要 </a><a href="/ja/contact" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> お問い合わせ </a> </div> <!-- CTA + Lang Switcher + Mobile Toggle --> <div class="flex items-center gap-3"> <!-- Theme Toggle --> <button id="theme-toggle" class="p-2 rounded-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors hidden sm:flex" aria-label="Toggle theme"> <!-- Sun icon (shown in dark mode) --> <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <!-- Moon icon (shown in light mode) --> <svg class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <script type="module">const o=document.getElementById("theme-toggle");function r(){const e=localStorage.getItem("theme");return e==="light"||e==="dark"?e:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function t(e){document.documentElement.classList.toggle("dark",e==="dark"),localStorage.setItem("theme",e)}function c(){const e=r();t(e==="light"?"dark":"light")}o?.addEventListener("click",c);window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{localStorage.getItem("theme")||t(e.matches?"dark":"light")});</script> <!-- Language Switcher --> <div class="relative" id="lang-switcher"> <button id="lang-toggle" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors" aria-label="言語切替"> <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <circle cx="12" cy="12" r="10"></circle> <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path> </svg> 日本語 </button> <div id="lang-dropdown" class="hidden absolute right-0 top-full mt-1 bg-white dark:bg-surface-800 rounded-lg border border-surface-200 dark:border-surface-700 shadow-lg py-1 min-w-[120px] z-50"> <a href="/docs/agent-team/cross-platform/" class="block px-4 py-2 text-sm transition-colors text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700"> English </a><a href="/zh/docs/agent-team/cross-platform/" class="block px-4 py-2 text-sm transition-colors text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700"> 中文 </a><a href="/ja/docs/agent-team/cross-platform/" class="block px-4 py-2 text-sm transition-colors text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 font-medium"> 日本語 </a> </div> </div>  <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-surface-700 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors" aria-label="メニュー切替"> <svg class="w-5 h-5" id="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> <svg class="w-5 h-5 hidden" id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"> <line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line> </svg> </button> </div> </nav> <!-- Mobile menu --> <div id="mobile-menu" class="hidden lg:hidden border-t border-surface-200/60 dark:border-surface-700/60 bg-surface-50/95 dark:bg-surface-900/95 backdrop-blur-lg"> <div class="px-6 py-4 space-y-1"> <a href="/ja/" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ホーム </a><div> <button class="mobile-products-toggle w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors"> 製品 <svg class="w-4 h-4 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div class="mobile-products-list hidden pl-4 space-y-1"> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ハードウェア</div> <a href="/ja/products/joint-module" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット関節モジュール </a><a href="/ja/products/mocap-device" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> モーションキャプチャシステム </a><a href="/ja/products/dcu-controller" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット DCU ドメインコントローラー </a><a href="/ja/products/usb2can-debugger" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> USB2CAN デュアルチャンネルデバッガー </a> <div class="border-t border-surface-100 dark:border-surface-700 my-1"></div> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ソフトウェア</div> <a href="/ja/products/ai-agent" class="block px-4 py-2 text-sm font-medium text-surface-900 dark:text-surface-100 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Alius Agent </a> <a href="/ja/product" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 pl-8 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+Agent CLI
+</a> <a href="/ja/products/agent-team" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 pl-8 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Agent Team </a> </div> </div><a href="/ja/solutions" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ソリューション </a><a href="/ja/docs" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ドキュメント </a><a href="/ja/faq" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> よくある質問 </a><a href="/ja/about" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 概要 </a><a href="/ja/contact" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> お問い合わせ </a> <!-- Mobile language links --> <div class="flex items-center gap-2 px-4 py-2.5"> <a href="/docs/agent-team/cross-platform/" class="px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800"> English </a><a href="/zh/docs/agent-team/cross-platform/" class="px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 中文 </a><a href="/ja/docs/agent-team/cross-platform/" class="px-3 py-1.5 rounded-lg text-sm transition-colors bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 font-medium"> 日本語 </a> </div>  <div class="px-4 py-2.5"> <button id="theme-toggle" class="p-2 rounded-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors flex w-full justify-center" aria-label="Toggle theme"> <!-- Sun icon (shown in dark mode) --> <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <!-- Moon icon (shown in light mode) --> <svg class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button>  </div> </div> </div> </header> <script type="module">const c=document.getElementById("mobile-menu-btn"),s=document.getElementById("mobile-menu"),l=document.getElementById("menu-icon"),i=document.getElementById("close-icon");c?.addEventListener("click",()=>{s?.classList.toggle("hidden"),l?.classList.toggle("hidden"),i?.classList.toggle("hidden")});const g=document.getElementById("lang-toggle"),t=document.getElementById("lang-dropdown");g?.addEventListener("click",e=>{e.stopPropagation(),t?.classList.toggle("hidden")});const m=document.getElementById("products-toggle"),n=document.getElementById("products-dropdown");m?.addEventListener("click",e=>{e.stopPropagation(),n?.classList.toggle("hidden")});document.querySelectorAll(".mobile-products-toggle").forEach(e=>{e.addEventListener("click",()=>{const o=e.nextElementSibling,d=e.querySelector("svg");o?.classList.toggle("hidden"),d?.classList.toggle("rotate-180")})});document.addEventListener("click",()=>{t?.classList.add("hidden"),n?.classList.add("hidden")});</script> </div> <div class="pt-16"> <div class="max-w-screen-2xl mx-auto"> <div class="flex"> <!-- Mobile sidebar toggle --> <button id="sidebar-toggle" class="lg:hidden fixed bottom-6 right-6 z-50 w-12 h-12 bg-brand-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-700 transition-colors" aria-label="サイドバー切替"> <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> </button> <!-- Left sidebar --> <aside id="sidebar-panel" class="hidden lg:block w-[280px] flex-shrink-0 border-r border-surface-200/70 dark:border-surface-700/70 bg-white dark:bg-surface-800"> <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-4 py-8"> <!-- Search trigger --> <button id="docs-search-btn" class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-surface-400 dark:text-surface-500 hover:bg-surface-50 dark:hover:bg-surface-700 border border-surface-200 dark:border-surface-600 mb-6 transition-colors"> <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> ドキュメントを検索... <kbd class="ml-auto hidden sm:inline-flex items-center px-1.5 py-0.5 bg-surface-100 dark:bg-surface-700 rounded text-xs text-surface-400 dark:text-surface-500">
+Ctrl+K
+</kbd> </button> <nav id="sidebar-agent-team"> <div class="mb-5" data-section="overview"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="overview"> <span>概要</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="overview" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="overview"> <li> <a href="/ja/docs/agent-team/overview" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Alius Agent Team 概要 </a> </li> </ul> </div><div class="mb-5" data-section="getting-started"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="getting-started"> <span>はじめに</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="getting-started" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="getting-started"> <li> <a href="/ja/docs/agent-team/getting-started" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> クイックスタート </a> </li> </ul> </div><div class="mb-5" data-section="architecture"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="architecture"> <span>アーキテクチャ</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="architecture" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="architecture"> <li> <a href="/ja/docs/agent-team/architecture" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> システムアーキテクチャ </a> </li> </ul> </div><div class="mb-5" data-section="agent-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="agent-management"> <span>Agent 管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="agent-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="agent-management"> <li> <a href="/ja/docs/agent-team/agent-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> エージェント管理 </a> </li> </ul> </div><div class="mb-5" data-section="task-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="task-management"> <span>タスク管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="task-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="task-management"> <li> <a href="/ja/docs/agent-team/task-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> タスク管理 </a> </li> </ul> </div><div class="mb-5" data-section="team-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="team-management"> <span>Team 管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="team-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="team-management"> <li> <a href="/ja/docs/agent-team/team-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> チーム管理 </a> </li> </ul> </div><div class="mb-5" data-section="security"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="security"> <span>セキュリティと権限</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="security" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="security"> <li> <a href="/ja/docs/agent-team/security" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> セキュリティと権限 </a> </li> </ul> </div><div class="mb-5" data-section="cross-platform"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="cross-platform"> <span>クロスプラットフォームコンソール</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="cross-platform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="cross-platform"> <li> <a href="/ja/docs/agent-team/cross-platform" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-brand-600 font-medium border-l-2 border-brand-500 pl-2.5 bg-brand-50/50"> クロスプラットフォームサポート </a> </li> </ul> </div><div class="mb-5" data-section="api-reference"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="api-reference"> <span>API リファレンス</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="api-reference" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="api-reference"> <li> <a href="/ja/docs/agent-team/api-reference" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> API参照 </a> </li> </ul> </div> </nav> <script type="module">function r(e){const s=document.getElementById(e);if(!s)return;const i=s.querySelectorAll("[data-collapse-toggle]"),d=JSON.parse(localStorage.getItem(`sidebar-collapse-${e}`)||"{}");i.forEach(c=>{const a=c.getAttribute("data-collapse-toggle"),t=s.querySelector(`[data-section-content="${a}"]`),o=s.querySelector(`[data-chevron="${a}"]`);t?.querySelector("a.border-brand-500")?(t?.classList.remove("hidden"),o?.classList.remove("-rotate-90")):d[a]===!0&&(t?.classList.add("hidden"),o?.classList.add("-rotate-90")),c.addEventListener("click",()=>{t?.classList.toggle("hidden"),o?.classList.toggle("-rotate-90");const l=JSON.parse(localStorage.getItem(`sidebar-collapse-${e}`)||"{}");l[a]=t?.classList.contains("hidden"),localStorage.setItem(`sidebar-collapse-${e}`,JSON.stringify(l))})})}document.querySelectorAll('[id^="sidebar-"]').forEach(e=>{r(e.id)});document.addEventListener("astro:page-load",()=>{document.querySelectorAll('[id^="sidebar-"]').forEach(e=>{r(e.id)})});</script> </div> </aside> <!-- Main content --> <main class="flex-1 min-w-0 bg-white dark:bg-surface-900"> <div class="max-w-3xl mx-auto px-6 lg:px-16 py-10"> <nav class="mb-6 flex items-center gap-1.5 text-sm text-surface-500 dark:text-surface-400 flex-wrap"> <a href="/ja/" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">ホーム</a> <span class="text-surface-300 dark:text-surface-600">/</span> <a href="/ja/docs/agent-team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">ドキュメント</a> <span class="text-surface-300 dark:text-surface-600">/</span> <a href="/ja/docs/agent-team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Agent Team</a> <span class="text-surface-300 dark:text-surface-600">/</span> <span class="text-surface-900 dark:text-surface-100 font-medium">クロスプラットフォームサポート</span> </nav> <article class="prose prose-lg prose-surface dark:prose-invert max-w-none
+                prose-headings:scroll-mt-20
+                prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline
+                prose-code:before:content-none prose-code:after:content-none
+                prose-pre:bg-surface-50 dark:prose-pre:bg-surface-800 prose-pre:border prose-pre:border-surface-200 dark:prose-pre:border-surface-700
+                prose-img:rounded-xl
+                " data-pagefind-body>  <h1 id="クロスプラットフォームサポート">クロスプラットフォームサポート</h1>
+<p>Alius Agent TeamはTauri 2で構築され、真のクロスプラットフォームサポートを実現しています。デスクトップコンピュータ、タブレット、携帯電話、またはApple Watchのいずれを使用しても、一貫して最適化されたユーザー体験を得られます。</p>
+<h2 id="サポートされるプラットフォーム">サポートされるプラットフォーム</h2>
+<h3 id="デスクトッププラットフォーム">デスクトッププラットフォーム</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>プラットフォーム</th><th>最小バージョン</th><th>推奨バージョン</th><th>サポートアーキテクチャ</th></tr></thead><tbody><tr><td>Windows</td><td>10 (21H2)</td><td>11</td><td>x86_64, ARM64</td></tr><tr><td>macOS</td><td>12.0 (Monterey)</td><td>14.0 (Sonoma)</td><td>x86_64, ARM64</td></tr><tr><td>Linux</td><td>カーネル 5.4</td><td>カーネル 6.0</td><td>x86_64, ARM64</td></tr></tbody></table>
+<h3 id="モバイルプラットフォーム">モバイルプラットフォーム</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>プラットフォーム</th><th>最小バージョン</th><th>推奨バージョン</th><th>備考</th></tr></thead><tbody><tr><td>iOS</td><td>16.0</td><td>17.0+</td><td>iPhoneとiPadをサポート</td></tr><tr><td>iPadOS</td><td>16.0</td><td>17.0+</td><td>分割画面とマルチタスクをサポート</td></tr><tr><td>Android</td><td>12.0</td><td>14.0+</td><td>開発中</td></tr><tr><td>watchOS</td><td>9.0</td><td>10.0+</td><td>コンパニオン機能のみ</td></tr></tbody></table>
+<h2 id="デスクトップ体験">デスクトップ体験</h2>
+<h3 id="windows">Windows</h3>
+<h4 id="特徴">特徴</h4>
+<ul>
+<li><strong>ネイティブ外観</strong>：Windows 11 Fluent Design設計ガイドラインに従う</li>
+<li><strong>システム統合</strong>：
+<ul>
+<li>スタートメニュー統合</li>
+<li>タスクバートレイアイコン</li>
+<li>システム通知センター統合</li>
+<li>右クリックメニュー拡張</li>
+</ul>
+</li>
+<li><strong>ショートカットキー</strong>：完全なキーボードショートカットをサポート</li>
+<li><strong>マルチウィンドウ</strong>：マルチウィンドウ操作をサポート</li>
+<li><strong>システムテーマ</strong>：システムテーマに自動適応（ライト/ダーク）</li>
+</ul>
+<h4 id="インストール方法">インストール方法</h4>
+<ul>
+<li><strong>Microsoft Store</strong>：ワンクリックインストールと自動更新</li>
+<li><strong>独立インストーラ</strong>：.msiまたは.exeインストーラ</li>
+<li><strong>ポータブル版</strong>：インストール不要のポータブル版</li>
+<li><strong>Winget</strong>：Windowsパッケージマネージャ経由でインストール</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#6A737D"># Wingetでインストール</span></span>
+<span class="line"><span style="color:#E1E4E8">winget install Alius.AgentTeam</span></span></code></pre>
+<h4 id="システム要件">システム要件</h4>
+<ul>
+<li>CPU：デュアルコア 2.0GHz以上</li>
+<li>メモリ：8GB以上（16GB推奨）</li>
+<li>ディスク容量：2GB以上の空き容量</li>
+<li>グラフィック：DirectX 11以上をサポート</li>
+</ul>
+<h3 id="macos">macOS</h3>
+<h4 id="特徴-1">特徴</h4>
+<ul>
+<li><strong>ネイティブ外観</strong>：macOS Apple Human Interface Guidelinesに従う</li>
+<li><strong>システム統合</strong>：
+<ul>
+<li>メニューバーアイコン</li>
+<li>Dock統合</li>
+<li>通知センター統合</li>
+<li>Spotlight検索統合</li>
+<li>Handoffサポート</li>
+</ul>
+</li>
+<li><strong>トラックパッドジェスチャー</strong>：多指ジェスチャーをサポート</li>
+<li><strong>Universal Binary</strong>：IntelとApple Siliconを両方サポート</li>
+</ul>
+<h4 id="インストール方法-1">インストール方法</h4>
+<ul>
+<li><strong>App Store</strong>：ワンクリックインストールと自動更新</li>
+<li><strong>直接ダウンロード</strong>：.dmgディスクイメージファイル</li>
+<li><strong>Homebrew</strong>：Homebrew経由でインストール</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># Homebrewでインストール</span></span>
+<span class="line"><span style="color:#B392F0">brew</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> --cask</span><span style="color:#9ECBFF"> alius-agent-team</span></span></code></pre>
+<h4 id="システム要件-1">システム要件</h4>
+<ul>
+<li>macOS 12.0 (Monterey)以上</li>
+<li>メモリ：8GB以上（16GB推奨）</li>
+<li>ディスク容量：2GB以上の空き容量</li>
+<li>ネットワーク：ブロードバンドインターネット接続</li>
+</ul>
+<h4 id="権限説明">権限説明</h4>
+<p>初回使用時に、macOSは以下の権限を要求する場合があります：</p>
+<ul>
+<li><strong>通知</strong>：システム通知を送信</li>
+<li><strong>ネットワーク</strong>：ネットワークにアクセス</li>
+<li><strong>ファイルアクセス</strong>：特定ディレクトリにアクセス</li>
+<li><strong>アクセシビリティ</strong>：一部の高度な機能が必要</li>
+</ul>
+<h3 id="linux">Linux</h3>
+<h4 id="特徴-2">特徴</h4>
+<ul>
+<li><strong>多ディストリビューションサポート</strong>：主要Linuxディストリビューションをサポート</li>
+<li><strong>デスクトップ環境適応</strong>：
+<ul>
+<li>GNOME</li>
+<li>KDE Plasma</li>
+<li>XFCE</li>
+<li>Cinnamon</li>
+</ul>
+</li>
+<li><strong>パッケージマネージャサポート</strong>：
+<ul>
+<li>APT (Debian/Ubuntu)</li>
+<li>RPM (Fedora/RHEL)</li>
+<li>Pacman (Arch)</li>
+<li>AppImage (汎用)</li>
+</ul>
+</li>
+</ul>
+<h4 id="インストール方法-2">インストール方法</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#6A737D"># Debian/Ubuntu</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> dpkg</span><span style="color:#79B8FF"> -i</span><span style="color:#9ECBFF"> alius-agent-team_x.x.x_amd64.deb</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> apt-get</span><span style="color:#9ECBFF"> install</span><span style="color:#79B8FF"> -f</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Fedora/RHEL</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> rpm</span><span style="color:#79B8FF"> -ivh</span><span style="color:#9ECBFF"> alius-agent-team-x.x.x.x86_64.rpm</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Arch Linux (AUR)</span></span>
+<span class="line"><span style="color:#B392F0">yay</span><span style="color:#79B8FF"> -S</span><span style="color:#9ECBFF"> alius-agent-team</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># AppImage (汎用)</span></span>
+<span class="line"><span style="color:#B392F0">chmod</span><span style="color:#9ECBFF"> +x</span><span style="color:#9ECBFF"> Alius-Agent-Team-x.x.x.AppImage</span></span>
+<span class="line"><span style="color:#B392F0">./Alius-Agent-Team-x.x.x.AppImage</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Snap (開発中)</span></span>
+<span class="line"><span style="color:#B392F0">sudo</span><span style="color:#9ECBFF"> snap</span><span style="color:#9ECBFF"> install</span><span style="color:#9ECBFF"> alius-agent-team</span></span></code></pre>
+<h4 id="システム要件-2">システム要件</h4>
+<ul>
+<li>Linuxカーネル 5.4以上</li>
+<li>glibc 2.31以上</li>
+<li>メモリ：8GB以上（16GB推奨）</li>
+<li>ディスク容量：2GB以上の空き容量</li>
+</ul>
+<h4 id="既知の問題">既知の問題</h4>
+<ul>
+<li><strong>Wayland</strong>：Wayland環境下で一部の機能が制限される場合がある</li>
+<li><strong>システムトレイ</strong>：一部のデスクトップ環境でシステムトレイが表示されない場合がある</li>
+<li><strong>グローバルショートカット</strong>：一部のデスクトップ環境でグローバルショートカットが動作しない場合がある</li>
+</ul>
+<h2 id="レスポンシブデザイン">レスポンシブデザイン</h2>
+<p>Alius Agent Teamはレスポンシブデザインを採用し、異なるサイズのデバイスで自動的にレイアウトを適応：</p>
+<h3 id="ブレークポイント設計">ブレークポイント設計</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>/* ブレークポイント定義 */</span></span>
+<span class="line"><span>Phone:  0 - 767px</span></span>
+<span class="line"><span>Tablet: 768px - 1023px</span></span>
+<span class="line"><span>Desktop: 1024px以上</span></span></code></pre>
+<h3 id="レイアウト適応">レイアウト適応</h3>
+<h4 id="デスクトップレイアウト--1024px">デスクトップレイアウト (&gt;= 1024px)</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>┌──────────┬─────────────────────────────┐</span></span>
+<span class="line"><span>│          │                             │</span></span>
+<span class="line"><span>│          │                             │</span></span>
+<span class="line"><span>│ サイドバー│       メインコンテンツ領域    │</span></span>
+<span class="line"><span>│ (240px)  │                             │</span></span>
+<span class="line"><span>│          │                             │</span></span>
+<span class="line"><span>│          │                             │</span></span>
+<span class="line"><span>└──────────┴─────────────────────────────┘</span></span></code></pre>
+<p>特徴：</p>
+<ul>
+<li>固定サイドバーナビゲーション</li>
+<li>マルチカラムレイアウト</li>
+<li>フル機能表示</li>
+<li>ドラッグアンドドロップサポート</li>
+<li>完全キーボードショートカットサポート</li>
+</ul>
+<h4 id="タブレットレイアウト-768px---1023px">タブレットレイアウト (768px - 1023px)</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>┌─────────────────────────────────────┐</span></span>
+<span class="line"><span>│                                     │</span></span>
+<span class="line"><span>│          メインコンテンツ領域          │</span></span>
+<span class="line"><span>│                                     │</span></span>
+<span class="line"><span>│                                     │</span></span>
+<span class="line"><span>│                                     │</span></span>
+<span class="line"><span>│                             [メニュー]│</span></span>
+<span class="line"><span>└─────────────────────────────────────┘</span></span></code></pre>
+<p>特徴：</p>
+<ul>
+<li>折りたたみ可能サイドバー</li>
+<li>タッチ最適化インターフェース</li>
+<li>简略化ツールバー</li>
+<li>ジェスチャーサポート</li>
+</ul>
+<h4 id="フォンレイアウト--768px">フォンレイアウト (&lt; 768px)</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>┌─────────────────────┐</span></span>
+<span class="line"><span>│                     │</span></span>
+<span class="line"><span>│   メインコンテンツ領域 │</span></span>
+<span class="line"><span>│                     │</span></span>
+<span class="line"><span>│                     │</span></span>
+<span class="line"><span>│              [メニュー]│</span></span>
+<span class="line"><span>└─────────────────────┘</span></span></code></pre>
+<p>特徴：</p>
+<ul>
+<li>下部タブナビゲーション</li>
+<li>フルスクリーンコンテンツ表示</li>
+<li>タッチ優先インタラクション</li>
+<li>简略化された機能とビュー</li>
+</ul>
+<h3 id="適応コンポーネント">適応コンポーネント</h3>
+<p>すべてのUIコンポーネントは画面サイズに応じて適応：</p>
+<ul>
+<li><strong>データテーブル</strong>：大画面では完全テーブル表示、小画面ではカードリスト表示</li>
+<li><strong>フォーム</strong>：大画面ではマルチカラムレイアウト、小画面ではシングルカラムレイアウト</li>
+<li><strong>グラフ</strong>：利用可能な空間に応じて自動的にサイズとレイアウトを調整</li>
+<li><strong>ダイアログ</strong>：大画面では中央ポップアップ、小画面ではフルスクリーン表示</li>
+</ul>
+<h2 id="モバイル体験">モバイル体験</h2>
+<h3 id="iosアプリ">iOSアプリ</h3>
+<h4 id="特徴-3">特徴</h4>
+<ul>
+<li><strong>ネイティブパフォーマンス</strong>：SwiftUIで構築、ネイティブに近いパフォーマンスを提供</li>
+<li><strong>システム統合</strong>：
+<ul>
+<li>Face ID / Touch ID認証</li>
+<li>プッシュ通知</li>
+<li>Siriショートカットサポート</li>
+<li>共有拡張</li>
+</ul>
+</li>
+<li><strong>オフラインサポート</strong>：基本機能はオフライン使用をサポート</li>
+<li><strong>iPad最適化</strong>：iPadの大画面を十分に活用</li>
+</ul>
+<h4 id="インストール">インストール</h4>
+<ol>
+<li>App Storeを開く</li>
+<li>「Alius Agent Team」を検索</li>
+<li>「入手」をクリックしてインストール</li>
+<li>初回起動時にウィザードに従って設定を完了</li>
+</ol>
+<h4 id="専用機能">専用機能</h4>
+<ul>
+<li><strong>Siriショートカット</strong>：
+<ul>
+<li>“Hey Siri、Aliusにエージェントのチェックを頼んで”</li>
+<li>“Hey Siri、Aliusに新しいタスクの作成を頼んで”</li>
+</ul>
+</li>
+<li><strong>ウィジェット</strong>：ホーム画面ウィジェット、エージェントステータスを迅速表示</li>
+<li><strong>クイックアクション</strong>：3D Touch / Haptic Touchクイックアクション</li>
+</ul>
+<h3 id="ipados最適化">iPadOS最適化</h3>
+<h4 id="分割画面とマルチタスク">分割画面とマルチタスク</h4>
+<ul>
+<li><strong>分割画面ビュー</strong>：Alius Agent Teamは分割画面アプリとして実行可能</li>
+<li><strong>スライドオーバービュー</strong>：画面端からAlius Agent Teamをスライド表示</li>
+<li><strong>ピクチャーインピクチャー</strong>（計画中）：ビデオ通話中にピクチャーインピクチャー使用</li>
+</ul>
+<h4 id="キーボードとトラックパッドサポート">キーボードとトラックパッドサポート</h4>
+<ul>
+<li><strong>キーボードショートカット</strong>：完全なキーボードショートカットサポート</li>
+<li><strong>トラックパッドジェスチャー</strong>：多指ジェスチャーをサポート</li>
+<li><strong>ドラッグアンドドロップ</strong>：他のアプリとのドラッグアンドドロップインタラクションをサポート</li>
+</ul>
+<h3 id="androidアプリ開発中">Androidアプリ（開発中）</h3>
+<h4 id="計画機能">計画機能</h4>
+<ul>
+<li><strong>Material Design 3</strong>：最新のMaterial Designガイドラインに従う</li>
+<li><strong>システム統合</strong>：
+<ul>
+<li>指紋/顔認証</li>
+<li>システム通知</li>
+<li>ウィジェット</li>
+<li>ショートカット</li>
+</ul>
+</li>
+<li><strong>折りたたみ画面サポート</strong>：折りたたみ画面と2画面デバイスに適応</li>
+</ul>
+<h2 id="apple-watchアプリ">Apple Watchアプリ</h2>
+<p>Alius Agent Teamは、独自のApple Watchアプリを提供し、手首でエージェントを管理できます。</p>
+<h3 id="機能">機能</h3>
+<h4 id="クイックビュー">クイックビュー</h4>
+<ul>
+<li><strong>エージェントステータス</strong>：すべてのエージェントの実行ステータスを迅速確認</li>
+<li><strong>タスク概要</strong>：進行中および保留中のタスクを閲覧</li>
+<li><strong>通知</strong>：システム通知を受信および閲覧</li>
+</ul>
+<h4 id="簡単操作">簡単操作</h4>
+<ul>
+<li><strong>エージェント起動/停止</strong>：エージェントを迅速に起動または停止</li>
+<li><strong>タスク確認</strong>：タスク割り当ての確認または拒否を迅速に実行</li>
+<li><strong>音声入力</strong>：Siriを使用して新しいタスクを作成</li>
+</ul>
+<h4 id="フィットネス統合">フィットネス統合</h4>
+<ul>
+<li><strong>スタンドリマインダー</strong>：長時間座って作業しているときにスタンドをリマインダー</li>
+<li><strong>フィットネス記録</strong>：作業時間と活動を記録</li>
+</ul>
+<h3 id="設定">設定</h3>
+<h4 id="ペアリング">ペアリング</h4>
+<ol>
+<li>iPhoneでWatchアプリを開く</li>
+<li>「利用可能なApp」でAlius Agent Teamを見つける</li>
+<li>「インストール」をクリック</li>
+<li>Apple Watchでアプリを開く</li>
+<li>iPhoneでQRコードをスキャンしてペアリング</li>
+</ol>
+<h4 id="設定-1">設定</h4>
+<p>iPhoneアプリでWatchアプリを設定：</p>
+<ul>
+<li><strong>表示オプション</strong>：Watchに表示する情報を選択</li>
+<li><strong>通知設定</strong>：Watchにプッシュする通知タイプを選択</li>
+<li><strong>クイックアクション</strong>：時計画面のクイックアクションを設定</li>
+</ul>
+<h3 id="使用シナリオ">使用シナリオ</h3>
+<h4 id="会議中">会議中</h4>
+<ul>
+<li>手首でエージェントステータスを迅速確認、携帯電話を出す必要なし</li>
+<li>重要な通知の触覚フィードバックを受信</li>
+</ul>
+<h4 id="外出時">外出時</h4>
+<ul>
+<li>タスク完了通知を受信</li>
+<li>音声タスクを迅速に作成</li>
+</ul>
+<h4 id="プレゼンテーション中">プレゼンテーション中</h4>
+<ul>
+<li>手首でプレゼンテーション用エージェントステータスを閲覧</li>
+<li>コンピュータ操作を回避、プレゼンテーションの邪魔を防止</li>
+</ul>
+<h2 id="データ同期">データ同期</h2>
+<h3 id="クロスデバイス同期">クロスデバイス同期</h3>
+<p>Alius Agent Teamは、すべてのデバイス間でリアルタイムデータ同期：</p>
+<ul>
+<li><strong>エージェント設定</strong>：すべてのデバイスで最新状態を維持</li>
+<li><strong>タスクステータス</strong>：タスクステータス変更をリアルタイム同期</li>
+<li><strong>チーム情報</strong>：チームメンバーと権限をリアルタイム同期</li>
+<li><strong>ユーザー設定</strong>：インターフェース設定と設定を同期</li>
+</ul>
+<h3 id="同期メカニズム">同期メカニズム</h3>
+<h4 id="リアルタイム同期">リアルタイム同期</h4>
+<ul>
+<li><strong>WebSocket</strong>：永続接続を確立、変更をリアルタイムプッシュ</li>
+<li><strong>コンフリクト解決</strong>：簡単なコンフリクトに「最後書き込み勝者」戦略を使用</li>
+<li><strong>バージョン制御</strong>：複雑なコンフリクトをバージョン制御で解決</li>
+</ul>
+<h4 id="オフラインサポート">オフラインサポート</h4>
+<ul>
+<li><strong>オフラインキャッシュ</strong>：最近アクセスしたデータをローカルにキャッシュ</li>
+<li><strong>操作キュー</strong>：オフライン時の操作をキューに格納、オンライン時に同期</li>
+<li><strong>増分同期</strong>：変更されたデータのみ同期、帯域を節約</li>
+</ul>
+<h3 id="同期設定">同期設定</h3>
+<p>ユーザー設定で同期動作を設定：</p>
+<ul>
+<li><strong>自動同期</strong>：自動的にデータを同期（推奨）</li>
+<li><strong>手動同期</strong>：同期ボタンをクリック時のみ同期</li>
+<li><strong>Wi-Fiのみ同期</strong>：Wi-Fiネットワーク下のみ同期</li>
+<li><strong>同期頻度</strong>：自動同期の頻度を設定</li>
+</ul>
+<h2 id="プラットフォーム固有の機能">プラットフォーム固有の機能</h2>
+<h3 id="デスクトップ専用機能">デスクトップ専用機能</h3>
+<ul>
+<li><strong>グローバルショートカット</strong>：システムレベルのキーボードショートカット</li>
+<li><strong>システムトレイ</strong>：システムトレイに最小化</li>
+<li><strong>マルチウィンドウ</strong>：複数ウィンドウを同時に開く</li>
+<li><strong>ローカルファイルアクセス</strong>：ローカルファイルシステムに直接アクセス</li>
+<li><strong>コマンドラインツール</strong>：コマンドラインでエージェントを制御</li>
+</ul>
+<h3 id="モバイル専用機能">モバイル専用機能</h3>
+<ul>
+<li><strong>プッシュ通知</strong>：システムレベルのプッシュ通知</li>
+<li><strong>生体認証</strong>：Face ID、Touch ID、指紋認証</li>
+<li><strong>カメラ統合</strong>：QRコードスキャン、ドキュメント撮影</li>
+<li><strong>位置情報サービス</strong>（オプション）：位置ベースの機能</li>
+<li><strong>共有拡張</strong>：他のアプリからAliusにコンテンツを共有</li>
+</ul>
+<h3 id="watch専用機能">Watch専用機能</h3>
+<ul>
+<li><strong>触覚フィードバック</strong>：重要な通知に触覚フィードバックを使用</li>
+<li><strong>音声ショートカット</strong>：Siriで迅速操作</li>
+<li><strong>時計画面コンプリケーション</strong>：時計画面にコンプリケーションを追加</li>
+<li><strong>フィットネス統合</strong>：フィットネス記録との統合</li>
+</ul>
+<h2 id="ベストプラクティス">ベストプラクティス</h2>
+<h3 id="適切なデバイスの選択">適切なデバイスの選択</h3>
+<ul>
+<li><strong>デスクトップ</strong>：深い作業、大量のテキスト入力、複雑な設定に適用</li>
+<li><strong>タブレット</strong>：レビュー、軽い編集、プレゼンテーションに適用</li>
+<li><strong>モバイル</strong>：迅速な確認、簡単操作、通知の受信に適用</li>
+<li><strong>Watch</strong>：迅速確認、簡単操作、通知の受信に適用</li>
+</ul>
+<h3 id="マルチデバイス協力">マルチデバイス協力</h3>
+<ul>
+<li>デスクトップで深い作業を実行</li>
+<li>モバイルで迅速確認と簡単操作を実行</li>
+<li>Watchで重要通知を受信し簡単操作を実行</li>
+<li>すべてのデバイス間でデータをリアルタイム同期</li>
+</ul>
+<h3 id="プラットフォーム固有の最適化">プラットフォーム固有の最適化</h3>
+<ul>
+<li>デスクトップでキーボードショートカットを使用して効率を向上</li>
+<li>モバイルで生体認証を使用して迅速にログイン</li>
+<li>Watchで重要な通知を設定</li>
+</ul>
+<h2 id="トラブルシューティング">トラブルシューティング</h2>
+<h3 id="同期問題">同期問題</h3>
+<p><strong>問題</strong>：データが1つのデバイスで更新されたが、他のデバイスに表示されない</p>
+<p><strong>解決方法</strong>：</p>
+<ol>
+<li>ネットワーク接続を確認</li>
+<li>手動で同期をトリガー</li>
+<li>アプリを再起動</li>
+<li>問題が続く場合、サポートチームに連絡</li>
+</ol>
+<h3 id="通知問題">通知問題</h3>
+<p><strong>問題</strong>：モバイルデバイスでプッシュ通知を受け取れない</p>
+<p><strong>解決方法</strong>：</p>
+<ol>
+<li>システム通知設定を確認</li>
+<li>アプリに通知送信権限があることを確認</li>
+<li>マナーモード設定を確認</li>
+<li>アカウントに再ログイン</li>
+</ol>
+<h3 id="パフォーマンス問題">パフォーマンス問題</h3>
+<p><strong>問題</strong>：一部のデバイスでアプリの動作が遅い</p>
+<p><strong>解決方法</strong>：</p>
+<ol>
+<li>不要なエージェントを閉じる</li>
+<li>キャッシュをクリア</li>
+<li>最新バージョンに更新</li>
+<li>問題が続く場合、サポートチームに連絡</li>
+</ol>
+<h2 id="未来計画">未来計画</h2>
+<h3 id="近期計画">近期計画</h3>
+<ul>
+<li><strong>Androidアプリ</strong>：Android版の開発を完了</li>
+<li><strong>Linux ARM64サポート</strong>：Raspberry Pi等のデバイスをサポート</li>
+<li><strong>Web版</strong>：ブラウザ経由でアクセス（読み取り専用）</li>
+</ul>
+<h3 id="長期計画">長期計画</h3>
+<ul>
+<li><strong>Android Wear OSサポート</strong>：Android時計アプリ</li>
+<li><strong>visionOSサポート</strong>：Apple Vision Proアプリ</li>
+<li><strong>Chromebook最適化</strong>：Chromebook向けに最適化</li>
+</ul>
+<h2 id="まとめ">まとめ</h2>
+<p>Alius Agent Teamのクロスプラットフォームサポートにより、任意のデバイスでAIエージェントを効率的に管理できます。オフィスのデスクトップコンピュータ、外出中の携帯電話、会議中のApple Watchのいずれでも、一貫して最適化された体験を得られます。</p>
+<p>各プラットフォームの体験を継続的に改善し、より多くのプラットフォームとデバイスのサポートを計画しています。クロスプラットフォームに関する質問や提案がある場合は、サポートチームにご連絡ください。</p>  </article> <!-- Previous / Next navigation --> <nav class="mt-16 pt-8 border-t border-surface-200 dark:border-surface-700 flex items-center justify-between gap-4"> <a href="/ja/docs/agent-team/security" class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M19 12H5M12 19l-7-7 7-7"></path> </svg> <span class="font-medium">セキュリティと権限</span> </a> <a href="/ja/docs/agent-team/api-reference" class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors group text-right"> <span class="font-medium">API参照</span> <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M5 12h14M12 5l7 7-7 7"></path> </svg> </a> </nav> </div> </main> <!-- Right sidebar (TOC) --> <aside class="hidden xl:block w-56 flex-shrink-0"> <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-4 py-10"> <nav><h4 class="text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider mb-3">このページの内容</h4><ul class="space-y-1.5" id="toc-list"><li><a href="#サポートされるプラットフォーム" data-toc-slug="サポートされるプラットフォーム" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">サポートされるプラットフォーム</a></li><li><a href="#デスクトッププラットフォーム" data-toc-slug="デスクトッププラットフォーム" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">デスクトッププラットフォーム</a></li><li><a href="#モバイルプラットフォーム" data-toc-slug="モバイルプラットフォーム" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">モバイルプラットフォーム</a></li><li><a href="#デスクトップ体験" data-toc-slug="デスクトップ体験" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">デスクトップ体験</a></li><li><a href="#windows" data-toc-slug="windows" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Windows</a></li><li><a href="#macos" data-toc-slug="macos" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">macOS</a></li><li><a href="#linux" data-toc-slug="linux" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Linux</a></li><li><a href="#レスポンシブデザイン" data-toc-slug="レスポンシブデザイン" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">レスポンシブデザイン</a></li><li><a href="#ブレークポイント設計" data-toc-slug="ブレークポイント設計" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">ブレークポイント設計</a></li><li><a href="#レイアウト適応" data-toc-slug="レイアウト適応" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">レイアウト適応</a></li><li><a href="#適応コンポーネント" data-toc-slug="適応コンポーネント" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">適応コンポーネント</a></li><li><a href="#モバイル体験" data-toc-slug="モバイル体験" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">モバイル体験</a></li><li><a href="#iosアプリ" data-toc-slug="iosアプリ" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">iOSアプリ</a></li><li><a href="#ipados最適化" data-toc-slug="ipados最適化" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">iPadOS最適化</a></li><li><a href="#androidアプリ開発中" data-toc-slug="androidアプリ開発中" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Androidアプリ（開発中）</a></li><li><a href="#apple-watchアプリ" data-toc-slug="apple-watchアプリ" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">Apple Watchアプリ</a></li><li><a href="#機能" data-toc-slug="機能" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">機能</a></li><li><a href="#設定" data-toc-slug="設定" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">設定</a></li><li><a href="#使用シナリオ" data-toc-slug="使用シナリオ" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">使用シナリオ</a></li><li><a href="#データ同期" data-toc-slug="データ同期" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">データ同期</a></li><li><a href="#クロスデバイス同期" data-toc-slug="クロスデバイス同期" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">クロスデバイス同期</a></li><li><a href="#同期メカニズム" data-toc-slug="同期メカニズム" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">同期メカニズム</a></li><li><a href="#同期設定" data-toc-slug="同期設定" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">同期設定</a></li><li><a href="#プラットフォーム固有の機能" data-toc-slug="プラットフォーム固有の機能" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">プラットフォーム固有の機能</a></li><li><a href="#デスクトップ専用機能" data-toc-slug="デスクトップ専用機能" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">デスクトップ専用機能</a></li><li><a href="#モバイル専用機能" data-toc-slug="モバイル専用機能" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">モバイル専用機能</a></li><li><a href="#watch専用機能" data-toc-slug="watch専用機能" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">Watch専用機能</a></li><li><a href="#ベストプラクティス" data-toc-slug="ベストプラクティス" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">ベストプラクティス</a></li><li><a href="#適切なデバイスの選択" data-toc-slug="適切なデバイスの選択" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">適切なデバイスの選択</a></li><li><a href="#マルチデバイス協力" data-toc-slug="マルチデバイス協力" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">マルチデバイス協力</a></li><li><a href="#プラットフォーム固有の最適化" data-toc-slug="プラットフォーム固有の最適化" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">プラットフォーム固有の最適化</a></li><li><a href="#トラブルシューティング" data-toc-slug="トラブルシューティング" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">トラブルシューティング</a></li><li><a href="#同期問題" data-toc-slug="同期問題" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">同期問題</a></li><li><a href="#通知問題" data-toc-slug="通知問題" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">通知問題</a></li><li><a href="#パフォーマンス問題" data-toc-slug="パフォーマンス問題" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">パフォーマンス問題</a></li><li><a href="#未来計画" data-toc-slug="未来計画" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">未来計画</a></li><li><a href="#近期計画" data-toc-slug="近期計画" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">近期計画</a></li><li><a href="#長期計画" data-toc-slug="長期計画" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">長期計画</a></li><li><a href="#まとめ" data-toc-slug="まとめ" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">まとめ</a></li></ul></nav><script type="module">function l(){const c=document.getElementById("toc-list");if(!c)return;const a=c.querySelectorAll("[data-toc-slug]");if(a.length===0)return;const n=[];if(a.forEach(d=>{const s=d.getAttribute("data-toc-slug"),t=document.getElementById(s||"");t&&n.push(t)}),n.length===0)return;let e=null;function o(){let s=0;for(let i=n.length-1;i>=0;i--)if(n[i].getBoundingClientRect().top<=100){s=i;break}const t=a[s];t!==e&&(e&&(e.classList.remove("text-brand-600","dark:text-brand-400","font-medium"),e.classList.add("text-surface-500","dark:text-surface-400")),t.classList.add("text-brand-600","dark:text-brand-400","font-medium"),t.classList.remove("text-surface-500","dark:text-surface-400"),e=t)}o();let r=!1;window.addEventListener("scroll",()=>{r||(requestAnimationFrame(()=>{o(),r=!1}),r=!0)},{passive:!0})}l();document.addEventListener("astro:page-load",l);</script> </div> </aside> </div> </div> </div> <div data-pagefind-ignore> <footer class="bg-surface-900 dark:bg-surface-950 text-surface-300 dark:text-surface-400"> <div class="max-w-7xl mx-auto px-6 pt-16 pb-8"> <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mb-12"> <!-- Brand column --> <div class="col-span-2 md:col-span-1"> <a href="/ja/" class="flex items-center gap-2.5 mb-4"> <div class="w-8 h-8 bg-brand-500 dark:bg-brand-600 rounded-lg flex items-center justify-center"> <svg class="w-5 h-5 text-white" viewBox="0 0 1254 1254" fill="currentColor"> <path d="M 724.500 257.681 C 653.011 263.851, 596.450 286.096, 552.842 325.196 C 526.718 348.619, 504.076 385.367, 495.662 418 C 490.377 438.500, 489.841 444.119, 488.990 488 C 488.241 526.596, 488.012 530.305, 485.720 541 C 480.488 565.412, 470.577 586.090, 446.176 623.500 C 419.896 663.790, 417 668.902, 417 674.999 C 417 684.972, 422.785 690.700, 441.926 699.682 C 461.465 708.850, 463.666 710.080, 468.039 714.275 C 477.891 723.725, 478.404 734.135, 469.861 751.221 C 465.594 759.755, 466.212 766.445, 471.810 772.312 C 473.285 773.858, 477.986 777.365, 482.257 780.104 L 490.022 785.085 486.997 788.293 C 477.778 798.069, 477.830 811.145, 487.115 817.580 C 492.428 821.261, 496.839 826.425, 499.391 831.949 C 501.239 835.949, 501.502 838.439, 501.562 852.500 C 501.641 871.026, 502.653 875.318, 509.271 885.191 C 520.290 901.629, 541.944 909.250, 573 907.620 C 609.539 905.701, 640.124 893.708, 660.990 873.115 C 666.221 867.953, 669.990 863.546, 669.367 863.321 C 668.744 863.096, 662.894 864.250, 656.367 865.886 C 617.558 875.616, 588.645 879.071, 572.749 875.878 C 564.128 874.147, 557.075 870.149, 552.903 864.630 C 547.893 858.001, 546.632 853.243, 547.039 842.500 C 547.974 817.834, 546.907 814.078, 536.032 803.739 C 528.569 796.645, 527.095 793.272, 528.973 787.583 C 530.264 783.670, 533.306 781.160, 544.250 774.979 C 548.513 772.572, 552 770.328, 552 769.994 C 552 769.659, 548.737 768.560, 544.750 767.550 C 530.731 764.002, 519.300 758.149, 517.143 753.415 C 515.178 749.101, 515.811 743.996, 519.016 738.317 C 524.409 728.762, 526.425 716.439, 523.830 708.899 C 520.688 699.772, 514.681 694.497, 501.168 688.998 C 487.709 683.520, 481.241 680.043, 476.465 675.717 C 472.523 672.147, 471.730 670.799, 471.294 666.926 C 470.672 661.397, 471.493 659.645, 483.721 640.427 C 510.115 598.944, 520.233 579.092, 525.688 558.085 C 527.883 549.633, 528.274 545.368, 528.992 522 C 529.890 492.768, 531.161 483.297, 536.606 465.263 C 548.221 426.795, 568.988 393.128, 600.987 360.895 C 655.132 306.351, 731.811 270.026, 814.928 259.545 C 821.763 258.683, 827.576 257.758, 827.845 257.489 C 828.385 256.949, 730.887 257.130, 724.500 257.681 M 594.691 505.093 C 574.985 507.975, 555.799 520.107, 541.959 538.438 C 536.940 545.085, 536.703 544.135, 546.280 555.742 C 556.587 568.233, 571.755 578.343, 588 583.550 C 598.883 587.037, 615.804 587.964, 626.644 585.666 C 646.931 581.366, 665.500 569.650, 682.089 550.685 L 690.123 541.500 684.811 536.566 C 674.416 526.908, 652.033 513.948, 637.347 509.083 C 623.806 504.596, 608.120 503.130, 594.691 505.093 M 594.782 529.553 C 587.417 531.338, 578.568 535.850, 573.500 540.403 L 569.500 543.997 573.723 547.861 C 578.482 552.215, 588.779 557.845, 597 560.590 C 600.953 561.909, 605.314 562.407, 612.500 562.359 C 620.991 562.302, 623.556 561.873, 629.500 559.513 C 636.685 556.660, 648.219 549.626, 651.307 546.213 C 652.977 544.368, 652.897 544.197, 649.191 541.745 C 631.708 530.175, 611.184 525.576, 594.782 529.553 M 735.424 737.418 C 733.733 738.154, 730.727 740.967, 728.744 743.667 C 711.731 766.844, 678.312 782.304, 640.309 784.580 C 627.059 785.373, 623.722 786.858, 621.957 792.750 C 620.452 797.773, 622.553 803.116, 627.190 806.054 C 630.206 807.966, 631.484 808.101, 641.593 807.581 C 670.537 806.090, 695.762 798.168, 718.036 783.574 C 734.351 772.884, 751 754.806, 751 747.779 C 751 743.675, 748.445 739.282, 745.033 737.517 C 741.482 735.681, 739.461 735.660, 735.424 737.418" fill-rule="evenodd"></path> </svg> </div> <span class="text-xl font-bold text-white dark:text-surface-100 tracking-tight">Alius</span> </a> <p class="text-sm text-surface-400 dark:text-surface-500 leading-relaxed"> ロボット + AI エージェントプラットフォーム。ハードウェア。ソフトウェア。インテリジェンス。 </p> <div class="flex items-center gap-4 mt-6"> <a href="https://github.com/AliusTech/alius" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="GitHub"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg> </a> <a href="https://twitter.com/alius_tech" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="Twitter"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg> </a> <a href="https://discord.gg/alius" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="Discord"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 00-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 00-5.487 0 12.36 12.36 0 00-.617-1.23A.077.077 0 008.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 00-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 00.031.055 20.03 20.03 0 005.993 2.98.078.078 0 00.084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 01-1.872-.878.075.075 0 01-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 01.078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 01.079.009c.12.098.245.195.372.288a.075.075 0 01-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 00-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 00.084.028 19.963 19.963 0 006.002-2.981.076.076 0 00.032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 00-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"></path></svg> </a> </div> </div> <!-- Link columns --> <div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">ハードウェア</h3> <ul class="space-y-3"> <li> <a href="/ja/products/joint-module" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ロボット関節モジュール </a> </li><li> <a href="/ja/products/mocap-device" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> モーションキャプチャシステム </a> </li><li> <a href="/ja/products/dcu-controller" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ロボット DCU ドメインコントローラー </a> </li><li> <a href="/ja/products/usb2can-debugger" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> USB2CAN デュアルチャンネルデバッガー </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">ソフトウェア</h3> <ul class="space-y-3"> <li> <a href="/ja/products/ai-agent" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Alius Agent </a> </li><li> <a href="/ja/product" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Agent CLI </a> </li><li> <a href="/ja/products/agent-team" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Agent Team </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">リソース</h3> <ul class="space-y-3"> <li> <a href="/docs" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ドキュメント </a> </li><li> <a href="/docs/api" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> API リファレンス </a> </li><li> <a href="/docs/examples" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> サンプル </a> </li><li> <a href="/community" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> コミュニティ </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">会社</h3> <ul class="space-y-3"> <li> <a href="/ja/about" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 概要 </a> </li><li> <a href="/ja/solutions" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ソリューション </a> </li><li> <a href="/blog" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ブログ </a> </li><li> <a href="/careers" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 採用情報 </a> </li><li> <a href="/ja/faq" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> よくある質問 </a> </li><li> <a href="/ja/contact" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> お問い合わせ </a> </li> </ul> </div> </div> <div class="border-t border-surface-800 dark:border-surface-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"> <p class="text-sm text-surface-500 dark:text-surface-600">&copy; 2026 Alius Tech. All rights reserved.</p> <div class="flex items-center gap-6"> <a href="/privacy" class="text-sm text-surface-500 dark:text-surface-600 hover:text-surface-300 dark:hover:text-surface-400 transition-colors">プライバシー</a> <a href="/terms" class="text-sm text-surface-500 dark:text-surface-600 hover:text-surface-300 dark:hover:text-surface-400 transition-colors">利用規約</a> </div> </div> </div> </footer> </div>  <div id="docs-search" class="hidden fixed inset-0 z-50"> <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="search-backdrop"></div> <div class="relative max-w-2xl mx-auto mt-24 px-4"> <div class="bg-white dark:bg-surface-800 rounded-2xl shadow-2xl overflow-hidden border border-surface-200 dark:border-surface-700"> <div id="pagefind-search" class="p-4"></div> </div> </div> </div>  <script src="/pagefind/pagefind.js" async></script> </body> </html> <script type="module">const l=document.getElementById("sidebar-toggle"),n=document.getElementById("sidebar-panel");l?.addEventListener("click",()=>{n?.classList.toggle("hidden"),n?.classList.toggle("fixed"),n?.classList.toggle("inset-0"),n?.classList.toggle("z-40"),n?.classList.toggle("bg-white"),n?.classList.toggle("dark:bg-surface-800"),n?.classList.toggle("overflow-y-auto")});const g=document.getElementById("docs-search-btn"),a=document.getElementById("docs-search"),u=document.getElementById("search-backdrop");let c=!1;async function i(){if(a?.classList.remove("hidden"),!c){await new Promise(t=>{if(window.PagefindUI){t();return}const o=document.createElement("script");o.src="/pagefind/pagefind-ui.js",o.onload=()=>t(),o.onerror=()=>t(),document.head.appendChild(o)});const e=window.PagefindUI;e&&(new e({element:"#pagefind-search",showSubResults:!0,showImages:!1}),c=!0)}setTimeout(()=>{document.querySelector("#pagefind-search input")?.focus()},100)}g?.addEventListener("click",i);u?.addEventListener("click",()=>{a?.classList.add("hidden")});document.addEventListener("keydown",e=>{e.key==="Escape"&&a?.classList.add("hidden"),(e.ctrlKey||e.metaKey)&&e.key==="k"&&(e.preventDefault(),i())});function r(){document.querySelectorAll("pre").forEach(e=>{if(e.querySelector(".code-copy-btn"))return;e.style.position="relative";const t=document.createElement("button");t.className="code-copy-btn absolute top-2 right-2 px-2 py-1 text-xs rounded-md bg-surface-200/80 text-surface-600 hover:bg-surface-300 hover:text-surface-800 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100",t.setAttribute("aria-label","Copy code"),t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',e.classList.add("group"),e.appendChild(t),t.addEventListener("click",async()=>{const s=e.querySelector("code")?.textContent||e.textContent||"";try{await navigator.clipboard.writeText(s),t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>',t.classList.add("text-green-600"),setTimeout(()=>{t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',t.classList.remove("text-green-600")},2e3)}catch{}})})}function d(){document.querySelectorAll("[data-color-copy]").forEach(e=>{e.dataset.colorCopyInit||(e.dataset.colorCopyInit="true",e.addEventListener("click",async()=>{const t=e.getAttribute("data-color-copy");if(t)try{await navigator.clipboard.writeText(t);const o=e.querySelector(".color-hex");if(o){const s=o.textContent;o.textContent="Copied!",o.classList.add("!text-green-600","!font-semibold"),setTimeout(()=>{o.textContent=s,o.classList.remove("!text-green-600","!font-semibold")},1200)}}catch{}}))})}r();d();document.addEventListener("astro:page-load",r);document.addEventListener("astro:page-load",d);</script>

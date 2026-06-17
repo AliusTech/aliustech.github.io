@@ -1,0 +1,477 @@
+<!DOCTYPE html><html lang="zh"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="description" content="了解 Alius Agent Team 的安全架构、权限管理系统和最佳实践。本文档涵盖认证、授权、数据保护和合规性。"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><title>安全与权限 — Alius Docs</title><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><link rel="alternate" hreflang="en" href="https://alius.tech/docs/agent-team/security/"><link rel="alternate" hreflang="zh" href="https://alius.tech/zh/docs/agent-team/security/"><link rel="alternate" hreflang="ja" href="https://alius.tech/ja/docs/agent-team/security/"><link rel="alternate" hreflang="x-default" href="https://alius.tech/docs/agent-team/security/"><!-- Prevent FOUC (Flash of Unstyled Content) --><script>
+      const theme = localStorage.getItem('theme')
+        || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script><link rel="stylesheet" href="/_astro/about.JOGSV8ml.css">
+<link rel="stylesheet" href="/_astro/_slug_.qEm98n9R.css"></head> <body class="bg-surface-50 dark:bg-surface-900 text-surface-900 dark:text-surface-100 antialiased">  <div data-pagefind-ignore> <header class="fixed top-0 left-0 right-0 z-50 bg-surface-50/80 dark:bg-surface-900/80 backdrop-blur-lg border-b border-surface-200/60 dark:border-surface-700/60"> <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"> <!-- Logo --> <a href="/zh/" class="flex items-center gap-2.5 group"> <div class="flex items-center justify-center"> <svg class="w-10 h-10 text-brand-600 dark:text-brand-400 group-hover:text-brand-700 dark:group-hover:text-brand-500 transition-colors" viewBox="0 0 1254 1254" fill="currentColor"> <path d="M 724.500 257.681 C 653.011 263.851, 596.450 286.096, 552.842 325.196 C 526.718 348.619, 504.076 385.367, 495.662 418 C 490.377 438.500, 489.841 444.119, 488.990 488 C 488.241 526.596, 488.012 530.305, 485.720 541 C 480.488 565.412, 470.577 586.090, 446.176 623.500 C 419.896 663.790, 417 668.902, 417 674.999 C 417 684.972, 422.785 690.700, 441.926 699.682 C 461.465 708.850, 463.666 710.080, 468.039 714.275 C 477.891 723.725, 478.404 734.135, 469.861 751.221 C 465.594 759.755, 466.212 766.445, 471.810 772.312 C 473.285 773.858, 477.986 777.365, 482.257 780.104 L 490.022 785.085 486.997 788.293 C 477.778 798.069, 477.830 811.145, 487.115 817.580 C 492.428 821.261, 496.839 826.425, 499.391 831.949 C 501.239 835.949, 501.502 838.439, 501.562 852.500 C 501.641 871.026, 502.653 875.318, 509.271 885.191 C 520.290 901.629, 541.944 909.250, 573 907.620 C 609.539 905.701, 640.124 893.708, 660.990 873.115 C 666.221 867.953, 669.990 863.546, 669.367 863.321 C 668.744 863.096, 662.894 864.250, 656.367 865.886 C 617.558 875.616, 588.645 879.071, 572.749 875.878 C 564.128 874.147, 557.075 870.149, 552.903 864.630 C 547.893 858.001, 546.632 853.243, 547.039 842.500 C 547.974 817.834, 546.907 814.078, 536.032 803.739 C 528.569 796.645, 527.095 793.272, 528.973 787.583 C 530.264 783.670, 533.306 781.160, 544.250 774.979 C 548.513 772.572, 552 770.328, 552 769.994 C 552 769.659, 548.737 768.560, 544.750 767.550 C 530.731 764.002, 519.300 758.149, 517.143 753.415 C 515.178 749.101, 515.811 743.996, 519.016 738.317 C 524.409 728.762, 526.425 716.439, 523.830 708.899 C 520.688 699.772, 514.681 694.497, 501.168 688.998 C 487.709 683.520, 481.241 680.043, 476.465 675.717 C 472.523 672.147, 471.730 670.799, 471.294 666.926 C 470.672 661.397, 471.493 659.645, 483.721 640.427 C 510.115 598.944, 520.233 579.092, 525.688 558.085 C 527.883 549.633, 528.274 545.368, 528.992 522 C 529.890 492.768, 531.161 483.297, 536.606 465.263 C 548.221 426.795, 568.988 393.128, 600.987 360.895 C 655.132 306.351, 731.811 270.026, 814.928 259.545 C 821.763 258.683, 827.576 257.758, 827.845 257.489 C 828.385 256.949, 730.887 257.130, 724.500 257.681 M 594.691 505.093 C 574.985 507.975, 555.799 520.107, 541.959 538.438 C 536.940 545.085, 536.703 544.135, 546.280 555.742 C 556.587 568.233, 571.755 578.343, 588 583.550 C 598.883 587.037, 615.804 587.964, 626.644 585.666 C 646.931 581.366, 665.500 569.650, 682.089 550.685 L 690.123 541.500 684.811 536.566 C 674.416 526.908, 652.033 513.948, 637.347 509.083 C 623.806 504.596, 608.120 503.130, 594.691 505.093 M 594.782 529.553 C 587.417 531.338, 578.568 535.850, 573.500 540.403 L 569.500 543.997 573.723 547.861 C 578.482 552.215, 588.779 557.845, 597 560.590 C 600.953 561.909, 605.314 562.407, 612.500 562.359 C 620.991 562.302, 623.556 561.873, 629.500 559.513 C 636.685 556.660, 648.219 549.626, 651.307 546.213 C 652.977 544.368, 652.897 544.197, 649.191 541.745 C 631.708 530.175, 611.184 525.576, 594.782 529.553 M 735.424 737.418 C 733.733 738.154, 730.727 740.967, 728.744 743.667 C 711.731 766.844, 678.312 782.304, 640.309 784.580 C 627.059 785.373, 623.722 786.858, 621.957 792.750 C 620.452 797.773, 622.553 803.116, 627.190 806.054 C 630.206 807.966, 631.484 808.101, 641.593 807.581 C 670.537 806.090, 695.762 798.168, 718.036 783.574 C 734.351 772.884, 751 754.806, 751 747.779 C 751 743.675, 748.445 739.282, 745.033 737.517 C 741.482 735.681, 739.461 735.660, 735.424 737.418" fill-rule="evenodd"></path> </svg> </div> <span class="text-xl font-bold text-surface-900 dark:text-surface-100 tracking-tight">Alius</span> </a> <!-- Desktop Nav --> <div class="hidden lg:flex items-center gap-0.5"> <a href="/zh/" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 首页 </a><div class="relative" id="products-dropdown-trigger"> <button class="px-3 py-2 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors flex items-center gap-1" id="products-toggle"> 产品 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div id="products-dropdown" class="hidden absolute left-0 top-full mt-1 bg-white dark:bg-surface-800 rounded-xl border border-surface-200 dark:border-surface-700 shadow-xl py-2 min-w-[240px] z-50"> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">硬件</div> <a href="/zh/products/joint-module" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> 机器人关节模组 </a><a href="/zh/products/mocap-device" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> 动捕系统 </a><a href="/zh/products/dcu-controller" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> 机器人 DCU 域控制器 </a><a href="/zh/products/usb2can-debugger" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> USB2CAN 双路调试器 </a> <div class="border-t border-surface-100 dark:border-surface-700 my-1"></div> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">软件</div> <a href="/zh/products/ai-agent" class="block px-4 py-2.5 text-sm font-medium text-surface-900 dark:text-surface-100 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Alius Agent </a> <a href="/zh/product" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 pl-8 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+Agent CLI
+</a> <a href="/zh/products/agent-team" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 pl-8 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Agent Team </a> </div> </div><a href="/zh/solutions" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 解决方案 </a><a href="/zh/docs" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 文档 </a><a href="/zh/faq" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 常见问题 </a><a href="/zh/about" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 关于 </a><a href="/zh/contact" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 联系我们 </a> </div> <!-- CTA + Lang Switcher + Mobile Toggle --> <div class="flex items-center gap-3"> <!-- Theme Toggle --> <button id="theme-toggle" class="p-2 rounded-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors hidden sm:flex" aria-label="Toggle theme"> <!-- Sun icon (shown in dark mode) --> <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <!-- Moon icon (shown in light mode) --> <svg class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <script type="module">const o=document.getElementById("theme-toggle");function r(){const e=localStorage.getItem("theme");return e==="light"||e==="dark"?e:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function t(e){document.documentElement.classList.toggle("dark",e==="dark"),localStorage.setItem("theme",e)}function c(){const e=r();t(e==="light"?"dark":"light")}o?.addEventListener("click",c);window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{localStorage.getItem("theme")||t(e.matches?"dark":"light")});</script> <!-- Language Switcher --> <div class="relative" id="lang-switcher"> <button id="lang-toggle" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors" aria-label="切换语言"> <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <circle cx="12" cy="12" r="10"></circle> <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path> </svg> 中文 </button> <div id="lang-dropdown" class="hidden absolute right-0 top-full mt-1 bg-white dark:bg-surface-800 rounded-lg border border-surface-200 dark:border-surface-700 shadow-lg py-1 min-w-[120px] z-50"> <a href="/docs/agent-team/security/" class="block px-4 py-2 text-sm transition-colors text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700"> English </a><a href="/zh/docs/agent-team/security/" class="block px-4 py-2 text-sm transition-colors text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 font-medium"> 中文 </a><a href="/ja/docs/agent-team/security/" class="block px-4 py-2 text-sm transition-colors text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700"> 日本語 </a> </div> </div>  <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-surface-700 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors" aria-label="切换菜单"> <svg class="w-5 h-5" id="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> <svg class="w-5 h-5 hidden" id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"> <line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line> </svg> </button> </div> </nav> <!-- Mobile menu --> <div id="mobile-menu" class="hidden lg:hidden border-t border-surface-200/60 dark:border-surface-700/60 bg-surface-50/95 dark:bg-surface-900/95 backdrop-blur-lg"> <div class="px-6 py-4 space-y-1"> <a href="/zh/" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 首页 </a><div> <button class="mobile-products-toggle w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors"> 产品 <svg class="w-4 h-4 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div class="mobile-products-list hidden pl-4 space-y-1"> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">硬件</div> <a href="/zh/products/joint-module" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> 机器人关节模组 </a><a href="/zh/products/mocap-device" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> 动捕系统 </a><a href="/zh/products/dcu-controller" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> 机器人 DCU 域控制器 </a><a href="/zh/products/usb2can-debugger" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> USB2CAN 双路调试器 </a> <div class="border-t border-surface-100 dark:border-surface-700 my-1"></div> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">软件</div> <a href="/zh/products/ai-agent" class="block px-4 py-2 text-sm font-medium text-surface-900 dark:text-surface-100 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Alius Agent </a> <a href="/zh/product" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 pl-8 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+Agent CLI
+</a> <a href="/zh/products/agent-team" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 pl-8 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Agent Team </a> </div> </div><a href="/zh/solutions" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 解决方案 </a><a href="/zh/docs" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 文档 </a><a href="/zh/faq" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 常见问题 </a><a href="/zh/about" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 关于 </a><a href="/zh/contact" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 联系我们 </a> <!-- Mobile language links --> <div class="flex items-center gap-2 px-4 py-2.5"> <a href="/docs/agent-team/security/" class="px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800"> English </a><a href="/zh/docs/agent-team/security/" class="px-3 py-1.5 rounded-lg text-sm transition-colors bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 font-medium"> 中文 </a><a href="/ja/docs/agent-team/security/" class="px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 日本語 </a> </div>  <div class="px-4 py-2.5"> <button id="theme-toggle" class="p-2 rounded-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors flex w-full justify-center" aria-label="Toggle theme"> <!-- Sun icon (shown in dark mode) --> <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <!-- Moon icon (shown in light mode) --> <svg class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button>  </div> </div> </div> </header> <script type="module">const c=document.getElementById("mobile-menu-btn"),s=document.getElementById("mobile-menu"),l=document.getElementById("menu-icon"),i=document.getElementById("close-icon");c?.addEventListener("click",()=>{s?.classList.toggle("hidden"),l?.classList.toggle("hidden"),i?.classList.toggle("hidden")});const g=document.getElementById("lang-toggle"),t=document.getElementById("lang-dropdown");g?.addEventListener("click",e=>{e.stopPropagation(),t?.classList.toggle("hidden")});const m=document.getElementById("products-toggle"),n=document.getElementById("products-dropdown");m?.addEventListener("click",e=>{e.stopPropagation(),n?.classList.toggle("hidden")});document.querySelectorAll(".mobile-products-toggle").forEach(e=>{e.addEventListener("click",()=>{const o=e.nextElementSibling,d=e.querySelector("svg");o?.classList.toggle("hidden"),d?.classList.toggle("rotate-180")})});document.addEventListener("click",()=>{t?.classList.add("hidden"),n?.classList.add("hidden")});</script> </div> <div class="pt-16"> <div class="max-w-screen-2xl mx-auto"> <div class="flex"> <!-- Mobile sidebar toggle --> <button id="sidebar-toggle" class="lg:hidden fixed bottom-6 right-6 z-50 w-12 h-12 bg-brand-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-700 transition-colors" aria-label="切换侧边栏"> <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> </button> <!-- Left sidebar --> <aside id="sidebar-panel" class="hidden lg:block w-[280px] flex-shrink-0 border-r border-surface-200/70 dark:border-surface-700/70 bg-white dark:bg-surface-800"> <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-4 py-8"> <!-- Search trigger --> <button id="docs-search-btn" class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-surface-400 dark:text-surface-500 hover:bg-surface-50 dark:hover:bg-surface-700 border border-surface-200 dark:border-surface-600 mb-6 transition-colors"> <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> 搜索文档... <kbd class="ml-auto hidden sm:inline-flex items-center px-1.5 py-0.5 bg-surface-100 dark:bg-surface-700 rounded text-xs text-surface-400 dark:text-surface-500">
+Ctrl+K
+</kbd> </button> <nav id="sidebar-agent-team"> <div class="mb-5" data-section="overview"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="overview"> <span>概述</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="overview" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="overview"> <li> <a href="/zh/docs/agent-team/overview" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Alius Agent Team 概览 </a> </li> </ul> </div><div class="mb-5" data-section="getting-started"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="getting-started"> <span>快速开始</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="getting-started" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="getting-started"> <li> <a href="/zh/docs/agent-team/getting-started" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> 快速开始 </a> </li> </ul> </div><div class="mb-5" data-section="architecture"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="architecture"> <span>架构</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="architecture" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="architecture"> <li> <a href="/zh/docs/agent-team/architecture" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> 系统架构 </a> </li> </ul> </div><div class="mb-5" data-section="agent-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="agent-management"> <span>Agent 管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="agent-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="agent-management"> <li> <a href="/zh/docs/agent-team/agent-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Agent 管理 </a> </li> </ul> </div><div class="mb-5" data-section="task-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="task-management"> <span>任务管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="task-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="task-management"> <li> <a href="/zh/docs/agent-team/task-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> 任务管理 </a> </li> </ul> </div><div class="mb-5" data-section="team-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="team-management"> <span>Team 管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="team-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="team-management"> <li> <a href="/zh/docs/agent-team/team-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> 团队管理 </a> </li> </ul> </div><div class="mb-5" data-section="security"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="security"> <span>安全与权限</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="security" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="security"> <li> <a href="/zh/docs/agent-team/security" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-brand-600 font-medium border-l-2 border-brand-500 pl-2.5 bg-brand-50/50"> 安全与权限 </a> </li> </ul> </div><div class="mb-5" data-section="cross-platform"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="cross-platform"> <span>跨平台控制台</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="cross-platform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="cross-platform"> <li> <a href="/zh/docs/agent-team/cross-platform" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> 跨平台支持 </a> </li> </ul> </div><div class="mb-5" data-section="api-reference"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="api-reference"> <span>API 参考</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="api-reference" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="api-reference"> <li> <a href="/zh/docs/agent-team/api-reference" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> API 参考 </a> </li> </ul> </div> </nav> <script type="module">function r(e){const s=document.getElementById(e);if(!s)return;const i=s.querySelectorAll("[data-collapse-toggle]"),d=JSON.parse(localStorage.getItem(`sidebar-collapse-${e}`)||"{}");i.forEach(c=>{const a=c.getAttribute("data-collapse-toggle"),t=s.querySelector(`[data-section-content="${a}"]`),o=s.querySelector(`[data-chevron="${a}"]`);t?.querySelector("a.border-brand-500")?(t?.classList.remove("hidden"),o?.classList.remove("-rotate-90")):d[a]===!0&&(t?.classList.add("hidden"),o?.classList.add("-rotate-90")),c.addEventListener("click",()=>{t?.classList.toggle("hidden"),o?.classList.toggle("-rotate-90");const l=JSON.parse(localStorage.getItem(`sidebar-collapse-${e}`)||"{}");l[a]=t?.classList.contains("hidden"),localStorage.setItem(`sidebar-collapse-${e}`,JSON.stringify(l))})})}document.querySelectorAll('[id^="sidebar-"]').forEach(e=>{r(e.id)});document.addEventListener("astro:page-load",()=>{document.querySelectorAll('[id^="sidebar-"]').forEach(e=>{r(e.id)})});</script> </div> </aside> <!-- Main content --> <main class="flex-1 min-w-0 bg-white dark:bg-surface-900"> <div class="max-w-3xl mx-auto px-6 lg:px-16 py-10"> <nav class="mb-6 flex items-center gap-1.5 text-sm text-surface-500 dark:text-surface-400 flex-wrap"> <a href="/zh/" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">首页</a> <span class="text-surface-300 dark:text-surface-600">/</span> <a href="/zh/docs/agent-team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">文档</a> <span class="text-surface-300 dark:text-surface-600">/</span> <a href="/zh/docs/agent-team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Agent Team</a> <span class="text-surface-300 dark:text-surface-600">/</span> <span class="text-surface-900 dark:text-surface-100 font-medium">安全与权限</span> </nav> <article class="prose prose-lg prose-surface dark:prose-invert max-w-none
+                prose-headings:scroll-mt-20
+                prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline
+                prose-code:before:content-none prose-code:after:content-none
+                prose-pre:bg-surface-50 dark:prose-pre:bg-surface-800 prose-pre:border prose-pre:border-surface-200 dark:prose-pre:border-surface-700
+                prose-img:rounded-xl
+                " data-pagefind-body>  <h1 id="安全与权限">安全与权限</h1>
+<p>安全是 Alius Agent Team 的核心设计原则之一。本章详细介绍系统的安全架构、权限管理机制以及安全最佳实践。</p>
+<h2 id="安全架构概览">安全架构概览</h2>
+<p>Alius Agent Team 采用多层次的安全架构：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>┌─────────────────────────────────────────┐</span></span>
+<span class="line"><span>│           应用层安全                      │</span></span>
+<span class="line"><span>│   认证 / 会话管理 / CSRF 防护            │</span></span>
+<span class="line"><span>└─────────────────┬───────────────────────┘</span></span>
+<span class="line"><span>                  │</span></span>
+<span class="line"><span>┌─────────────────▼───────────────────────┐</span></span>
+<span class="line"><span>│           授权层安全                      │</span></span>
+<span class="line"><span>│   RBAC / 权限检查 / 审计日志             │</span></span>
+<span class="line"><span>└─────────────────┬───────────────────────┘</span></span>
+<span class="line"><span>                  │</span></span>
+<span class="line"><span>┌─────────────────▼───────────────────────┐</span></span>
+<span class="line"><span>│           数据层安全                      │</span></span>
+<span class="line"><span>│   加密存储 / 传输加密 / 数据隔离          │</span></span>
+<span class="line"><span>└─────────────────┬───────────────────────┘</span></span>
+<span class="line"><span>                  │</span></span>
+<span class="line"><span>┌─────────────────▼───────────────────────┐</span></span>
+<span class="line"><span>│           基础设施安全                    │</span></span>
+<span class="line"><span>│   网络安全 / 主机安全 / 补丁管理          │</span></span>
+<span class="line"><span>└─────────────────────────────────────────┘</span></span></code></pre>
+<h2 id="认证系统">认证系统</h2>
+<h3 id="支持的认证方式">支持的认证方式</h3>
+<p>Alius Agent Team 支持多种认证方式，满足不同用户的需求：</p>
+<h4 id="短信认证">短信认证</h4>
+<p>基于手机号码的认证方式，适合大多数用户。</p>
+<p><strong>工作流程</strong>：</p>
+<ol>
+<li>用户输入手机号码</li>
+<li>系统发送 6 位验证码到手机</li>
+<li>用户输入验证码</li>
+<li>系统验证验证码</li>
+<li>认证成功，创建会话</li>
+</ol>
+<p><strong>安全特性</strong>：</p>
+<ul>
+<li>验证码 5 分钟内有效</li>
+<li>同一号码每分钟最多发送 1 次</li>
+<li>同一号码每天最多发送 10 次</li>
+<li>连续 5 次输入错误将锁定 15 分钟</li>
+</ul>
+<h4 id="apple-id-认证">Apple ID 认证</h4>
+<p>使用 Apple ID 进行认证，提供快速、安全的登录体验。</p>
+<p><strong>工作流程</strong>：</p>
+<ol>
+<li>用户选择”Apple 登录”</li>
+<li>系统跳转到 Apple 认证页面</li>
+<li>用户输入 Apple ID 和密码（或生物识别）</li>
+<li>Apple 验证成功后回调</li>
+<li>系统创建或关联账户</li>
+</ol>
+<p><strong>隐私特性</strong>：</p>
+<ul>
+<li>支持”隐藏邮件”功能，Apple 提供中继邮箱</li>
+<li>不向 Alius 泄露不必要的个人信息</li>
+<li>用户可以随时在 Apple 账户中撤销授权</li>
+</ul>
+<h4 id="微信认证">微信认证</h4>
+<p>使用微信扫码进行认证，适合中国用户。</p>
+<p><strong>工作流程</strong>：</p>
+<ol>
+<li>用户选择”微信登录”</li>
+<li>系统生成二维码</li>
+<li>用户使用微信扫码</li>
+<li>用户在微信中确认登录</li>
+<li>系统验证成功后创建会话</li>
+</ol>
+<p><strong>安全特性</strong>：</p>
+<ul>
+<li>二维码 2 分钟内有效</li>
+<li>二维码只能使用一次</li>
+<li>支持微信的风险控制机制</li>
+</ul>
+<h3 id="多因素认证-mfa">多因素认证 (MFA)</h3>
+<p>为了提供更高的安全性，Alius Agent Team 支持多因素认证：</p>
+<h4 id="启用-mfa">启用 MFA</h4>
+<ol>
+<li>进入用户设置 &gt; 安全</li>
+<li>找到”多因素认证”</li>
+<li>点击”设置”</li>
+<li>选择 MFA 方式：
+<ul>
+<li><strong>TOTP</strong>：使用 Google Authenticator、Authy 等应用</li>
+<li><strong>SMS</strong>：通过短信接收验证码</li>
+<li><strong>邮箱</strong>：通过邮件接收验证码</li>
+</ul>
+</li>
+<li>按照向导完成设置</li>
+<li>保存备用恢复码</li>
+</ol>
+<h4 id="使用-mfa">使用 MFA</h4>
+<p>启用 MFA 后，登录流程将变为：</p>
+<ol>
+<li>输入用户名和密码（或短信验证码）</li>
+<li>系统提示输入 MFA 验证码</li>
+<li>输入 TOTP 验证码（或短信/邮箱验证码）</li>
+<li>认证成功</li>
+</ol>
+<h4 id="恢复码">恢复码</h4>
+<p>设置 MFA 时，系统会提供一组恢复码：</p>
+<ul>
+<li>每个恢复码只能使用一次</li>
+<li>请妥善保管恢复码</li>
+<li>丢失恢复码且无法使用 MFA 设备时，需要联系支持团队</li>
+</ul>
+<h3 id="会话管理">会话管理</h3>
+<h4 id="会话生命周期">会话生命周期</h4>
+<ul>
+<li><strong>访问令牌</strong>：短期有效（默认 1 小时）</li>
+<li><strong>刷新令牌</strong>：长期有效（默认 30 天）</li>
+<li><strong>自动刷新</strong>：访问令牌过期前自动刷新</li>
+<li><strong>主动退出</strong>：用户主动退出时立即失效</li>
+</ul>
+<h4 id="会话安全策略">会话安全策略</h4>
+<ul>
+<li><strong>单设备登录</strong>：可选，同一账户只能在一个设备登录</li>
+<li><strong>会话超时</strong>：无活动 7 天后自动退出</li>
+<li><strong>异常检测</strong>：检测到异常登录位置时要求重新认证</li>
+<li><strong>并发控制</strong>：限制同一账户的并发会话数量</li>
+</ul>
+<h4 id="会话管理操作">会话管理操作</h4>
+<p>用户可以查看和管理自己的活跃会话：</p>
+<ol>
+<li>进入用户设置 &gt; 安全 &gt; 活跃会话</li>
+<li>查看所有活跃会话：
+<ul>
+<li>设备类型</li>
+<li>地理位置</li>
+<li>最后活动时间</li>
+<li>IP 地址</li>
+</ul>
+</li>
+<li>可以选择”退出所有其他会话”</li>
+</ol>
+<h2 id="授权与权限管理">授权与权限管理</h2>
+<h3 id="基于角色的访问控制-rbac">基于角色的访问控制 (RBAC)</h3>
+<p>Alius Agent Team 采用 RBAC 模型进行权限管理：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>用户 -&gt; 角色 -&gt; 权限 -&gt; 资源</span></span></code></pre>
+<h4 id="角色层次结构">角色层次结构</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>Owner</span></span>
+<span class="line"><span>  └── Admin</span></span>
+<span class="line"><span>       └── Member</span></span>
+<span class="line"><span>            └── Viewer</span></span></code></pre>
+<h4 id="内置角色">内置角色</h4>
+<p>系统提供以下内置角色：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>角色</th><th>描述</th><th>适用场景</th></tr></thead><tbody><tr><td>Owner</td><td>完全控制权</td><td>团队创建者</td></tr><tr><td>Admin</td><td>管理权限</td><td>团队管理员</td></tr><tr><td>Member</td><td>标准权限</td><td>团队成员</td></tr><tr><td>Viewer</td><td>只读权限</td><td>观察者、审计员</td></tr></tbody></table>
+<h3 id="权限模型">权限模型</h3>
+<h4 id="资源类型">资源类型</h4>
+<p>系统权限控制在以下资源类型上：</p>
+<ul>
+<li><strong>Agent</strong>：AI Agent 实体</li>
+<li><strong>Task</strong>：任务实体</li>
+<li><strong>Team</strong>：团队实体</li>
+<li><strong>User</strong>：用户实体</li>
+<li><strong>Notification</strong>：通知实体</li>
+<li><strong>Session</strong>：会话实体</li>
+</ul>
+<h4 id="操作类型">操作类型</h4>
+<p>对于每个资源，支持以下操作：</p>
+<ul>
+<li><strong>create</strong>：创建新资源</li>
+<li><strong>read</strong>：查看资源</li>
+<li><strong>update</strong>：修改资源</li>
+<li><strong>delete</strong>：删除资源</li>
+<li><strong>list</strong>：列出资源</li>
+<li><strong>execute</strong>：执行资源相关操作</li>
+</ul>
+<h4 id="权限检查流程">权限检查流程</h4>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>用户请求操作</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>检查用户是否认证</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>检查用户是否有该操作的权限</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>检查资源级别的权限（如资源所有权）</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>允许或拒绝操作</span></span></code></pre>
+<h3 id="细粒度权限控制">细粒度权限控制</h3>
+<p>除了基于角色的权限，Alius Agent Team 还支持资源级别的权限控制：</p>
+<h4 id="agent-权限">Agent 权限</h4>
+<ul>
+<li><strong>私有 Agent</strong>：仅创建者可以访问</li>
+<li><strong>团队 Agent</strong>：团队成员根据角色访问</li>
+<li><strong>公开 Agent</strong>：任何授权用户都可以访问（只读）</li>
+</ul>
+<h4 id="任务权限">任务权限</h4>
+<ul>
+<li><strong>创建者权限</strong>：任务创建者拥有完全控制权</li>
+<li><strong>执行者权限</strong>：被分配执行任务的 Agent 所有者可以查看</li>
+<li><strong>团队任务</strong>：团队成员根据角色访问</li>
+</ul>
+<h4 id="数据权限">数据权限</h4>
+<ul>
+<li><strong>行级安全</strong>：用户只能访问其有权访问的数据行</li>
+<li><strong>字段级安全</strong>（规划中）：用户只能查看其有权查看的字段</li>
+</ul>
+<h3 id="自定义角色">自定义角色</h3>
+<p>除了内置角色，团队 Owner 和 Admin 可以创建自定义角色：</p>
+<h4 id="创建自定义角色">创建自定义角色</h4>
+<ol>
+<li>进入团队设置 &gt; 权限管理</li>
+<li>点击”创建角色”</li>
+<li>输入角色名称和描述</li>
+<li>选择该角色拥有的权限：
+<ul>
+<li>按资源类型筛选</li>
+<li>按操作类型筛选</li>
+<li>批量选择或逐个选择</li>
+</ul>
+</li>
+<li>保存角色</li>
+</ol>
+<h4 id="自定义角色示例">自定义角色示例</h4>
+<p><strong>Agent 审查员</strong>：</p>
+<ul>
+<li>可以查看所有 Agent</li>
+<li>可以查看 Agent 日志</li>
+<li>不能修改 Agent 配置</li>
+<li>不能创建或删除 Agent</li>
+</ul>
+<p><strong>任务分配员</strong>：</p>
+<ul>
+<li>可以查看所有任务</li>
+<li>可以创建和分配任务</li>
+<li>不能执行任务</li>
+<li>不能修改 Agent 配置</li>
+</ul>
+<h2 id="数据安全">数据安全</h2>
+<h3 id="数据加密">数据加密</h3>
+<h4 id="传输加密">传输加密</h4>
+<ul>
+<li><strong>TLS 1.3</strong>：所有客户端与服务器之间的通信都使用 TLS 1.3 加密</li>
+<li><strong>证书固定</strong>：移动端应用使用证书固定防止中间人攻击</li>
+<li><strong>强加密套件</strong>：仅使用强加密套件，禁用弱加密算法</li>
+</ul>
+<h4 id="存储加密">存储加密</h4>
+<ul>
+<li><strong>静态数据加密</strong>：所有存储在服务器上的数据都使用 AES-256 加密</li>
+<li><strong>密钥管理</strong>：加密密钥使用专门的密钥管理系统管理</li>
+<li><strong>数据库加密</strong>：敏感字段（如密码、令牌）在数据库中也单独加密</li>
+</ul>
+<h3 id="数据隔离">数据隔离</h3>
+<h4 id="多租户隔离">多租户隔离</h4>
+<ul>
+<li><strong>逻辑隔离</strong>：不同团队的数据在逻辑上完全隔离</li>
+<li><strong>资源隔离</strong>：不同团队的 Agent 运行在隔离的环境中</li>
+<li><strong>缓存隔离</strong>：缓存数据按团队隔离</li>
+</ul>
+<h4 id="用户数据隔离">用户数据隔离</h4>
+<ul>
+<li>用户只能访问其有权访问的数据</li>
+<li>通过行级安全策略实现</li>
+<li>定期审计数据访问日志</li>
+</ul>
+<h3 id="数据备份与恢复">数据备份与恢复</h3>
+<h4 id="备份策略">备份策略</h4>
+<ul>
+<li><strong>全量备份</strong>：每周一次</li>
+<li><strong>增量备份</strong>：每天一次</li>
+<li><strong>实时复制</strong>：关键数据实时复制到备用数据中心</li>
+<li><strong>异地备份</strong>：备份数据存储在不同地理位置</li>
+</ul>
+<h4 id="恢复策略">恢复策略</h4>
+<ul>
+<li><strong>RTO（恢复时间目标）</strong>：4 小时</li>
+<li><strong>RPO（恢复点目标）</strong>：1 小时</li>
+<li><strong>恢复测试</strong>：每季度进行一次恢复测试</li>
+<li><strong>恢复流程</strong>：有详细的灾难恢复流程文档</li>
+</ul>
+<h2 id="审计与合规">审计与合规</h2>
+<h3 id="审计日志">审计日志</h3>
+<p>Alius Agent Team 记录所有关键操作的审计日志：</p>
+<h4 id="记录的操作">记录的操作</h4>
+<ul>
+<li>用户登录/退出</li>
+<li>创建/修改/删除 Agent</li>
+<li>创建/修改/删除任务</li>
+<li>团队成员变更</li>
+<li>权限变更</li>
+<li>敏感配置变更</li>
+<li>数据导出操作</li>
+</ul>
+<h4 id="日志内容">日志内容</h4>
+<p>每条审计日志记录以下信息：</p>
+<ul>
+<li><strong>时间戳</strong>：操作发生的精确时间</li>
+<li><strong>用户标识</strong>：执行操作的用户</li>
+<li><strong>操作类型</strong>：执行了什么操作</li>
+<li><strong>资源类型</strong>：操作的对象类型</li>
+<li><strong>资源标识</strong>：操作的具体对象</li>
+<li><strong>操作结果</strong>：成功或失败</li>
+<li><strong>IP 地址</strong>：发起操作的 IP 地址</li>
+<li><strong>用户代理</strong>：使用的客户端信息</li>
+</ul>
+<h4 id="日志保留">日志保留</h4>
+<ul>
+<li><strong>在线查询</strong>：最近 90 天的日志可以在线查询</li>
+<li><strong>归档存储</strong>：90 天后的日志归档存储，保留 7 年</li>
+<li><strong>不可篡改</strong>：审计日志一旦写入，不能被修改或删除</li>
+</ul>
+<h3 id="合规性">合规性</h3>
+<h4 id="数据保护法规">数据保护法规</h4>
+<p>Alius Agent Team 致力于符合主要数据保护法规：</p>
+<ul>
+<li><strong>GDPR</strong>（欧盟通用数据保护条例）</li>
+<li><strong>CCPA</strong>（加州消费者隐私法案）</li>
+<li><strong>PIPL</strong>（中华人民共和国个人信息保护法）</li>
+</ul>
+<h4 id="合规功能">合规功能</h4>
+<ul>
+<li>
+<p><strong>数据主体权利</strong>：</p>
+<ul>
+<li>知情权：明确告知收集的数据和使用方式</li>
+<li>访问权：用户可以访问其个人数据</li>
+<li>更正权：用户可以更正不准确的数据</li>
+<li>删除权（被遗忘权）：用户可以请求删除其数据</li>
+<li>数据携带权：用户可以导出其数据</li>
+<li>限制处理权：用户可以限制对其数据的处理</li>
+</ul>
+</li>
+<li>
+<p><strong>数据保护官</strong>：指定数据保护官负责合规事务</p>
+</li>
+<li>
+<p><strong>数据保护影响评估</strong>：定期进行 DPIA</p>
+</li>
+<li>
+<p><strong>违规通知</strong>：发生数据泄露时按规定通知监管机构和用户</p>
+</li>
+</ul>
+<h3 id="安全认证">安全认证</h3>
+<p>Alius Agent Team 获得了以下安全认证：</p>
+<ul>
+<li><strong>ISO 27001</strong>：信息安全管理体系认证</li>
+<li><strong>SOC 2 Type II</strong>：系统和组织控制审计</li>
+<li><strong>CSA STAR</strong>：云安全联盟安全、信任和保障认证</li>
+</ul>
+<h2 id="安全最佳实践">安全最佳实践</h2>
+<h3 id="对于用户">对于用户</h3>
+<h4 id="账户安全">账户安全</h4>
+<ul>
+<li><strong>使用强密码</strong>：至少 12 个字符，包含大小写字母、数字和特殊字符</li>
+<li><strong>启用 MFA</strong>：为账户添加额外的安全层</li>
+<li><strong>定期更换密码</strong>：建议每 3-6 个月更换一次</li>
+<li><strong>不使用公共设备登录</strong>：避免在公共电脑上登录</li>
+<li><strong>退出时清理会话</strong>：使用完毕后在公共设备上退出登录</li>
+</ul>
+<h4 id="访问控制">访问控制</h4>
+<ul>
+<li><strong>遵循最小权限原则</strong>：只授予必要的权限</li>
+<li><strong>定期审查权限</strong>：每季度审查自己和团队的权限</li>
+<li><strong>及时撤销权限</strong>：成员离开时及时撤销其访问权限</li>
+<li><strong>使用团队而非共享账户</strong>：避免使用共享账户，使用团队功能</li>
+</ul>
+<h4 id="数据保护">数据保护</h4>
+<ul>
+<li><strong>不分享敏感信息</strong>：避免在提示词中包含敏感信息</li>
+<li><strong>定期导出和备份</strong>：定期导出重要数据</li>
+<li><strong>谨慎使用第三方集成</strong>：只集成可信的第三方服务</li>
+<li><strong>监控异常活动</strong>：关注账户活动通知</li>
+</ul>
+<h3 id="对于团队管理员">对于团队管理员</h3>
+<h4 id="团队安全策略">团队安全策略</h4>
+<ul>
+<li><strong>制定安全策略</strong>：为团队制定明确的安全策略</li>
+<li><strong>定期安全培训</strong>：对团队成员进行安全培训</li>
+<li><strong>建立事故响应流程</strong>：制定安全事件响应流程</li>
+<li><strong>定期进行安全审计</strong>：每季度进行一次安全审计</li>
+</ul>
+<h4 id="权限管理">权限管理</h4>
+<ul>
+<li><strong>实施角色分离</strong>：不同职责使用不同角色</li>
+<li><strong>定期审查成员列表</strong>：及时移除不活跃或不需要访问的成员</li>
+<li><strong>限制管理员数量</strong>：只给必要的人管理员权限</li>
+<li><strong>使用过期策略</strong>：为临时权限设置过期时间</li>
+</ul>
+<h2 id="漏洞报告与处理">漏洞报告与处理</h2>
+<h3 id="报告安全漏洞">报告安全漏洞</h3>
+<p>如果您发现了安全漏洞，请通过以下方式报告：</p>
+<ul>
+<li><strong>邮箱</strong>：<a href="mailto:security@alius.ai">security@alius.ai</a></li>
+<li><strong>PGP 公钥</strong>：<a href="https://alius.ai/security/pgp-key.asc">下载 PGP 公钥</a></li>
+<li><strong>漏洞奖励计划</strong>：对于符合条件的漏洞报告，我们将给予奖励</li>
+</ul>
+<h3 id="漏洞处理流程">漏洞处理流程</h3>
+<ol>
+<li><strong>接收报告</strong>：安全团队接收漏洞报告</li>
+<li><strong>确认漏洞</strong>：验证漏洞的真实性和严重性</li>
+<li><strong>修复漏洞</strong>：开发团队修复漏洞</li>
+<li><strong>发布更新</strong>：发布安全更新</li>
+<li><strong>公开披露</strong>：在修复后公开披露漏洞（可选）</li>
+</ol>
+<h3 id="安全更新">安全更新</h3>
+<ul>
+<li><strong>严重漏洞</strong>：24 小时内发布补丁</li>
+<li><strong>高危漏洞</strong>：7 天内发布补丁</li>
+<li><strong>中危漏洞</strong>：30 天内发布补丁</li>
+<li><strong>低危漏洞</strong>：下一个常规版本中修复</li>
+</ul>
+<h2 id="api-安全">API 安全</h2>
+<h3 id="api-认证">API 认证</h3>
+<h4 id="api-密钥">API 密钥</h4>
+<ul>
+<li><strong>生成密钥</strong>：在用户设置中生成 API 密钥</li>
+<li><strong>密钥权限</strong>：可以为密钥设置特定权限</li>
+<li><strong>密钥轮换</strong>：建议定期轮换 API 密钥</li>
+<li><strong>密钥泄露处理</strong>：发现密钥泄露后立即撤销</li>
+</ul>
+<h4 id="oauth-20">OAuth 2.0</h4>
+<p>Alius Agent Team 支持 OAuth 2.0 授权框架：</p>
+<ul>
+<li><strong>授权码流程</strong>：适用于服务器端应用</li>
+<li><strong>隐式流程</strong>：适用于纯前端应用（不推荐）</li>
+<li><strong>客户端凭据流程</strong>：适用于服务间通信</li>
+<li><strong>刷新令牌</strong>：使用刷新令牌获取新的访问令牌</li>
+</ul>
+<h3 id="api-安全最佳实践">API 安全最佳实践</h3>
+<ul>
+<li><strong>使用 HTTPS</strong>：所有 API 调用必须使用 HTTPS</li>
+<li><strong>验证输入</strong>：始终验证和清理输入数据</li>
+<li><strong>限制请求速率</strong>：实施速率限制防止滥用</li>
+<li><strong>使用最短权限</strong>：API 密钥只授予必要的权限</li>
+<li><strong>监控 API 使用</strong>：监控异常的 API 调用模式</li>
+</ul>
+<h2 id="总结">总结</h2>
+<p>安全是一个持续的过程，而非一次性的工作。Alius Agent Team 致力于提供安全、可靠的服务，同时也需要用户的配合。通过遵循本文档中的安全最佳实践，您可以最大限度地保护您的账户和数据安全。</p>
+<p>如有任何安全问题或疑虑，请随时联系我们的安全团队：<a href="mailto:security@alius.ai">security@alius.ai</a></p>  </article> <!-- Previous / Next navigation --> <nav class="mt-16 pt-8 border-t border-surface-200 dark:border-surface-700 flex items-center justify-between gap-4"> <a href="/zh/docs/agent-team/team-management" class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M19 12H5M12 19l-7-7 7-7"></path> </svg> <span class="font-medium">团队管理</span> </a> <a href="/zh/docs/agent-team/cross-platform" class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors group text-right"> <span class="font-medium">跨平台支持</span> <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M5 12h14M12 5l7 7-7 7"></path> </svg> </a> </nav> </div> </main> <!-- Right sidebar (TOC) --> <aside class="hidden xl:block w-56 flex-shrink-0"> <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-4 py-10"> <nav><h4 class="text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider mb-3">本页内容</h4><ul class="space-y-1.5" id="toc-list"><li><a href="#安全架构概览" data-toc-slug="安全架构概览" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">安全架构概览</a></li><li><a href="#认证系统" data-toc-slug="认证系统" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">认证系统</a></li><li><a href="#支持的认证方式" data-toc-slug="支持的认证方式" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">支持的认证方式</a></li><li><a href="#多因素认证-mfa" data-toc-slug="多因素认证-mfa" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">多因素认证 (MFA)</a></li><li><a href="#会话管理" data-toc-slug="会话管理" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">会话管理</a></li><li><a href="#授权与权限管理" data-toc-slug="授权与权限管理" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">授权与权限管理</a></li><li><a href="#基于角色的访问控制-rbac" data-toc-slug="基于角色的访问控制-rbac" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">基于角色的访问控制 (RBAC)</a></li><li><a href="#权限模型" data-toc-slug="权限模型" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">权限模型</a></li><li><a href="#细粒度权限控制" data-toc-slug="细粒度权限控制" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">细粒度权限控制</a></li><li><a href="#自定义角色" data-toc-slug="自定义角色" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">自定义角色</a></li><li><a href="#数据安全" data-toc-slug="数据安全" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">数据安全</a></li><li><a href="#数据加密" data-toc-slug="数据加密" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">数据加密</a></li><li><a href="#数据隔离" data-toc-slug="数据隔离" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">数据隔离</a></li><li><a href="#数据备份与恢复" data-toc-slug="数据备份与恢复" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">数据备份与恢复</a></li><li><a href="#审计与合规" data-toc-slug="审计与合规" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">审计与合规</a></li><li><a href="#审计日志" data-toc-slug="审计日志" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">审计日志</a></li><li><a href="#合规性" data-toc-slug="合规性" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">合规性</a></li><li><a href="#安全认证" data-toc-slug="安全认证" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">安全认证</a></li><li><a href="#安全最佳实践" data-toc-slug="安全最佳实践" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">安全最佳实践</a></li><li><a href="#对于用户" data-toc-slug="对于用户" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">对于用户</a></li><li><a href="#对于团队管理员" data-toc-slug="对于团队管理员" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">对于团队管理员</a></li><li><a href="#漏洞报告与处理" data-toc-slug="漏洞报告与处理" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">漏洞报告与处理</a></li><li><a href="#报告安全漏洞" data-toc-slug="报告安全漏洞" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">报告安全漏洞</a></li><li><a href="#漏洞处理流程" data-toc-slug="漏洞处理流程" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">漏洞处理流程</a></li><li><a href="#安全更新" data-toc-slug="安全更新" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">安全更新</a></li><li><a href="#api-安全" data-toc-slug="api-安全" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">API 安全</a></li><li><a href="#api-认证" data-toc-slug="api-认证" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">API 认证</a></li><li><a href="#api-安全最佳实践" data-toc-slug="api-安全最佳实践" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">API 安全最佳实践</a></li><li><a href="#总结" data-toc-slug="总结" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">总结</a></li></ul></nav><script type="module">function l(){const c=document.getElementById("toc-list");if(!c)return;const a=c.querySelectorAll("[data-toc-slug]");if(a.length===0)return;const n=[];if(a.forEach(d=>{const s=d.getAttribute("data-toc-slug"),t=document.getElementById(s||"");t&&n.push(t)}),n.length===0)return;let e=null;function o(){let s=0;for(let i=n.length-1;i>=0;i--)if(n[i].getBoundingClientRect().top<=100){s=i;break}const t=a[s];t!==e&&(e&&(e.classList.remove("text-brand-600","dark:text-brand-400","font-medium"),e.classList.add("text-surface-500","dark:text-surface-400")),t.classList.add("text-brand-600","dark:text-brand-400","font-medium"),t.classList.remove("text-surface-500","dark:text-surface-400"),e=t)}o();let r=!1;window.addEventListener("scroll",()=>{r||(requestAnimationFrame(()=>{o(),r=!1}),r=!0)},{passive:!0})}l();document.addEventListener("astro:page-load",l);</script> </div> </aside> </div> </div> </div> <div data-pagefind-ignore> <footer class="bg-surface-900 dark:bg-surface-950 text-surface-300 dark:text-surface-400"> <div class="max-w-7xl mx-auto px-6 pt-16 pb-8"> <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mb-12"> <!-- Brand column --> <div class="col-span-2 md:col-span-1"> <a href="/zh/" class="flex items-center gap-2.5 mb-4"> <div class="w-8 h-8 bg-brand-500 dark:bg-brand-600 rounded-lg flex items-center justify-center"> <svg class="w-5 h-5 text-white" viewBox="0 0 1254 1254" fill="currentColor"> <path d="M 724.500 257.681 C 653.011 263.851, 596.450 286.096, 552.842 325.196 C 526.718 348.619, 504.076 385.367, 495.662 418 C 490.377 438.500, 489.841 444.119, 488.990 488 C 488.241 526.596, 488.012 530.305, 485.720 541 C 480.488 565.412, 470.577 586.090, 446.176 623.500 C 419.896 663.790, 417 668.902, 417 674.999 C 417 684.972, 422.785 690.700, 441.926 699.682 C 461.465 708.850, 463.666 710.080, 468.039 714.275 C 477.891 723.725, 478.404 734.135, 469.861 751.221 C 465.594 759.755, 466.212 766.445, 471.810 772.312 C 473.285 773.858, 477.986 777.365, 482.257 780.104 L 490.022 785.085 486.997 788.293 C 477.778 798.069, 477.830 811.145, 487.115 817.580 C 492.428 821.261, 496.839 826.425, 499.391 831.949 C 501.239 835.949, 501.502 838.439, 501.562 852.500 C 501.641 871.026, 502.653 875.318, 509.271 885.191 C 520.290 901.629, 541.944 909.250, 573 907.620 C 609.539 905.701, 640.124 893.708, 660.990 873.115 C 666.221 867.953, 669.990 863.546, 669.367 863.321 C 668.744 863.096, 662.894 864.250, 656.367 865.886 C 617.558 875.616, 588.645 879.071, 572.749 875.878 C 564.128 874.147, 557.075 870.149, 552.903 864.630 C 547.893 858.001, 546.632 853.243, 547.039 842.500 C 547.974 817.834, 546.907 814.078, 536.032 803.739 C 528.569 796.645, 527.095 793.272, 528.973 787.583 C 530.264 783.670, 533.306 781.160, 544.250 774.979 C 548.513 772.572, 552 770.328, 552 769.994 C 552 769.659, 548.737 768.560, 544.750 767.550 C 530.731 764.002, 519.300 758.149, 517.143 753.415 C 515.178 749.101, 515.811 743.996, 519.016 738.317 C 524.409 728.762, 526.425 716.439, 523.830 708.899 C 520.688 699.772, 514.681 694.497, 501.168 688.998 C 487.709 683.520, 481.241 680.043, 476.465 675.717 C 472.523 672.147, 471.730 670.799, 471.294 666.926 C 470.672 661.397, 471.493 659.645, 483.721 640.427 C 510.115 598.944, 520.233 579.092, 525.688 558.085 C 527.883 549.633, 528.274 545.368, 528.992 522 C 529.890 492.768, 531.161 483.297, 536.606 465.263 C 548.221 426.795, 568.988 393.128, 600.987 360.895 C 655.132 306.351, 731.811 270.026, 814.928 259.545 C 821.763 258.683, 827.576 257.758, 827.845 257.489 C 828.385 256.949, 730.887 257.130, 724.500 257.681 M 594.691 505.093 C 574.985 507.975, 555.799 520.107, 541.959 538.438 C 536.940 545.085, 536.703 544.135, 546.280 555.742 C 556.587 568.233, 571.755 578.343, 588 583.550 C 598.883 587.037, 615.804 587.964, 626.644 585.666 C 646.931 581.366, 665.500 569.650, 682.089 550.685 L 690.123 541.500 684.811 536.566 C 674.416 526.908, 652.033 513.948, 637.347 509.083 C 623.806 504.596, 608.120 503.130, 594.691 505.093 M 594.782 529.553 C 587.417 531.338, 578.568 535.850, 573.500 540.403 L 569.500 543.997 573.723 547.861 C 578.482 552.215, 588.779 557.845, 597 560.590 C 600.953 561.909, 605.314 562.407, 612.500 562.359 C 620.991 562.302, 623.556 561.873, 629.500 559.513 C 636.685 556.660, 648.219 549.626, 651.307 546.213 C 652.977 544.368, 652.897 544.197, 649.191 541.745 C 631.708 530.175, 611.184 525.576, 594.782 529.553 M 735.424 737.418 C 733.733 738.154, 730.727 740.967, 728.744 743.667 C 711.731 766.844, 678.312 782.304, 640.309 784.580 C 627.059 785.373, 623.722 786.858, 621.957 792.750 C 620.452 797.773, 622.553 803.116, 627.190 806.054 C 630.206 807.966, 631.484 808.101, 641.593 807.581 C 670.537 806.090, 695.762 798.168, 718.036 783.574 C 734.351 772.884, 751 754.806, 751 747.779 C 751 743.675, 748.445 739.282, 745.033 737.517 C 741.482 735.681, 739.461 735.660, 735.424 737.418" fill-rule="evenodd"></path> </svg> </div> <span class="text-xl font-bold text-white dark:text-surface-100 tracking-tight">Alius</span> </a> <p class="text-sm text-surface-400 dark:text-surface-500 leading-relaxed"> 机器人 + AI Agent 平台。硬件。软件。智能。 </p> <div class="flex items-center gap-4 mt-6"> <a href="https://github.com/AliusTech/alius" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="GitHub"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg> </a> <a href="https://twitter.com/alius_tech" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="Twitter"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg> </a> <a href="https://discord.gg/alius" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="Discord"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 00-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 00-5.487 0 12.36 12.36 0 00-.617-1.23A.077.077 0 008.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 00-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 00.031.055 20.03 20.03 0 005.993 2.98.078.078 0 00.084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 01-1.872-.878.075.075 0 01-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 01.078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 01.079.009c.12.098.245.195.372.288a.075.075 0 01-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 00-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 00.084.028 19.963 19.963 0 006.002-2.981.076.076 0 00.032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 00-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"></path></svg> </a> </div> </div> <!-- Link columns --> <div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">硬件</h3> <ul class="space-y-3"> <li> <a href="/zh/products/joint-module" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 机器人关节模组 </a> </li><li> <a href="/zh/products/mocap-device" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 动捕系统 </a> </li><li> <a href="/zh/products/dcu-controller" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 机器人 DCU 域控制器 </a> </li><li> <a href="/zh/products/usb2can-debugger" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> USB2CAN 双路调试器 </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">软件</h3> <ul class="space-y-3"> <li> <a href="/zh/products/ai-agent" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Alius Agent </a> </li><li> <a href="/zh/product" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Agent CLI </a> </li><li> <a href="/zh/products/agent-team" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Agent Team </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">资源</h3> <ul class="space-y-3"> <li> <a href="/docs" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 文档 </a> </li><li> <a href="/docs/api" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> API 参考 </a> </li><li> <a href="/docs/examples" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 示例 </a> </li><li> <a href="/community" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 社区 </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">公司</h3> <ul class="space-y-3"> <li> <a href="/zh/about" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 关于 </a> </li><li> <a href="/zh/solutions" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 解决方案 </a> </li><li> <a href="/blog" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 博客 </a> </li><li> <a href="/careers" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 招聘 </a> </li><li> <a href="/zh/faq" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 常见问题 </a> </li><li> <a href="/zh/contact" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 联系我们 </a> </li> </ul> </div> </div> <div class="border-t border-surface-800 dark:border-surface-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"> <p class="text-sm text-surface-500 dark:text-surface-600">&copy; 2026 Alius Tech. 保留所有权利。</p> <div class="flex items-center gap-6"> <a href="/privacy" class="text-sm text-surface-500 dark:text-surface-600 hover:text-surface-300 dark:hover:text-surface-400 transition-colors">隐私政策</a> <a href="/terms" class="text-sm text-surface-500 dark:text-surface-600 hover:text-surface-300 dark:hover:text-surface-400 transition-colors">服务条款</a> </div> </div> </div> </footer> </div>  <div id="docs-search" class="hidden fixed inset-0 z-50"> <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="search-backdrop"></div> <div class="relative max-w-2xl mx-auto mt-24 px-4"> <div class="bg-white dark:bg-surface-800 rounded-2xl shadow-2xl overflow-hidden border border-surface-200 dark:border-surface-700"> <div id="pagefind-search" class="p-4"></div> </div> </div> </div>  <script src="/pagefind/pagefind.js" async></script> </body> </html> <script type="module">const l=document.getElementById("sidebar-toggle"),n=document.getElementById("sidebar-panel");l?.addEventListener("click",()=>{n?.classList.toggle("hidden"),n?.classList.toggle("fixed"),n?.classList.toggle("inset-0"),n?.classList.toggle("z-40"),n?.classList.toggle("bg-white"),n?.classList.toggle("dark:bg-surface-800"),n?.classList.toggle("overflow-y-auto")});const g=document.getElementById("docs-search-btn"),a=document.getElementById("docs-search"),u=document.getElementById("search-backdrop");let c=!1;async function i(){if(a?.classList.remove("hidden"),!c){await new Promise(t=>{if(window.PagefindUI){t();return}const o=document.createElement("script");o.src="/pagefind/pagefind-ui.js",o.onload=()=>t(),o.onerror=()=>t(),document.head.appendChild(o)});const e=window.PagefindUI;e&&(new e({element:"#pagefind-search",showSubResults:!0,showImages:!1}),c=!0)}setTimeout(()=>{document.querySelector("#pagefind-search input")?.focus()},100)}g?.addEventListener("click",i);u?.addEventListener("click",()=>{a?.classList.add("hidden")});document.addEventListener("keydown",e=>{e.key==="Escape"&&a?.classList.add("hidden"),(e.ctrlKey||e.metaKey)&&e.key==="k"&&(e.preventDefault(),i())});function r(){document.querySelectorAll("pre").forEach(e=>{if(e.querySelector(".code-copy-btn"))return;e.style.position="relative";const t=document.createElement("button");t.className="code-copy-btn absolute top-2 right-2 px-2 py-1 text-xs rounded-md bg-surface-200/80 text-surface-600 hover:bg-surface-300 hover:text-surface-800 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100",t.setAttribute("aria-label","Copy code"),t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',e.classList.add("group"),e.appendChild(t),t.addEventListener("click",async()=>{const s=e.querySelector("code")?.textContent||e.textContent||"";try{await navigator.clipboard.writeText(s),t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>',t.classList.add("text-green-600"),setTimeout(()=>{t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',t.classList.remove("text-green-600")},2e3)}catch{}})})}function d(){document.querySelectorAll("[data-color-copy]").forEach(e=>{e.dataset.colorCopyInit||(e.dataset.colorCopyInit="true",e.addEventListener("click",async()=>{const t=e.getAttribute("data-color-copy");if(t)try{await navigator.clipboard.writeText(t);const o=e.querySelector(".color-hex");if(o){const s=o.textContent;o.textContent="Copied!",o.classList.add("!text-green-600","!font-semibold"),setTimeout(()=>{o.textContent=s,o.classList.remove("!text-green-600","!font-semibold")},1200)}}catch{}}))})}r();d();document.addEventListener("astro:page-load",r);document.addEventListener("astro:page-load",d);</script>

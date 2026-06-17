@@ -1,0 +1,433 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="description" content="Alius Agent Teamでタスクを作成、割り当て、追跡、管理する方法を学びます。このドキュメントでは、タスクのライフサイクル管理と高度なスケジュール機能をカバーします。"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><title>タスク管理 — Alius Docs</title><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><link rel="alternate" hreflang="en" href="https://alius.tech/docs/agent-team/task-management/"><link rel="alternate" hreflang="zh" href="https://alius.tech/zh/docs/agent-team/task-management/"><link rel="alternate" hreflang="ja" href="https://alius.tech/ja/docs/agent-team/task-management/"><link rel="alternate" hreflang="x-default" href="https://alius.tech/docs/agent-team/task-management/"><!-- Prevent FOUC (Flash of Unstyled Content) --><script>
+      const theme = localStorage.getItem('theme')
+        || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script><link rel="stylesheet" href="/_astro/about.JOGSV8ml.css">
+<link rel="stylesheet" href="/_astro/_slug_.qEm98n9R.css"></head> <body class="bg-surface-50 dark:bg-surface-900 text-surface-900 dark:text-surface-100 antialiased">  <div data-pagefind-ignore> <header class="fixed top-0 left-0 right-0 z-50 bg-surface-50/80 dark:bg-surface-900/80 backdrop-blur-lg border-b border-surface-200/60 dark:border-surface-700/60"> <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"> <!-- Logo --> <a href="/ja/" class="flex items-center gap-2.5 group"> <div class="flex items-center justify-center"> <svg class="w-10 h-10 text-brand-600 dark:text-brand-400 group-hover:text-brand-700 dark:group-hover:text-brand-500 transition-colors" viewBox="0 0 1254 1254" fill="currentColor"> <path d="M 724.500 257.681 C 653.011 263.851, 596.450 286.096, 552.842 325.196 C 526.718 348.619, 504.076 385.367, 495.662 418 C 490.377 438.500, 489.841 444.119, 488.990 488 C 488.241 526.596, 488.012 530.305, 485.720 541 C 480.488 565.412, 470.577 586.090, 446.176 623.500 C 419.896 663.790, 417 668.902, 417 674.999 C 417 684.972, 422.785 690.700, 441.926 699.682 C 461.465 708.850, 463.666 710.080, 468.039 714.275 C 477.891 723.725, 478.404 734.135, 469.861 751.221 C 465.594 759.755, 466.212 766.445, 471.810 772.312 C 473.285 773.858, 477.986 777.365, 482.257 780.104 L 490.022 785.085 486.997 788.293 C 477.778 798.069, 477.830 811.145, 487.115 817.580 C 492.428 821.261, 496.839 826.425, 499.391 831.949 C 501.239 835.949, 501.502 838.439, 501.562 852.500 C 501.641 871.026, 502.653 875.318, 509.271 885.191 C 520.290 901.629, 541.944 909.250, 573 907.620 C 609.539 905.701, 640.124 893.708, 660.990 873.115 C 666.221 867.953, 669.990 863.546, 669.367 863.321 C 668.744 863.096, 662.894 864.250, 656.367 865.886 C 617.558 875.616, 588.645 879.071, 572.749 875.878 C 564.128 874.147, 557.075 870.149, 552.903 864.630 C 547.893 858.001, 546.632 853.243, 547.039 842.500 C 547.974 817.834, 546.907 814.078, 536.032 803.739 C 528.569 796.645, 527.095 793.272, 528.973 787.583 C 530.264 783.670, 533.306 781.160, 544.250 774.979 C 548.513 772.572, 552 770.328, 552 769.994 C 552 769.659, 548.737 768.560, 544.750 767.550 C 530.731 764.002, 519.300 758.149, 517.143 753.415 C 515.178 749.101, 515.811 743.996, 519.016 738.317 C 524.409 728.762, 526.425 716.439, 523.830 708.899 C 520.688 699.772, 514.681 694.497, 501.168 688.998 C 487.709 683.520, 481.241 680.043, 476.465 675.717 C 472.523 672.147, 471.730 670.799, 471.294 666.926 C 470.672 661.397, 471.493 659.645, 483.721 640.427 C 510.115 598.944, 520.233 579.092, 525.688 558.085 C 527.883 549.633, 528.274 545.368, 528.992 522 C 529.890 492.768, 531.161 483.297, 536.606 465.263 C 548.221 426.795, 568.988 393.128, 600.987 360.895 C 655.132 306.351, 731.811 270.026, 814.928 259.545 C 821.763 258.683, 827.576 257.758, 827.845 257.489 C 828.385 256.949, 730.887 257.130, 724.500 257.681 M 594.691 505.093 C 574.985 507.975, 555.799 520.107, 541.959 538.438 C 536.940 545.085, 536.703 544.135, 546.280 555.742 C 556.587 568.233, 571.755 578.343, 588 583.550 C 598.883 587.037, 615.804 587.964, 626.644 585.666 C 646.931 581.366, 665.500 569.650, 682.089 550.685 L 690.123 541.500 684.811 536.566 C 674.416 526.908, 652.033 513.948, 637.347 509.083 C 623.806 504.596, 608.120 503.130, 594.691 505.093 M 594.782 529.553 C 587.417 531.338, 578.568 535.850, 573.500 540.403 L 569.500 543.997 573.723 547.861 C 578.482 552.215, 588.779 557.845, 597 560.590 C 600.953 561.909, 605.314 562.407, 612.500 562.359 C 620.991 562.302, 623.556 561.873, 629.500 559.513 C 636.685 556.660, 648.219 549.626, 651.307 546.213 C 652.977 544.368, 652.897 544.197, 649.191 541.745 C 631.708 530.175, 611.184 525.576, 594.782 529.553 M 735.424 737.418 C 733.733 738.154, 730.727 740.967, 728.744 743.667 C 711.731 766.844, 678.312 782.304, 640.309 784.580 C 627.059 785.373, 623.722 786.858, 621.957 792.750 C 620.452 797.773, 622.553 803.116, 627.190 806.054 C 630.206 807.966, 631.484 808.101, 641.593 807.581 C 670.537 806.090, 695.762 798.168, 718.036 783.574 C 734.351 772.884, 751 754.806, 751 747.779 C 751 743.675, 748.445 739.282, 745.033 737.517 C 741.482 735.681, 739.461 735.660, 735.424 737.418" fill-rule="evenodd"></path> </svg> </div> <span class="text-xl font-bold text-surface-900 dark:text-surface-100 tracking-tight">Alius</span> </a> <!-- Desktop Nav --> <div class="hidden lg:flex items-center gap-0.5"> <a href="/ja/" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ホーム </a><div class="relative" id="products-dropdown-trigger"> <button class="px-3 py-2 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors flex items-center gap-1" id="products-toggle"> 製品 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div id="products-dropdown" class="hidden absolute left-0 top-full mt-1 bg-white dark:bg-surface-800 rounded-xl border border-surface-200 dark:border-surface-700 shadow-xl py-2 min-w-[240px] z-50"> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ハードウェア</div> <a href="/ja/products/joint-module" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット関節モジュール </a><a href="/ja/products/mocap-device" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> モーションキャプチャシステム </a><a href="/ja/products/dcu-controller" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット DCU ドメインコントローラー </a><a href="/ja/products/usb2can-debugger" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> USB2CAN デュアルチャンネルデバッガー </a> <div class="border-t border-surface-100 dark:border-surface-700 my-1"></div> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ソフトウェア</div> <a href="/ja/products/ai-agent" class="block px-4 py-2.5 text-sm font-medium text-surface-900 dark:text-surface-100 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Alius Agent </a> <a href="/ja/product" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 pl-8 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+Agent CLI
+</a> <a href="/ja/products/agent-team" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 pl-8 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Agent Team </a> </div> </div><a href="/ja/solutions" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ソリューション </a><a href="/ja/docs" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ドキュメント </a><a href="/ja/faq" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> よくある質問 </a><a href="/ja/about" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 概要 </a><a href="/ja/contact" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> お問い合わせ </a> </div> <!-- CTA + Lang Switcher + Mobile Toggle --> <div class="flex items-center gap-3"> <!-- Theme Toggle --> <button id="theme-toggle" class="p-2 rounded-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors hidden sm:flex" aria-label="Toggle theme"> <!-- Sun icon (shown in dark mode) --> <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <!-- Moon icon (shown in light mode) --> <svg class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <script type="module">const o=document.getElementById("theme-toggle");function r(){const e=localStorage.getItem("theme");return e==="light"||e==="dark"?e:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function t(e){document.documentElement.classList.toggle("dark",e==="dark"),localStorage.setItem("theme",e)}function c(){const e=r();t(e==="light"?"dark":"light")}o?.addEventListener("click",c);window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{localStorage.getItem("theme")||t(e.matches?"dark":"light")});</script> <!-- Language Switcher --> <div class="relative" id="lang-switcher"> <button id="lang-toggle" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors" aria-label="言語切替"> <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <circle cx="12" cy="12" r="10"></circle> <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path> </svg> 日本語 </button> <div id="lang-dropdown" class="hidden absolute right-0 top-full mt-1 bg-white dark:bg-surface-800 rounded-lg border border-surface-200 dark:border-surface-700 shadow-lg py-1 min-w-[120px] z-50"> <a href="/docs/agent-team/task-management/" class="block px-4 py-2 text-sm transition-colors text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700"> English </a><a href="/zh/docs/agent-team/task-management/" class="block px-4 py-2 text-sm transition-colors text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700"> 中文 </a><a href="/ja/docs/agent-team/task-management/" class="block px-4 py-2 text-sm transition-colors text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 font-medium"> 日本語 </a> </div> </div>  <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-surface-700 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors" aria-label="メニュー切替"> <svg class="w-5 h-5" id="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> <svg class="w-5 h-5 hidden" id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"> <line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line> </svg> </button> </div> </nav> <!-- Mobile menu --> <div id="mobile-menu" class="hidden lg:hidden border-t border-surface-200/60 dark:border-surface-700/60 bg-surface-50/95 dark:bg-surface-900/95 backdrop-blur-lg"> <div class="px-6 py-4 space-y-1"> <a href="/ja/" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ホーム </a><div> <button class="mobile-products-toggle w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors"> 製品 <svg class="w-4 h-4 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div class="mobile-products-list hidden pl-4 space-y-1"> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ハードウェア</div> <a href="/ja/products/joint-module" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット関節モジュール </a><a href="/ja/products/mocap-device" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> モーションキャプチャシステム </a><a href="/ja/products/dcu-controller" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット DCU ドメインコントローラー </a><a href="/ja/products/usb2can-debugger" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> USB2CAN デュアルチャンネルデバッガー </a> <div class="border-t border-surface-100 dark:border-surface-700 my-1"></div> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ソフトウェア</div> <a href="/ja/products/ai-agent" class="block px-4 py-2 text-sm font-medium text-surface-900 dark:text-surface-100 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Alius Agent </a> <a href="/ja/product" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 pl-8 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+Agent CLI
+</a> <a href="/ja/products/agent-team" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 pl-8 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Agent Team </a> </div> </div><a href="/ja/solutions" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ソリューション </a><a href="/ja/docs" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ドキュメント </a><a href="/ja/faq" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> よくある質問 </a><a href="/ja/about" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 概要 </a><a href="/ja/contact" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> お問い合わせ </a> <!-- Mobile language links --> <div class="flex items-center gap-2 px-4 py-2.5"> <a href="/docs/agent-team/task-management/" class="px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800"> English </a><a href="/zh/docs/agent-team/task-management/" class="px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 中文 </a><a href="/ja/docs/agent-team/task-management/" class="px-3 py-1.5 rounded-lg text-sm transition-colors bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 font-medium"> 日本語 </a> </div>  <div class="px-4 py-2.5"> <button id="theme-toggle" class="p-2 rounded-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors flex w-full justify-center" aria-label="Toggle theme"> <!-- Sun icon (shown in dark mode) --> <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <!-- Moon icon (shown in light mode) --> <svg class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button>  </div> </div> </div> </header> <script type="module">const c=document.getElementById("mobile-menu-btn"),s=document.getElementById("mobile-menu"),l=document.getElementById("menu-icon"),i=document.getElementById("close-icon");c?.addEventListener("click",()=>{s?.classList.toggle("hidden"),l?.classList.toggle("hidden"),i?.classList.toggle("hidden")});const g=document.getElementById("lang-toggle"),t=document.getElementById("lang-dropdown");g?.addEventListener("click",e=>{e.stopPropagation(),t?.classList.toggle("hidden")});const m=document.getElementById("products-toggle"),n=document.getElementById("products-dropdown");m?.addEventListener("click",e=>{e.stopPropagation(),n?.classList.toggle("hidden")});document.querySelectorAll(".mobile-products-toggle").forEach(e=>{e.addEventListener("click",()=>{const o=e.nextElementSibling,d=e.querySelector("svg");o?.classList.toggle("hidden"),d?.classList.toggle("rotate-180")})});document.addEventListener("click",()=>{t?.classList.add("hidden"),n?.classList.add("hidden")});</script> </div> <div class="pt-16"> <div class="max-w-screen-2xl mx-auto"> <div class="flex"> <!-- Mobile sidebar toggle --> <button id="sidebar-toggle" class="lg:hidden fixed bottom-6 right-6 z-50 w-12 h-12 bg-brand-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-700 transition-colors" aria-label="サイドバー切替"> <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> </button> <!-- Left sidebar --> <aside id="sidebar-panel" class="hidden lg:block w-[280px] flex-shrink-0 border-r border-surface-200/70 dark:border-surface-700/70 bg-white dark:bg-surface-800"> <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-4 py-8"> <!-- Search trigger --> <button id="docs-search-btn" class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-surface-400 dark:text-surface-500 hover:bg-surface-50 dark:hover:bg-surface-700 border border-surface-200 dark:border-surface-600 mb-6 transition-colors"> <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> ドキュメントを検索... <kbd class="ml-auto hidden sm:inline-flex items-center px-1.5 py-0.5 bg-surface-100 dark:bg-surface-700 rounded text-xs text-surface-400 dark:text-surface-500">
+Ctrl+K
+</kbd> </button> <nav id="sidebar-agent-team"> <div class="mb-5" data-section="overview"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="overview"> <span>概要</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="overview" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="overview"> <li> <a href="/ja/docs/agent-team/overview" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Alius Agent Team 概要 </a> </li> </ul> </div><div class="mb-5" data-section="getting-started"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="getting-started"> <span>はじめに</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="getting-started" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="getting-started"> <li> <a href="/ja/docs/agent-team/getting-started" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> クイックスタート </a> </li> </ul> </div><div class="mb-5" data-section="architecture"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="architecture"> <span>アーキテクチャ</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="architecture" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="architecture"> <li> <a href="/ja/docs/agent-team/architecture" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> システムアーキテクチャ </a> </li> </ul> </div><div class="mb-5" data-section="agent-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="agent-management"> <span>Agent 管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="agent-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="agent-management"> <li> <a href="/ja/docs/agent-team/agent-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> エージェント管理 </a> </li> </ul> </div><div class="mb-5" data-section="task-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="task-management"> <span>タスク管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="task-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="task-management"> <li> <a href="/ja/docs/agent-team/task-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-brand-600 font-medium border-l-2 border-brand-500 pl-2.5 bg-brand-50/50"> タスク管理 </a> </li> </ul> </div><div class="mb-5" data-section="team-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="team-management"> <span>Team 管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="team-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="team-management"> <li> <a href="/ja/docs/agent-team/team-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> チーム管理 </a> </li> </ul> </div><div class="mb-5" data-section="security"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="security"> <span>セキュリティと権限</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="security" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="security"> <li> <a href="/ja/docs/agent-team/security" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> セキュリティと権限 </a> </li> </ul> </div><div class="mb-5" data-section="cross-platform"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="cross-platform"> <span>クロスプラットフォームコンソール</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="cross-platform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="cross-platform"> <li> <a href="/ja/docs/agent-team/cross-platform" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> クロスプラットフォームサポート </a> </li> </ul> </div><div class="mb-5" data-section="api-reference"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="api-reference"> <span>API リファレンス</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="api-reference" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="api-reference"> <li> <a href="/ja/docs/agent-team/api-reference" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> API参照 </a> </li> </ul> </div> </nav> <script type="module">function r(e){const s=document.getElementById(e);if(!s)return;const i=s.querySelectorAll("[data-collapse-toggle]"),d=JSON.parse(localStorage.getItem(`sidebar-collapse-${e}`)||"{}");i.forEach(c=>{const a=c.getAttribute("data-collapse-toggle"),t=s.querySelector(`[data-section-content="${a}"]`),o=s.querySelector(`[data-chevron="${a}"]`);t?.querySelector("a.border-brand-500")?(t?.classList.remove("hidden"),o?.classList.remove("-rotate-90")):d[a]===!0&&(t?.classList.add("hidden"),o?.classList.add("-rotate-90")),c.addEventListener("click",()=>{t?.classList.toggle("hidden"),o?.classList.toggle("-rotate-90");const l=JSON.parse(localStorage.getItem(`sidebar-collapse-${e}`)||"{}");l[a]=t?.classList.contains("hidden"),localStorage.setItem(`sidebar-collapse-${e}`,JSON.stringify(l))})})}document.querySelectorAll('[id^="sidebar-"]').forEach(e=>{r(e.id)});document.addEventListener("astro:page-load",()=>{document.querySelectorAll('[id^="sidebar-"]').forEach(e=>{r(e.id)})});</script> </div> </aside> <!-- Main content --> <main class="flex-1 min-w-0 bg-white dark:bg-surface-900"> <div class="max-w-3xl mx-auto px-6 lg:px-16 py-10"> <nav class="mb-6 flex items-center gap-1.5 text-sm text-surface-500 dark:text-surface-400 flex-wrap"> <a href="/ja/" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">ホーム</a> <span class="text-surface-300 dark:text-surface-600">/</span> <a href="/ja/docs/agent-team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">ドキュメント</a> <span class="text-surface-300 dark:text-surface-600">/</span> <a href="/ja/docs/agent-team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Agent Team</a> <span class="text-surface-300 dark:text-surface-600">/</span> <span class="text-surface-900 dark:text-surface-100 font-medium">タスク管理</span> </nav> <article class="prose prose-lg prose-surface dark:prose-invert max-w-none
+                prose-headings:scroll-mt-20
+                prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline
+                prose-code:before:content-none prose-code:after:content-none
+                prose-pre:bg-surface-50 dark:prose-pre:bg-surface-800 prose-pre:border prose-pre:border-surface-200 dark:prose-pre:border-surface-700
+                prose-img:rounded-xl
+                " data-pagefind-body>  <h1 id="タスク管理">タスク管理</h1>
+<p>タスク管理は、Alius Agent Teamのコア機能の1つです。効率的なタスク割り当てと追跡メカニズムにより、複数のエージェントの協調能力を十分に活用して、複雑なワークフローを完了できます。</p>
+<h2 id="タスクの概念">タスクの概念</h2>
+<h3 id="タスクとは">タスクとは</h3>
+<p>Alius Agent Teamでは、**タスク（Task）**は、エージェントに実行を割り当てられた作業単位です。タスクは、簡単な質問、複雑なマルチステッププロセス、または長時間実行されるバックグラウンドジョブになります。</p>
+<h3 id="タスクタイプ">タスクタイプ</h3>
+<p>システムは、複数のタスクタイプをサポート：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>タイプ</th><th>説明</th><th>例</th></tr></thead><tbody><tr><td>即時タスク</td><td>即時実行</td><td>”Pythonコードを書いてください”</td></tr><tr><td>スケジュールタスク</td><td>指定時間に実行</td><td>”毎日午前9時に昨日のレポートを生成”</td></tr><tr><td>繰り返しタスク</td><td>設定された間隔で繰り返し実行</td><td>”1時間ごとにサーバーステータスを確認”</td></tr><tr><td>依存タスク</td><td>他のタスク完了後に実行</td><td>”データ処理完了後、可視化レポートを生成”</td></tr><tr><td>バッチタスク</td><td>類似する複数のタスクをバッチ処理</td><td>”これらの100枚の画像の説明を生成”</td></tr></tbody></table>
+<h2 id="タスクの作成">タスクの作成</h2>
+<h3 id="インターフェースからタスクを作成">インターフェースからタスクを作成</h3>
+<h4 id="ステップ1ターゲットエージェントを選択">ステップ1：ターゲットエージェントを選択</h4>
+<p>以下の方法でエージェントを選択可能：</p>
+<ul>
+<li>エージェントリストから直接選択</li>
+<li>システムに最適なエージェントを自動選択させる</li>
+<li>タスク作成後にエージェントを割り当て</li>
+</ul>
+<h4 id="ステップ2タスク情報を入力">ステップ2：タスク情報を入力</h4>
+<ul>
+<li><strong>タイトル</strong>：タスクの短い説明（必須）</li>
+<li><strong>説明</strong>：タスク要件の詳細説明（必須）</li>
+<li><strong>優先度</strong>：タスク優先度を設定
+<ul>
+<li><strong>緊急</strong>：即座に処理が必要</li>
+<li><strong>高</strong>：重要かつ時間に敏感</li>
+<li><strong>中</strong>：通常優先度</li>
+<li><strong>低</strong>：緊急でないタスク</li>
+</ul>
+</li>
+<li><strong>期限</strong>：タスク完了期限を設定（オプション）</li>
+<li><strong>タグ</strong>：分類と検索のためにタスクにタグを追加</li>
+</ul>
+<h4 id="ステップ3高度なオプション設定">ステップ3：高度なオプション設定</h4>
+<ul>
+<li><strong>コンテキストファイル</strong>：タスクコンテキストとして関連ファイルをアップロード</li>
+<li><strong>出力形式</strong>：出力形式要件を指定</li>
+<li><strong>コールバックURL</strong>：タスク完了時に通知するURL</li>
+<li><strong>タイムアウト設定</strong>：タスク実行タイムアウトを設定</li>
+</ul>
+<h4 id="ステップ4タスクを送信">ステップ4：タスクを送信</h4>
+<p>「送信」ボタンをクリックすると、タスクは選択されたエージェントに送信されます。</p>
+<h3 id="api経由でタスクを作成">API経由でタスクを作成</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> -X</span><span style="color:#9ECBFF"> POST</span><span style="color:#9ECBFF"> https://api.alius.ai/v1/tasks</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> &quot;Authorization: Bearer YOUR_TOKEN&quot;</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -H</span><span style="color:#9ECBFF"> &quot;Content-Type: application/json&quot;</span><span style="color:#79B8FF"> \</span></span>
+<span class="line"><span style="color:#79B8FF">  -d</span><span style="color:#9ECBFF"> &#39;{</span></span>
+<span class="line"><span style="color:#9ECBFF">    &quot;title&quot;: &quot;コードレビュー&quot;,</span></span>
+<span class="line"><span style="color:#9ECBFF">    &quot;description&quot;: &quot;以下のPull Requestのコード品質をレビュー&quot;,</span></span>
+<span class="line"><span style="color:#9ECBFF">    &quot;agentId&quot;: &quot;agent_12345&quot;,</span></span>
+<span class="line"><span style="color:#9ECBFF">    &quot;priority&quot;: &quot;high&quot;,</span></span>
+<span class="line"><span style="color:#9ECBFF">    &quot;deadline&quot;: &quot;2024-01-20T17:00:00Z&quot;,</span></span>
+<span class="line"><span style="color:#9ECBFF">    &quot;attachments&quot;: [</span></span>
+<span class="line"><span style="color:#9ECBFF">      {</span></span>
+<span class="line"><span style="color:#9ECBFF">        &quot;type&quot;: &quot;url&quot;,</span></span>
+<span class="line"><span style="color:#9ECBFF">        &quot;url&quot;: &quot;https://github.com/example/repo/pull/123&quot;</span></span>
+<span class="line"><span style="color:#9ECBFF">      }</span></span>
+<span class="line"><span style="color:#9ECBFF">    ]</span></span>
+<span class="line"><span style="color:#9ECBFF">  }&#39;</span></span></code></pre>
+<h3 id="バッチでタスクを作成">バッチでタスクを作成</h3>
+<p>複数の類似タスクを作成する必要がある場合、バッチ作成機能を使用可能：</p>
+<ol>
+<li>タスク情報を含むCSVまたはJSONファイルを準備</li>
+<li>タスクリストページで、「バッチ操作」 &gt; 「タスクインポート」をクリック</li>
+<li>ファイルをアップロードしてフィールドをマッピング</li>
+<li>インポートを確認</li>
+</ol>
+<p>バッチタスクファイル例（JSON）：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">[</span></span>
+<span class="line"><span style="color:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;title&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;データファイル1を分析&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;description&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;data1.csvのデータ分布を分析&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;agentId&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;agent_12345&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#E1E4E8">  {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;title&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;データファイル2を分析&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;description&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;data2.csvのデータ分布を分析&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;agentId&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;agent_12345&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">]</span></span></code></pre>
+<h2 id="タスク割り当て">タスク割り当て</h2>
+<h3 id="自動割り当て">自動割り当て</h3>
+<p>Alius Agent Teamは、インテリジェントなタスク割り当てを提供：</p>
+<h4 id="負荷分散割り当て">負荷分散割り当て</h4>
+<p>システムは、以下の要因に基づいて最適なエージェントを自動選択：</p>
+<ul>
+<li>エージェントの現在の負荷</li>
+<li>エージェントタイプと能力のマッチ度</li>
+<li>エージェントの過去のパフォーマンス</li>
+<li>タスクの優先度と要件</li>
+</ul>
+<h4 id="ルールベース割り当て">ルールベース割り当て</h4>
+<p>割り当てルールを設定可能：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>ルール1：コード生成タスク -&gt; 「codegen」タグのエージェントに割り当て</span></span>
+<span class="line"><span>ルール2：高優先度タスク -&gt; 負荷が50%未満のエージェントに割り当て</span></span>
+<span class="line"><span>ルール3：ビッグデータタスク -&gt; メモリが4GB以上のエージェントに割り当て</span></span></code></pre>
+<h3 id="手動割り当て">手動割り当て</h3>
+<p>タスクを特定のエージェントに手動で割り当て可能：</p>
+<ol>
+<li>タスクリストで未割り当てのタスクを見つける</li>
+<li>「割り当て」ボタンをクリック</li>
+<li>利用可能なエージェントリストから選択</li>
+<li>割り当てを確認</li>
+</ol>
+<h3 id="再割り当て">再割り当て</h3>
+<p>タスク割り当てが不適切な場合、再割り当て可能：</p>
+<ol>
+<li>再割り当てするタスクを見つける</li>
+<li>「その他の操作」 &gt; 「再割り当て」をクリック</li>
+<li>新しいエージェントを選択</li>
+<li>オプション：再割り当て理由を追加</li>
+<li>再割り当てを確認</li>
+</ol>
+<h2 id="タスク追跡">タスク追跡</h2>
+<h3 id="タスクステータス">タスクステータス</h3>
+<p>タスクは、ライフサイクル中に以下のステータスを経験：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>保留中 (Pending)</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>実行中 (Running)</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>    ├── 完了 (Completed)</span></span>
+<span class="line"><span>    ├── 失敗 (Failed)</span></span>
+<span class="line"><span>    └── キャンセル (Cancelled)</span></span></code></pre>
+<h4 id="ステータスの説明">ステータスの説明</h4>
+<ul>
+<li><strong>保留中</strong>：タスク作成済み、エージェント受信待ち</li>
+<li><strong>実行中</strong>：エージェントがタスクを実行中</li>
+<li><strong>完了</strong>：タスクが正常に完了</li>
+<li><strong>失敗</strong>：タスク実行が失敗</li>
+<li><strong>キャンセル</strong>：ユーザーによってタスクがキャンセル</li>
+</ul>
+<h3 id="リアルタイム進捗追跡">リアルタイム進捗追跡</h3>
+<h4 id="進捗インジケーター">進捗インジケーター</h4>
+<p>長時間実行されるタスクの場合、システムはリアルタイム進捗更新を提供：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>[=======&gt;     ] 65% - ファイル13/20を処理中</span></span>
+<span class="line"><span>残り時間：約2分</span></span></code></pre>
+<h4 id="タスクログ">タスクログ</h4>
+<p>タスクの詳細な実行ログを閲覧：</p>
+<ol>
+<li>タスクをクリックして詳細を閲覧</li>
+<li>「実行ログ」タブを選択</li>
+<li>リアルタイムまたは履歴ログを閲覧</li>
+</ol>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>[ステップ1/3] 入力ファイルを読み込み中... ✓ 完了 (12ms)</span></span>
+<span class="line"><span>[ステップ2/3] データを分析中... ▶ 実行中 (45%)</span></span>
+<span class="line"><span>[ステップ3/3] レポートを生成中... ○ 待機中</span></span></code></pre>
+<h3 id="タスク詳細閲覧">タスク詳細閲覧</h3>
+<p>任意のタスクをクリックして、完全な詳細を閲覧：</p>
+<ul>
+<li><strong>基本情報</strong>：タイトル、説明、ステータス、優先度など</li>
+<li><strong>割り当て情報</strong>：どのエージェントに割り当てられたか、割り当て時間</li>
+<li><strong>タイムライン</strong>：タスク作成、割り当て、開始、完了の時間</li>
+<li><strong>実行結果</strong>：タスク出力、生成ファイル、エラー情報など</li>
+<li><strong>履歴</strong>：タスクのすべてのステータス変更履歴</li>
+</ul>
+<h2 id="タスクスケジュール">タスクスケジュール</h2>
+<h3 id="スケジュールタスク">スケジュールタスク</h3>
+<p>特定の時間に実行されるタスクを作成：</p>
+<ol>
+<li>新しいタスクを作成する際、「スケジュール実行」を選択</li>
+<li>実行時間を設定</li>
+<li>オプション：実行後に繰り返すかを設定</li>
+</ol>
+<p>例：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>実行時間：2024-01-20 09:00:00</span></span>
+<span class="line"><span>繰り返し：繰り返さない</span></span></code></pre>
+<h3 id="繰り返しタスク">繰り返しタスク</h3>
+<p>間隔を設定して繰り返し実行されるタスクを作成：</p>
+<ol>
+<li>新しいタスクを作成する際、「繰り返し実行」を選択</li>
+<li>繰り返しルールを設定：
+<ul>
+<li><strong>分単位</strong>：N分ごとに実行</li>
+<li><strong>時間単位</strong>：N時間ごとに実行</li>
+<li><strong>日単位</strong>：毎日1回実行</li>
+<li><strong>週単位</strong>：毎週指定日実行</li>
+<li><strong>月単位</strong>：毎月指定日実行</li>
+<li><strong>Cron式</strong>：標準Cron式を使用</li>
+</ul>
+</li>
+<li>必要に応じて終了日を設定</li>
+<li>タスクを作成</li>
+</ol>
+<p>Cron式の例：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>0 9 * * 1-5  # 月曜から金曜の午前9時に実行</span></span>
+<span class="line"><span>0 */2 * * *   # 2時間ごとに実行</span></span>
+<span class="line"><span>0 0 1 * *     # 毎月1日の深夜に実行</span></span></code></pre>
+<h3 id="依存タスク">依存タスク</h3>
+<p>他のタスク結果に依存するタスクを作成：</p>
+<ol>
+<li>新しいタスクを作成する際、「依存タスク」を選択</li>
+<li>依存タスクを追加：
+<ul>
+<li><strong>前提タスク</strong>：完了する必要があるタスク</li>
+<li><strong>条件</strong>：前提タスクの成功条件</li>
+</ul>
+</li>
+<li>依存関係を設定：
+<ul>
+<li><strong>順次実行</strong>：A完了後にBを実行</li>
+<li><strong>並列実行</strong>：AとBの両方が完了した後にCを実行</li>
+<li><strong>条件分岐</strong>：Aの結果に基づいてBまたはCを実行</li>
+</ul>
+</li>
+</ol>
+<h2 id="タスク管理操作">タスク管理操作</h2>
+<h3 id="タスクキュー管理">タスクキュー管理</h3>
+<h4 id="キューを閲覧">キューを閲覧</h4>
+<p>「タスク」ページで、以下を閲覧可能：</p>
+<ul>
+<li><strong>すべてのタスク</strong>：システム内のすべてのタスク</li>
+<li><strong>自分のタスク</strong>：自分が作成したタスク</li>
+<li><strong>保留中</strong>：割り当てまたは実行待ちのタスク</li>
+<li><strong>実行中</strong>：現在実行中のタスク</li>
+<li><strong>完了</strong>：正常に完了したタスク</li>
+<li><strong>失敗</strong>：実行に失敗したタスク</li>
+</ul>
+<h4 id="キュー優先度調整">キュー優先度調整</h4>
+<ol>
+<li>保留中タスクリストで、調整するタスクを見つける</li>
+<li>タスクを新しい位置にドラッグ（優先度の高いタスクが上）</li>
+<li>または、タスクの優先度フィールドを変更</li>
+</ol>
+<h3 id="タスク制御操作">タスク制御操作</h3>
+<h4 id="タスクを一時停止">タスクを一時停止</h4>
+<p>実行中のタスクを一時停止可能：</p>
+<ol>
+<li>実行中のタスクを見つける</li>
+<li>「一時停止」ボタンをクリック</li>
+<li>エージェントは実行を一時停止するが、現在の状態を保持</li>
+<li>後で再開可能</li>
+</ol>
+<h4 id="タスクを再開">タスクを再開</h4>
+<p>一時停止したタスクを再開：</p>
+<ol>
+<li>一時停止したタスクを見つける</li>
+<li>「再開」ボタンをクリック</li>
+<li>エージェントは一時停止した箇所から継続して実行</li>
+</ol>
+<h4 id="タスクをキャンセル">タスクをキャンセル</h4>
+<p>不要なタスクをキャンセル：</p>
+<ol>
+<li>キャンセルするタスクを見つける（ステータスは「保留中」または「実行中」である必要がある）</li>
+<li>「キャンセル」ボタンをクリック</li>
+<li>キャンセルを確認</li>
+<li>タスクが実行中の場合、エージェントは実行を停止</li>
+</ol>
+<h4 id="タスクを再試行">タスクを再試行</h4>
+<p>失敗したタスクを再実行：</p>
+<ol>
+<li>失敗したタスクを見つける</li>
+<li>「再試行」ボタンをクリック</li>
+<li>オプション：タスクパラメータを変更</li>
+<li>タスクは保留中キューに再投入</li>
+</ol>
+<h3 id="タスクテンプレート">タスクテンプレート</h3>
+<h4 id="テンプレートを作成">テンプレートを作成</h4>
+<p>頻繁に実行するタスクの場合、テンプレートとして保存可能：</p>
+<ol>
+<li>タスクを作成してすべてのパラメータを設定</li>
+<li>「テンプレートとして保存」をクリック</li>
+<li>テンプレート名と説明を入力</li>
+<li>テンプレートはテンプレートライブラリに保存</li>
+</ol>
+<h4 id="テンプレートを使用">テンプレートを使用</h4>
+<p>テンプレートから迅速にタスクを作成：</p>
+<ol>
+<li>タスク作成ページで、「テンプレートから作成」を選択</li>
+<li>テンプレートライブラリからテンプレートを選択</li>
+<li>必要に応じてパラメータを調整</li>
+<li>タスクを送信</li>
+</ol>
+<h2 id="タスク分析とレポート">タスク分析とレポート</h2>
+<h3 id="タスク統計">タスク統計</h3>
+<p>Alius Agent Teamは、豊富なタスク統計機能を提供：</p>
+<h4 id="概要統計">概要統計</h4>
+<ul>
+<li>総タスク数</li>
+<li>完了率</li>
+<li>平均完了時間</li>
+<li>失敗率</li>
+</ul>
+<h4 id="時間範囲統計">時間範囲統計</h4>
+<ul>
+<li>今日のタスク量</li>
+<li>今週のタスク量</li>
+<li>今月のタスク量</li>
+<li>カスタム時間範囲</li>
+</ul>
+<h4 id="エージェント次元統計">エージェント次元統計</h4>
+<ul>
+<li>各エージェントが完了したタスク数</li>
+<li>各エージェントの平均応答時間</li>
+<li>各エージェントのタスク成功率</li>
+</ul>
+<h3 id="レポートをエクスポート">レポートをエクスポート</h3>
+<p>タスクレポートを生成およびエクスポート：</p>
+<ol>
+<li>タスクリストページで、「エクスポート」をクリック</li>
+<li>エクスポート形式を選択：
+<ul>
+<li>CSV</li>
+<li>Excel</li>
+<li>PDF</li>
+<li>JSON</li>
+</ul>
+</li>
+<li>含めるデータフィールドを選択</li>
+<li>時間範囲を選択</li>
+<li>「エクスポート」をクリック</li>
+</ol>
+<h2 id="ベストプラクティス">ベストプラクティス</h2>
+<h3 id="タスク分解推奨事項">タスク分解推奨事項</h3>
+<p>複雑なワークフローの場合、複数の小さなタスクに分解することを推奨：</p>
+<p><strong>推奨されない</strong>：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>タスク：eコマースウェブサイトを構築</span></span>
+<span class="line"><span>（大きすぎて、追跡とデバッグが困難）</span></span></code></pre>
+<p><strong>推奨</strong>：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>タスク1：データベーススキーマを設計</span></span>
+<span class="line"><span>タスク2：ユーザー認証モジュールを実装</span></span>
+<span class="line"><span>タスク3：商品管理モジュールを実装</span></span>
+<span class="line"><span>タスク4：注文処理モジュールを実装</span></span>
+<span class="line"><span>タスク5：決済統合を実装</span></span>
+<span class="line"><span>...</span></span></code></pre>
+<h3 id="優先度設定推奨事項">優先度設定推奨事項</h3>
+<ul>
+<li><strong>緊急</strong>：本番環境の障害、セキュリティ脆弱性など</li>
+<li><strong>高</strong>：複数のチームに影響する重要な機能</li>
+<li><strong>中</strong>：通常の機能開発と最適化</li>
+<li><strong>低</strong>：実験的な機能と最適化提案</li>
+</ul>
+<h3 id="タイムアウト設定推奨事項">タイムアウト設定推奨事項</h3>
+<ul>
+<li>簡単な照会タスク：30秒 - 1分</li>
+<li>コード生成タスク：5 - 10分</li>
+<li>データ処理タスク：30分 - 2時間</li>
+<li>バッチ処理タスク：データ量に基づいて設定</li>
+</ul>
+<h2 id="トラブルシューティング">トラブルシューティング</h2>
+<h3 id="タスクが長時間保留中ステータスのまま">タスクが長時間「保留中」ステータスのまま</h3>
+<p><strong>考えられる原因</strong>：</p>
+<ul>
+<li>利用可能なエージェントがない</li>
+<li>エージェントの負荷が高すぎる</li>
+<li>タスク優先度が低すぎる</li>
+</ul>
+<p><strong>解決方法</strong>：</p>
+<ol>
+<li>エージェントステータスを確認</li>
+<li>エージェント数を増加させるかタスク優先度を引き上げ</li>
+<li>割り当てルールが正しいか確認</li>
+</ol>
+<h3 id="タスク実行が失敗">タスク実行が失敗</h3>
+<p><strong>考えられる原因</strong>：</p>
+<ul>
+<li>エージェントエラー</li>
+<li>タスクパラメータが不正</li>
+<li>依存サービスが利用不可</li>
+<li>タイムアウト</li>
+</ul>
+<p><strong>解決方法</strong>：</p>
+<ol>
+<li>タスク実行ログを閲覧</li>
+<li>タスクパラメータが正しいか確認</li>
+<li>依存サービスのステータスを確認</li>
+<li>タイムアウト時間を増加</li>
+</ol>
+<h3 id="タスク結果が期待通りでない">タスク結果が期待通りでない</h3>
+<p><strong>考えられる原因</strong>：</p>
+<ul>
+<li>タスク説明が十分に明確でない</li>
+<li>エージェント設定が不適切</li>
+<li>モデル選択が不適切</li>
+</ul>
+<p><strong>解決方法</strong>：</p>
+<ol>
+<li>タスク説明を最適化し、より明確な指示を提供</li>
+<li>エージェント設定を調整（例：温度パラメータ）</li>
+<li>異なるモデルを試す</li>
+</ol>
+<h2 id="api参照">API参照</h2>
+<p>詳細なタスク管理APIドキュメントについては、<a href="/docs/agent-team/ja/api-reference">API参照</a>の章を参照してください。</p>  </article> <!-- Previous / Next navigation --> <nav class="mt-16 pt-8 border-t border-surface-200 dark:border-surface-700 flex items-center justify-between gap-4"> <a href="/ja/docs/agent-team/agent-management" class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M19 12H5M12 19l-7-7 7-7"></path> </svg> <span class="font-medium">エージェント管理</span> </a> <a href="/ja/docs/agent-team/team-management" class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors group text-right"> <span class="font-medium">チーム管理</span> <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M5 12h14M12 5l7 7-7 7"></path> </svg> </a> </nav> </div> </main> <!-- Right sidebar (TOC) --> <aside class="hidden xl:block w-56 flex-shrink-0"> <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-4 py-10"> <nav><h4 class="text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider mb-3">このページの内容</h4><ul class="space-y-1.5" id="toc-list"><li><a href="#タスクの概念" data-toc-slug="タスクの概念" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">タスクの概念</a></li><li><a href="#タスクとは" data-toc-slug="タスクとは" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスクとは</a></li><li><a href="#タスクタイプ" data-toc-slug="タスクタイプ" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスクタイプ</a></li><li><a href="#タスクの作成" data-toc-slug="タスクの作成" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">タスクの作成</a></li><li><a href="#インターフェースからタスクを作成" data-toc-slug="インターフェースからタスクを作成" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">インターフェースからタスクを作成</a></li><li><a href="#api経由でタスクを作成" data-toc-slug="api経由でタスクを作成" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">API経由でタスクを作成</a></li><li><a href="#バッチでタスクを作成" data-toc-slug="バッチでタスクを作成" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">バッチでタスクを作成</a></li><li><a href="#タスク割り当て" data-toc-slug="タスク割り当て" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">タスク割り当て</a></li><li><a href="#自動割り当て" data-toc-slug="自動割り当て" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">自動割り当て</a></li><li><a href="#手動割り当て" data-toc-slug="手動割り当て" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">手動割り当て</a></li><li><a href="#再割り当て" data-toc-slug="再割り当て" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">再割り当て</a></li><li><a href="#タスク追跡" data-toc-slug="タスク追跡" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">タスク追跡</a></li><li><a href="#タスクステータス" data-toc-slug="タスクステータス" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスクステータス</a></li><li><a href="#リアルタイム進捗追跡" data-toc-slug="リアルタイム進捗追跡" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">リアルタイム進捗追跡</a></li><li><a href="#タスク詳細閲覧" data-toc-slug="タスク詳細閲覧" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスク詳細閲覧</a></li><li><a href="#タスクスケジュール" data-toc-slug="タスクスケジュール" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">タスクスケジュール</a></li><li><a href="#スケジュールタスク" data-toc-slug="スケジュールタスク" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">スケジュールタスク</a></li><li><a href="#繰り返しタスク" data-toc-slug="繰り返しタスク" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">繰り返しタスク</a></li><li><a href="#依存タスク" data-toc-slug="依存タスク" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">依存タスク</a></li><li><a href="#タスク管理操作" data-toc-slug="タスク管理操作" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">タスク管理操作</a></li><li><a href="#タスクキュー管理" data-toc-slug="タスクキュー管理" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスクキュー管理</a></li><li><a href="#タスク制御操作" data-toc-slug="タスク制御操作" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスク制御操作</a></li><li><a href="#タスクテンプレート" data-toc-slug="タスクテンプレート" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスクテンプレート</a></li><li><a href="#タスク分析とレポート" data-toc-slug="タスク分析とレポート" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">タスク分析とレポート</a></li><li><a href="#タスク統計" data-toc-slug="タスク統計" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスク統計</a></li><li><a href="#レポートをエクスポート" data-toc-slug="レポートをエクスポート" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">レポートをエクスポート</a></li><li><a href="#ベストプラクティス" data-toc-slug="ベストプラクティス" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">ベストプラクティス</a></li><li><a href="#タスク分解推奨事項" data-toc-slug="タスク分解推奨事項" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスク分解推奨事項</a></li><li><a href="#優先度設定推奨事項" data-toc-slug="優先度設定推奨事項" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">優先度設定推奨事項</a></li><li><a href="#タイムアウト設定推奨事項" data-toc-slug="タイムアウト設定推奨事項" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タイムアウト設定推奨事項</a></li><li><a href="#トラブルシューティング" data-toc-slug="トラブルシューティング" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">トラブルシューティング</a></li><li><a href="#タスクが長時間保留中ステータスのまま" data-toc-slug="タスクが長時間保留中ステータスのまま" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスクが長時間「保留中」ステータスのまま</a></li><li><a href="#タスク実行が失敗" data-toc-slug="タスク実行が失敗" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスク実行が失敗</a></li><li><a href="#タスク結果が期待通りでない" data-toc-slug="タスク結果が期待通りでない" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">タスク結果が期待通りでない</a></li><li><a href="#api参照" data-toc-slug="api参照" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">API参照</a></li></ul></nav><script type="module">function l(){const c=document.getElementById("toc-list");if(!c)return;const a=c.querySelectorAll("[data-toc-slug]");if(a.length===0)return;const n=[];if(a.forEach(d=>{const s=d.getAttribute("data-toc-slug"),t=document.getElementById(s||"");t&&n.push(t)}),n.length===0)return;let e=null;function o(){let s=0;for(let i=n.length-1;i>=0;i--)if(n[i].getBoundingClientRect().top<=100){s=i;break}const t=a[s];t!==e&&(e&&(e.classList.remove("text-brand-600","dark:text-brand-400","font-medium"),e.classList.add("text-surface-500","dark:text-surface-400")),t.classList.add("text-brand-600","dark:text-brand-400","font-medium"),t.classList.remove("text-surface-500","dark:text-surface-400"),e=t)}o();let r=!1;window.addEventListener("scroll",()=>{r||(requestAnimationFrame(()=>{o(),r=!1}),r=!0)},{passive:!0})}l();document.addEventListener("astro:page-load",l);</script> </div> </aside> </div> </div> </div> <div data-pagefind-ignore> <footer class="bg-surface-900 dark:bg-surface-950 text-surface-300 dark:text-surface-400"> <div class="max-w-7xl mx-auto px-6 pt-16 pb-8"> <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mb-12"> <!-- Brand column --> <div class="col-span-2 md:col-span-1"> <a href="/ja/" class="flex items-center gap-2.5 mb-4"> <div class="w-8 h-8 bg-brand-500 dark:bg-brand-600 rounded-lg flex items-center justify-center"> <svg class="w-5 h-5 text-white" viewBox="0 0 1254 1254" fill="currentColor"> <path d="M 724.500 257.681 C 653.011 263.851, 596.450 286.096, 552.842 325.196 C 526.718 348.619, 504.076 385.367, 495.662 418 C 490.377 438.500, 489.841 444.119, 488.990 488 C 488.241 526.596, 488.012 530.305, 485.720 541 C 480.488 565.412, 470.577 586.090, 446.176 623.500 C 419.896 663.790, 417 668.902, 417 674.999 C 417 684.972, 422.785 690.700, 441.926 699.682 C 461.465 708.850, 463.666 710.080, 468.039 714.275 C 477.891 723.725, 478.404 734.135, 469.861 751.221 C 465.594 759.755, 466.212 766.445, 471.810 772.312 C 473.285 773.858, 477.986 777.365, 482.257 780.104 L 490.022 785.085 486.997 788.293 C 477.778 798.069, 477.830 811.145, 487.115 817.580 C 492.428 821.261, 496.839 826.425, 499.391 831.949 C 501.239 835.949, 501.502 838.439, 501.562 852.500 C 501.641 871.026, 502.653 875.318, 509.271 885.191 C 520.290 901.629, 541.944 909.250, 573 907.620 C 609.539 905.701, 640.124 893.708, 660.990 873.115 C 666.221 867.953, 669.990 863.546, 669.367 863.321 C 668.744 863.096, 662.894 864.250, 656.367 865.886 C 617.558 875.616, 588.645 879.071, 572.749 875.878 C 564.128 874.147, 557.075 870.149, 552.903 864.630 C 547.893 858.001, 546.632 853.243, 547.039 842.500 C 547.974 817.834, 546.907 814.078, 536.032 803.739 C 528.569 796.645, 527.095 793.272, 528.973 787.583 C 530.264 783.670, 533.306 781.160, 544.250 774.979 C 548.513 772.572, 552 770.328, 552 769.994 C 552 769.659, 548.737 768.560, 544.750 767.550 C 530.731 764.002, 519.300 758.149, 517.143 753.415 C 515.178 749.101, 515.811 743.996, 519.016 738.317 C 524.409 728.762, 526.425 716.439, 523.830 708.899 C 520.688 699.772, 514.681 694.497, 501.168 688.998 C 487.709 683.520, 481.241 680.043, 476.465 675.717 C 472.523 672.147, 471.730 670.799, 471.294 666.926 C 470.672 661.397, 471.493 659.645, 483.721 640.427 C 510.115 598.944, 520.233 579.092, 525.688 558.085 C 527.883 549.633, 528.274 545.368, 528.992 522 C 529.890 492.768, 531.161 483.297, 536.606 465.263 C 548.221 426.795, 568.988 393.128, 600.987 360.895 C 655.132 306.351, 731.811 270.026, 814.928 259.545 C 821.763 258.683, 827.576 257.758, 827.845 257.489 C 828.385 256.949, 730.887 257.130, 724.500 257.681 M 594.691 505.093 C 574.985 507.975, 555.799 520.107, 541.959 538.438 C 536.940 545.085, 536.703 544.135, 546.280 555.742 C 556.587 568.233, 571.755 578.343, 588 583.550 C 598.883 587.037, 615.804 587.964, 626.644 585.666 C 646.931 581.366, 665.500 569.650, 682.089 550.685 L 690.123 541.500 684.811 536.566 C 674.416 526.908, 652.033 513.948, 637.347 509.083 C 623.806 504.596, 608.120 503.130, 594.691 505.093 M 594.782 529.553 C 587.417 531.338, 578.568 535.850, 573.500 540.403 L 569.500 543.997 573.723 547.861 C 578.482 552.215, 588.779 557.845, 597 560.590 C 600.953 561.909, 605.314 562.407, 612.500 562.359 C 620.991 562.302, 623.556 561.873, 629.500 559.513 C 636.685 556.660, 648.219 549.626, 651.307 546.213 C 652.977 544.368, 652.897 544.197, 649.191 541.745 C 631.708 530.175, 611.184 525.576, 594.782 529.553 M 735.424 737.418 C 733.733 738.154, 730.727 740.967, 728.744 743.667 C 711.731 766.844, 678.312 782.304, 640.309 784.580 C 627.059 785.373, 623.722 786.858, 621.957 792.750 C 620.452 797.773, 622.553 803.116, 627.190 806.054 C 630.206 807.966, 631.484 808.101, 641.593 807.581 C 670.537 806.090, 695.762 798.168, 718.036 783.574 C 734.351 772.884, 751 754.806, 751 747.779 C 751 743.675, 748.445 739.282, 745.033 737.517 C 741.482 735.681, 739.461 735.660, 735.424 737.418" fill-rule="evenodd"></path> </svg> </div> <span class="text-xl font-bold text-white dark:text-surface-100 tracking-tight">Alius</span> </a> <p class="text-sm text-surface-400 dark:text-surface-500 leading-relaxed"> ロボット + AI エージェントプラットフォーム。ハードウェア。ソフトウェア。インテリジェンス。 </p> <div class="flex items-center gap-4 mt-6"> <a href="https://github.com/AliusTech/alius" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="GitHub"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg> </a> <a href="https://twitter.com/alius_tech" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="Twitter"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg> </a> <a href="https://discord.gg/alius" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="Discord"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 00-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 00-5.487 0 12.36 12.36 0 00-.617-1.23A.077.077 0 008.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 00-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 00.031.055 20.03 20.03 0 005.993 2.98.078.078 0 00.084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 01-1.872-.878.075.075 0 01-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 01.078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 01.079.009c.12.098.245.195.372.288a.075.075 0 01-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 00-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 00.084.028 19.963 19.963 0 006.002-2.981.076.076 0 00.032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 00-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"></path></svg> </a> </div> </div> <!-- Link columns --> <div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">ハードウェア</h3> <ul class="space-y-3"> <li> <a href="/ja/products/joint-module" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ロボット関節モジュール </a> </li><li> <a href="/ja/products/mocap-device" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> モーションキャプチャシステム </a> </li><li> <a href="/ja/products/dcu-controller" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ロボット DCU ドメインコントローラー </a> </li><li> <a href="/ja/products/usb2can-debugger" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> USB2CAN デュアルチャンネルデバッガー </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">ソフトウェア</h3> <ul class="space-y-3"> <li> <a href="/ja/products/ai-agent" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Alius Agent </a> </li><li> <a href="/ja/product" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Agent CLI </a> </li><li> <a href="/ja/products/agent-team" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Agent Team </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">リソース</h3> <ul class="space-y-3"> <li> <a href="/docs" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ドキュメント </a> </li><li> <a href="/docs/api" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> API リファレンス </a> </li><li> <a href="/docs/examples" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> サンプル </a> </li><li> <a href="/community" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> コミュニティ </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">会社</h3> <ul class="space-y-3"> <li> <a href="/ja/about" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 概要 </a> </li><li> <a href="/ja/solutions" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ソリューション </a> </li><li> <a href="/blog" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ブログ </a> </li><li> <a href="/careers" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 採用情報 </a> </li><li> <a href="/ja/faq" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> よくある質問 </a> </li><li> <a href="/ja/contact" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> お問い合わせ </a> </li> </ul> </div> </div> <div class="border-t border-surface-800 dark:border-surface-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"> <p class="text-sm text-surface-500 dark:text-surface-600">&copy; 2026 Alius Tech. All rights reserved.</p> <div class="flex items-center gap-6"> <a href="/privacy" class="text-sm text-surface-500 dark:text-surface-600 hover:text-surface-300 dark:hover:text-surface-400 transition-colors">プライバシー</a> <a href="/terms" class="text-sm text-surface-500 dark:text-surface-600 hover:text-surface-300 dark:hover:text-surface-400 transition-colors">利用規約</a> </div> </div> </div> </footer> </div>  <div id="docs-search" class="hidden fixed inset-0 z-50"> <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="search-backdrop"></div> <div class="relative max-w-2xl mx-auto mt-24 px-4"> <div class="bg-white dark:bg-surface-800 rounded-2xl shadow-2xl overflow-hidden border border-surface-200 dark:border-surface-700"> <div id="pagefind-search" class="p-4"></div> </div> </div> </div>  <script src="/pagefind/pagefind.js" async></script> </body> </html> <script type="module">const l=document.getElementById("sidebar-toggle"),n=document.getElementById("sidebar-panel");l?.addEventListener("click",()=>{n?.classList.toggle("hidden"),n?.classList.toggle("fixed"),n?.classList.toggle("inset-0"),n?.classList.toggle("z-40"),n?.classList.toggle("bg-white"),n?.classList.toggle("dark:bg-surface-800"),n?.classList.toggle("overflow-y-auto")});const g=document.getElementById("docs-search-btn"),a=document.getElementById("docs-search"),u=document.getElementById("search-backdrop");let c=!1;async function i(){if(a?.classList.remove("hidden"),!c){await new Promise(t=>{if(window.PagefindUI){t();return}const o=document.createElement("script");o.src="/pagefind/pagefind-ui.js",o.onload=()=>t(),o.onerror=()=>t(),document.head.appendChild(o)});const e=window.PagefindUI;e&&(new e({element:"#pagefind-search",showSubResults:!0,showImages:!1}),c=!0)}setTimeout(()=>{document.querySelector("#pagefind-search input")?.focus()},100)}g?.addEventListener("click",i);u?.addEventListener("click",()=>{a?.classList.add("hidden")});document.addEventListener("keydown",e=>{e.key==="Escape"&&a?.classList.add("hidden"),(e.ctrlKey||e.metaKey)&&e.key==="k"&&(e.preventDefault(),i())});function r(){document.querySelectorAll("pre").forEach(e=>{if(e.querySelector(".code-copy-btn"))return;e.style.position="relative";const t=document.createElement("button");t.className="code-copy-btn absolute top-2 right-2 px-2 py-1 text-xs rounded-md bg-surface-200/80 text-surface-600 hover:bg-surface-300 hover:text-surface-800 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100",t.setAttribute("aria-label","Copy code"),t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',e.classList.add("group"),e.appendChild(t),t.addEventListener("click",async()=>{const s=e.querySelector("code")?.textContent||e.textContent||"";try{await navigator.clipboard.writeText(s),t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>',t.classList.add("text-green-600"),setTimeout(()=>{t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',t.classList.remove("text-green-600")},2e3)}catch{}})})}function d(){document.querySelectorAll("[data-color-copy]").forEach(e=>{e.dataset.colorCopyInit||(e.dataset.colorCopyInit="true",e.addEventListener("click",async()=>{const t=e.getAttribute("data-color-copy");if(t)try{await navigator.clipboard.writeText(t);const o=e.querySelector(".color-hex");if(o){const s=o.textContent;o.textContent="Copied!",o.classList.add("!text-green-600","!font-semibold"),setTimeout(()=>{o.textContent=s,o.classList.remove("!text-green-600","!font-semibold")},1200)}}catch{}}))})}r();d();document.addEventListener("astro:page-load",r);document.addEventListener("astro:page-load",d);</script>

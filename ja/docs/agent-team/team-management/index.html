@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="ja"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="description" content="Alius Agent Teamでチームを作成および管理し、多人数コラボレーションとエージェント共有を実現する方法を学びます。このドキュメントは、チームの完全なライフサイクル管理をカバーします。"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"><title>チーム管理 — Alius Docs</title><link href="/pagefind/pagefind-ui.css" rel="stylesheet"><link rel="alternate" hreflang="en" href="https://alius.tech/docs/agent-team/team-management/"><link rel="alternate" hreflang="zh" href="https://alius.tech/zh/docs/agent-team/team-management/"><link rel="alternate" hreflang="ja" href="https://alius.tech/ja/docs/agent-team/team-management/"><link rel="alternate" hreflang="x-default" href="https://alius.tech/docs/agent-team/team-management/"><!-- Prevent FOUC (Flash of Unstyled Content) --><script>
+      const theme = localStorage.getItem('theme')
+        || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+    </script><link rel="stylesheet" href="/_astro/about.JOGSV8ml.css">
+<link rel="stylesheet" href="/_astro/_slug_.qEm98n9R.css"></head> <body class="bg-surface-50 dark:bg-surface-900 text-surface-900 dark:text-surface-100 antialiased">  <div data-pagefind-ignore> <header class="fixed top-0 left-0 right-0 z-50 bg-surface-50/80 dark:bg-surface-900/80 backdrop-blur-lg border-b border-surface-200/60 dark:border-surface-700/60"> <nav class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between"> <!-- Logo --> <a href="/ja/" class="flex items-center gap-2.5 group"> <div class="flex items-center justify-center"> <svg class="w-10 h-10 text-brand-600 dark:text-brand-400 group-hover:text-brand-700 dark:group-hover:text-brand-500 transition-colors" viewBox="0 0 1254 1254" fill="currentColor"> <path d="M 724.500 257.681 C 653.011 263.851, 596.450 286.096, 552.842 325.196 C 526.718 348.619, 504.076 385.367, 495.662 418 C 490.377 438.500, 489.841 444.119, 488.990 488 C 488.241 526.596, 488.012 530.305, 485.720 541 C 480.488 565.412, 470.577 586.090, 446.176 623.500 C 419.896 663.790, 417 668.902, 417 674.999 C 417 684.972, 422.785 690.700, 441.926 699.682 C 461.465 708.850, 463.666 710.080, 468.039 714.275 C 477.891 723.725, 478.404 734.135, 469.861 751.221 C 465.594 759.755, 466.212 766.445, 471.810 772.312 C 473.285 773.858, 477.986 777.365, 482.257 780.104 L 490.022 785.085 486.997 788.293 C 477.778 798.069, 477.830 811.145, 487.115 817.580 C 492.428 821.261, 496.839 826.425, 499.391 831.949 C 501.239 835.949, 501.502 838.439, 501.562 852.500 C 501.641 871.026, 502.653 875.318, 509.271 885.191 C 520.290 901.629, 541.944 909.250, 573 907.620 C 609.539 905.701, 640.124 893.708, 660.990 873.115 C 666.221 867.953, 669.990 863.546, 669.367 863.321 C 668.744 863.096, 662.894 864.250, 656.367 865.886 C 617.558 875.616, 588.645 879.071, 572.749 875.878 C 564.128 874.147, 557.075 870.149, 552.903 864.630 C 547.893 858.001, 546.632 853.243, 547.039 842.500 C 547.974 817.834, 546.907 814.078, 536.032 803.739 C 528.569 796.645, 527.095 793.272, 528.973 787.583 C 530.264 783.670, 533.306 781.160, 544.250 774.979 C 548.513 772.572, 552 770.328, 552 769.994 C 552 769.659, 548.737 768.560, 544.750 767.550 C 530.731 764.002, 519.300 758.149, 517.143 753.415 C 515.178 749.101, 515.811 743.996, 519.016 738.317 C 524.409 728.762, 526.425 716.439, 523.830 708.899 C 520.688 699.772, 514.681 694.497, 501.168 688.998 C 487.709 683.520, 481.241 680.043, 476.465 675.717 C 472.523 672.147, 471.730 670.799, 471.294 666.926 C 470.672 661.397, 471.493 659.645, 483.721 640.427 C 510.115 598.944, 520.233 579.092, 525.688 558.085 C 527.883 549.633, 528.274 545.368, 528.992 522 C 529.890 492.768, 531.161 483.297, 536.606 465.263 C 548.221 426.795, 568.988 393.128, 600.987 360.895 C 655.132 306.351, 731.811 270.026, 814.928 259.545 C 821.763 258.683, 827.576 257.758, 827.845 257.489 C 828.385 256.949, 730.887 257.130, 724.500 257.681 M 594.691 505.093 C 574.985 507.975, 555.799 520.107, 541.959 538.438 C 536.940 545.085, 536.703 544.135, 546.280 555.742 C 556.587 568.233, 571.755 578.343, 588 583.550 C 598.883 587.037, 615.804 587.964, 626.644 585.666 C 646.931 581.366, 665.500 569.650, 682.089 550.685 L 690.123 541.500 684.811 536.566 C 674.416 526.908, 652.033 513.948, 637.347 509.083 C 623.806 504.596, 608.120 503.130, 594.691 505.093 M 594.782 529.553 C 587.417 531.338, 578.568 535.850, 573.500 540.403 L 569.500 543.997 573.723 547.861 C 578.482 552.215, 588.779 557.845, 597 560.590 C 600.953 561.909, 605.314 562.407, 612.500 562.359 C 620.991 562.302, 623.556 561.873, 629.500 559.513 C 636.685 556.660, 648.219 549.626, 651.307 546.213 C 652.977 544.368, 652.897 544.197, 649.191 541.745 C 631.708 530.175, 611.184 525.576, 594.782 529.553 M 735.424 737.418 C 733.733 738.154, 730.727 740.967, 728.744 743.667 C 711.731 766.844, 678.312 782.304, 640.309 784.580 C 627.059 785.373, 623.722 786.858, 621.957 792.750 C 620.452 797.773, 622.553 803.116, 627.190 806.054 C 630.206 807.966, 631.484 808.101, 641.593 807.581 C 670.537 806.090, 695.762 798.168, 718.036 783.574 C 734.351 772.884, 751 754.806, 751 747.779 C 751 743.675, 748.445 739.282, 745.033 737.517 C 741.482 735.681, 739.461 735.660, 735.424 737.418" fill-rule="evenodd"></path> </svg> </div> <span class="text-xl font-bold text-surface-900 dark:text-surface-100 tracking-tight">Alius</span> </a> <!-- Desktop Nav --> <div class="hidden lg:flex items-center gap-0.5"> <a href="/ja/" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ホーム </a><div class="relative" id="products-dropdown-trigger"> <button class="px-3 py-2 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors flex items-center gap-1" id="products-toggle"> 製品 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div id="products-dropdown" class="hidden absolute left-0 top-full mt-1 bg-white dark:bg-surface-800 rounded-xl border border-surface-200 dark:border-surface-700 shadow-xl py-2 min-w-[240px] z-50"> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ハードウェア</div> <a href="/ja/products/joint-module" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット関節モジュール </a><a href="/ja/products/mocap-device" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> モーションキャプチャシステム </a><a href="/ja/products/dcu-controller" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット DCU ドメインコントローラー </a><a href="/ja/products/usb2can-debugger" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> USB2CAN デュアルチャンネルデバッガー </a> <div class="border-t border-surface-100 dark:border-surface-700 my-1"></div> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ソフトウェア</div> <a href="/ja/products/ai-agent" class="block px-4 py-2.5 text-sm font-medium text-surface-900 dark:text-surface-100 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Alius Agent </a> <a href="/ja/product" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 pl-8 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+Agent CLI
+</a> <a href="/ja/products/agent-team" class="block px-4 py-2.5 text-sm text-surface-700 dark:text-surface-300 pl-8 hover:bg-surface-50 dark:hover:bg-surface-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Agent Team </a> </div> </div><a href="/ja/solutions" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ソリューション </a><a href="/ja/docs" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ドキュメント </a><a href="/ja/faq" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> よくある質問 </a><a href="/ja/about" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 概要 </a><a href="/ja/contact" class="px-3 py-2 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> お問い合わせ </a> </div> <!-- CTA + Lang Switcher + Mobile Toggle --> <div class="flex items-center gap-3"> <!-- Theme Toggle --> <button id="theme-toggle" class="p-2 rounded-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors hidden sm:flex" aria-label="Toggle theme"> <!-- Sun icon (shown in dark mode) --> <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <!-- Moon icon (shown in light mode) --> <svg class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button> <script type="module">const o=document.getElementById("theme-toggle");function r(){const e=localStorage.getItem("theme");return e==="light"||e==="dark"?e:window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}function t(e){document.documentElement.classList.toggle("dark",e==="dark"),localStorage.setItem("theme",e)}function c(){const e=r();t(e==="light"?"dark":"light")}o?.addEventListener("click",c);window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change",e=>{localStorage.getItem("theme")||t(e.matches?"dark":"light")});</script> <!-- Language Switcher --> <div class="relative" id="lang-switcher"> <button id="lang-toggle" class="hidden sm:flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors" aria-label="言語切替"> <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <circle cx="12" cy="12" r="10"></circle> <path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"></path> </svg> 日本語 </button> <div id="lang-dropdown" class="hidden absolute right-0 top-full mt-1 bg-white dark:bg-surface-800 rounded-lg border border-surface-200 dark:border-surface-700 shadow-lg py-1 min-w-[120px] z-50"> <a href="/docs/agent-team/team-management/" class="block px-4 py-2 text-sm transition-colors text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700"> English </a><a href="/zh/docs/agent-team/team-management/" class="block px-4 py-2 text-sm transition-colors text-surface-700 dark:text-surface-300 hover:bg-surface-50 dark:hover:bg-surface-700"> 中文 </a><a href="/ja/docs/agent-team/team-management/" class="block px-4 py-2 text-sm transition-colors text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/30 font-medium"> 日本語 </a> </div> </div>  <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg text-surface-700 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors" aria-label="メニュー切替"> <svg class="w-5 h-5" id="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> <svg class="w-5 h-5 hidden" id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"> <line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line> </svg> </button> </div> </nav> <!-- Mobile menu --> <div id="mobile-menu" class="hidden lg:hidden border-t border-surface-200/60 dark:border-surface-700/60 bg-surface-50/95 dark:bg-surface-900/95 backdrop-blur-lg"> <div class="px-6 py-4 space-y-1"> <a href="/ja/" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ホーム </a><div> <button class="mobile-products-toggle w-full flex items-center justify-between px-4 py-2.5 rounded-lg text-sm font-medium text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors"> 製品 <svg class="w-4 h-4 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <polyline points="6 9 12 15 18 9"></polyline> </svg> </button> <div class="mobile-products-list hidden pl-4 space-y-1"> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ハードウェア</div> <a href="/ja/products/joint-module" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット関節モジュール </a><a href="/ja/products/mocap-device" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> モーションキャプチャシステム </a><a href="/ja/products/dcu-controller" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> ロボット DCU ドメインコントローラー </a><a href="/ja/products/usb2can-debugger" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> USB2CAN デュアルチャンネルデバッガー </a> <div class="border-t border-surface-100 dark:border-surface-700 my-1"></div> <div class="px-4 py-1.5 text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider">ソフトウェア</div> <a href="/ja/products/ai-agent" class="block px-4 py-2 text-sm font-medium text-surface-900 dark:text-surface-100 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Alius Agent </a> <a href="/ja/product" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 pl-8 hover:text-brand-600 dark:hover:text-brand-400 transition-colors">
+Agent CLI
+</a> <a href="/ja/products/agent-team" class="block px-4 py-2 text-sm text-surface-600 dark:text-surface-400 pl-8 hover:text-brand-600 dark:hover:text-brand-400 transition-colors"> Agent Team </a> </div> </div><a href="/ja/solutions" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ソリューション </a><a href="/ja/docs" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> ドキュメント </a><a href="/ja/faq" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> よくある質問 </a><a href="/ja/about" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 概要 </a><a href="/ja/contact" class="block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors text-surface-700 dark:text-surface-300 hover:text-brand-600 dark:hover:text-brand-400 hover:bg-surface-100 dark:hover:bg-surface-800"> お問い合わせ </a> <!-- Mobile language links --> <div class="flex items-center gap-2 px-4 py-2.5"> <a href="/docs/agent-team/team-management/" class="px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800"> English </a><a href="/zh/docs/agent-team/team-management/" class="px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-500 dark:text-surface-400 hover:bg-surface-100 dark:hover:bg-surface-800"> 中文 </a><a href="/ja/docs/agent-team/team-management/" class="px-3 py-1.5 rounded-lg text-sm transition-colors bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 font-medium"> 日本語 </a> </div>  <div class="px-4 py-2.5"> <button id="theme-toggle" class="p-2 rounded-lg text-surface-600 dark:text-surface-300 hover:bg-surface-100 dark:hover:bg-surface-800 transition-colors flex w-full justify-center" aria-label="Toggle theme"> <!-- Sun icon (shown in dark mode) --> <svg class="w-5 h-5 hidden dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="5"></circle> <line x1="12" y1="1" x2="12" y2="3"></line> <line x1="12" y1="21" x2="12" y2="23"></line> <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line> <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line> <line x1="1" y1="12" x2="3" y2="12"></line> <line x1="21" y1="12" x2="23" y2="12"></line> <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line> <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line> </svg> <!-- Moon icon (shown in light mode) --> <svg class="w-5 h-5 block dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path> </svg> </button>  </div> </div> </div> </header> <script type="module">const c=document.getElementById("mobile-menu-btn"),s=document.getElementById("mobile-menu"),l=document.getElementById("menu-icon"),i=document.getElementById("close-icon");c?.addEventListener("click",()=>{s?.classList.toggle("hidden"),l?.classList.toggle("hidden"),i?.classList.toggle("hidden")});const g=document.getElementById("lang-toggle"),t=document.getElementById("lang-dropdown");g?.addEventListener("click",e=>{e.stopPropagation(),t?.classList.toggle("hidden")});const m=document.getElementById("products-toggle"),n=document.getElementById("products-dropdown");m?.addEventListener("click",e=>{e.stopPropagation(),n?.classList.toggle("hidden")});document.querySelectorAll(".mobile-products-toggle").forEach(e=>{e.addEventListener("click",()=>{const o=e.nextElementSibling,d=e.querySelector("svg");o?.classList.toggle("hidden"),d?.classList.toggle("rotate-180")})});document.addEventListener("click",()=>{t?.classList.add("hidden"),n?.classList.add("hidden")});</script> </div> <div class="pt-16"> <div class="max-w-screen-2xl mx-auto"> <div class="flex"> <!-- Mobile sidebar toggle --> <button id="sidebar-toggle" class="lg:hidden fixed bottom-6 right-6 z-50 w-12 h-12 bg-brand-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-brand-700 transition-colors" aria-label="サイドバー切替"> <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="18" x2="21" y2="18"></line> </svg> </button> <!-- Left sidebar --> <aside id="sidebar-panel" class="hidden lg:block w-[280px] flex-shrink-0 border-r border-surface-200/70 dark:border-surface-700/70 bg-white dark:bg-surface-800"> <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-4 py-8"> <!-- Search trigger --> <button id="docs-search-btn" class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-surface-400 dark:text-surface-500 hover:bg-surface-50 dark:hover:bg-surface-700 border border-surface-200 dark:border-surface-600 mb-6 transition-colors"> <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> ドキュメントを検索... <kbd class="ml-auto hidden sm:inline-flex items-center px-1.5 py-0.5 bg-surface-100 dark:bg-surface-700 rounded text-xs text-surface-400 dark:text-surface-500">
+Ctrl+K
+</kbd> </button> <nav id="sidebar-agent-team"> <div class="mb-5" data-section="overview"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="overview"> <span>概要</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="overview" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="overview"> <li> <a href="/ja/docs/agent-team/overview" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> Alius Agent Team 概要 </a> </li> </ul> </div><div class="mb-5" data-section="getting-started"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="getting-started"> <span>はじめに</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="getting-started" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="getting-started"> <li> <a href="/ja/docs/agent-team/getting-started" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> クイックスタート </a> </li> </ul> </div><div class="mb-5" data-section="architecture"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="architecture"> <span>アーキテクチャ</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="architecture" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="architecture"> <li> <a href="/ja/docs/agent-team/architecture" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> システムアーキテクチャ </a> </li> </ul> </div><div class="mb-5" data-section="agent-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="agent-management"> <span>Agent 管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="agent-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="agent-management"> <li> <a href="/ja/docs/agent-team/agent-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> エージェント管理 </a> </li> </ul> </div><div class="mb-5" data-section="task-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="task-management"> <span>タスク管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="task-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="task-management"> <li> <a href="/ja/docs/agent-team/task-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> タスク管理 </a> </li> </ul> </div><div class="mb-5" data-section="team-management"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="team-management"> <span>Team 管理</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="team-management" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="team-management"> <li> <a href="/ja/docs/agent-team/team-management" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-brand-600 font-medium border-l-2 border-brand-500 pl-2.5 bg-brand-50/50"> チーム管理 </a> </li> </ul> </div><div class="mb-5" data-section="security"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="security"> <span>セキュリティと権限</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="security" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="security"> <li> <a href="/ja/docs/agent-team/security" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> セキュリティと権限 </a> </li> </ul> </div><div class="mb-5" data-section="cross-platform"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="cross-platform"> <span>クロスプラットフォームコンソール</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="cross-platform" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="cross-platform"> <li> <a href="/ja/docs/agent-team/cross-platform" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> クロスプラットフォームサポート </a> </li> </ul> </div><div class="mb-5" data-section="api-reference"> <button class="w-full flex items-center justify-between px-2 py-2 text-xs font-semibold text-surface-400 uppercase tracking-wider hover:text-surface-600 transition-colors group" data-collapse-toggle="api-reference"> <span>API リファレンス</span> <svg class="w-3.5 h-3.5 transition-transform" data-chevron="api-reference" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"> <path d="M19 9l-7 7-7-7"></path> </svg> </button> <ul class="space-y-0.5" data-section-content="api-reference"> <li> <a href="/ja/docs/agent-team/api-reference" class="block px-3 py-1.5 rounded-lg text-sm transition-colors text-surface-600 hover:bg-surface-50 hover:text-surface-900"> API参照 </a> </li> </ul> </div> </nav> <script type="module">function r(e){const s=document.getElementById(e);if(!s)return;const i=s.querySelectorAll("[data-collapse-toggle]"),d=JSON.parse(localStorage.getItem(`sidebar-collapse-${e}`)||"{}");i.forEach(c=>{const a=c.getAttribute("data-collapse-toggle"),t=s.querySelector(`[data-section-content="${a}"]`),o=s.querySelector(`[data-chevron="${a}"]`);t?.querySelector("a.border-brand-500")?(t?.classList.remove("hidden"),o?.classList.remove("-rotate-90")):d[a]===!0&&(t?.classList.add("hidden"),o?.classList.add("-rotate-90")),c.addEventListener("click",()=>{t?.classList.toggle("hidden"),o?.classList.toggle("-rotate-90");const l=JSON.parse(localStorage.getItem(`sidebar-collapse-${e}`)||"{}");l[a]=t?.classList.contains("hidden"),localStorage.setItem(`sidebar-collapse-${e}`,JSON.stringify(l))})})}document.querySelectorAll('[id^="sidebar-"]').forEach(e=>{r(e.id)});document.addEventListener("astro:page-load",()=>{document.querySelectorAll('[id^="sidebar-"]').forEach(e=>{r(e.id)})});</script> </div> </aside> <!-- Main content --> <main class="flex-1 min-w-0 bg-white dark:bg-surface-900"> <div class="max-w-3xl mx-auto px-6 lg:px-16 py-10"> <nav class="mb-6 flex items-center gap-1.5 text-sm text-surface-500 dark:text-surface-400 flex-wrap"> <a href="/ja/" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">ホーム</a> <span class="text-surface-300 dark:text-surface-600">/</span> <a href="/ja/docs/agent-team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">ドキュメント</a> <span class="text-surface-300 dark:text-surface-600">/</span> <a href="/ja/docs/agent-team" class="hover:text-brand-600 dark:hover:text-brand-400 transition-colors">Agent Team</a> <span class="text-surface-300 dark:text-surface-600">/</span> <span class="text-surface-900 dark:text-surface-100 font-medium">チーム管理</span> </nav> <article class="prose prose-lg prose-surface dark:prose-invert max-w-none
+                prose-headings:scroll-mt-20
+                prose-a:text-brand-600 dark:prose-a:text-brand-400 prose-a:no-underline hover:prose-a:underline
+                prose-code:before:content-none prose-code:after:content-none
+                prose-pre:bg-surface-50 dark:prose-pre:bg-surface-800 prose-pre:border prose-pre:border-surface-200 dark:prose-pre:border-surface-700
+                prose-img:rounded-xl
+                " data-pagefind-body>  <h1 id="チーム管理">チーム管理</h1>
+<p>チーム管理機能により、複数のユーザーがエージェントとタスクを協力管理できます。チーム機能により、エージェント共有、権限管理、協力ワークフローなどの高度な機能を実現できます。</p>
+<h2 id="チームの概念">チームの概念</h2>
+<h3 id="チームとは">チームとは</h3>
+<p>Alius Agent Teamでは、**チーム（Team）**は、ユーザーとエージェントの集合です。チームメンバーは、エージェントを共有、タスクを協力処理、設定とテンプレートを共有できます。</p>
+<h3 id="チームの利点">チームの利点</h3>
+<ul>
+<li><strong>リソース共有</strong>：チームメンバーはエージェントを共有し、リソース利用効率を向上</li>
+<li><strong>協力作業</strong>：複数人で複雑なタスクを協力処理</li>
+<li><strong>権限管理</strong>：ロールと権限によるきめ細かいアクセス制御</li>
+<li><strong>知識共有</strong>：プロンプトテンプレート、設定スキームなどの共有</li>
+<li><strong>統一請求</strong>：チームの統一支払い、コスト管理を簡素化</li>
+</ul>
+<h2 id="チームの作成">チームの作成</h2>
+<h3 id="新しいチームを作成">新しいチームを作成</h3>
+<h4 id="ステップ1作成を開始">ステップ1：作成を開始</h4>
+<ol>
+<li>メインインターフェースで、左側ナビゲーションバーの「チーム」をクリック</li>
+<li>「チーム作成」ボタンをクリック</li>
+<li>チーム基本情報を入力：
+<ul>
+<li><strong>チーム名</strong>：チームの一意識名（必須）</li>
+<li><strong>説明</strong>：チームの目的説明（オプション、推奨）</li>
+<li><strong>チームアバター</strong>：チームアバターをアップロード（オプション）</li>
+</ul>
+</li>
+<li>「作成」をクリック</li>
+</ol>
+<h4 id="ステップ2初期設定">ステップ2：初期設定</h4>
+<p>作成完了後、システムが初期設定を案内：</p>
+<ul>
+<li><strong>表示設定</strong>：
+<ul>
+<li><strong>公開</strong>：すべてのユーザーが閲覧および参加申請可能</li>
+<li><strong>非公開</strong>：招待のみ閲覧可能</li>
+</ul>
+</li>
+<li><strong>参加承認</strong>：
+<ul>
+<li><strong>自動承認</strong>：すべての申請が自動的に承認</li>
+<li><strong>承認必要</strong>：管理者承認後に参加可能</li>
+</ul>
+</li>
+<li><strong>デフォルト権限</strong>：新メンバーのデフォルトロールを設定</li>
+</ul>
+<h3 id="チーム設定">チーム設定</h3>
+<h4 id="基本情報設定">基本情報設定</h4>
+<ul>
+<li><strong>名前</strong>：チーム名（重複不可）</li>
+<li><strong>説明</strong>：チームの詳細説明</li>
+<li><strong>タグ</strong>：検索と分類に便利なタグ</li>
+<li><strong>連絡先情報</strong>：チーム連絡先メールまたはリンク</li>
+</ul>
+<h4 id="高度な設定">高度な設定</h4>
+<ul>
+<li><strong>最大メンバー数</strong>：チーム規模を制限</li>
+<li><strong>最大エージェント数</strong>：チームが作成できるエージェント数を制限</li>
+<li><strong>ストレージクォータ</strong>：チームのストレージ使用量を制限</li>
+<li><strong>API呼び出しクォータ</strong>：チームのAPI呼び出し回数を制限</li>
+</ul>
+<h2 id="チームメンバーの管理">チームメンバーの管理</h2>
+<h3 id="メンバーを招待">メンバーを招待</h3>
+<h4 id="メールで招待">メールで招待</h4>
+<ol>
+<li>チーム設定ページに進む</li>
+<li>「メンバー管理」を選択</li>
+<li>「メンバー招待」をクリック</li>
+<li>相手のメールアドレスを入力</li>
+<li>ロールを選択（Owner、Admin、Member、Viewer）</li>
+<li>招待メッセージを追加（オプション）</li>
+<li>「招待送信」をクリック</li>
+<li>招待された人がメール通知を受け取り、リンクをクリックして招待を承諾</li>
+</ol>
+<h4 id="リンクで招待">リンクで招待</h4>
+<ol>
+<li>メンバー管理ページで、「招待リンク生成」をクリック</li>
+<li>リンク有効期限を設定（1日、7日、30日、または永久）</li>
+<li>リンクから参加するメンバーのデフォルトロールを設定</li>
+<li>リンクをコピーして共有</li>
+<li>リンクを持つ誰でもチームに参加可能</li>
+</ol>
+<h3 id="メンバーロールと権限">メンバーロールと権限</h3>
+<p>Alius Agent Teamは、4段階のロール体系を提供：</p>
+<h4 id="owner所有者">Owner（所有者）</h4>
+<ul>
+<li><strong>権限</strong>：チームの完全制御権</li>
+<li><strong>能力</strong>：
+<ul>
+<li>チーム設定の変更およびチームの削除</li>
+<li>すべてのメンバーとロールの管理</li>
+<li>すべてのエージェントとタスクの管理</li>
+<li>請求とサブスクリプションの管理</li>
+<li>チームテンプレートと設定の管理</li>
+</ul>
+</li>
+</ul>
+<h4 id="admin管理者">Admin（管理者）</h4>
+<ul>
+<li><strong>権限</strong>：チーム管理権限、チーム削除と請求変更以外</li>
+<li><strong>能力</strong>：
+<ul>
+<li>メンバーの招待と管理（Ownerの変更不可）</li>
+<li>すべてのエージェントとタスクの管理</li>
+<li>チームテンプレートと設定の管理</li>
+<li>チーム統計データの閲覧</li>
+</ul>
+</li>
+</ul>
+<h4 id="memberメンバー">Member（メンバー）</h4>
+<ul>
+<li><strong>権限</strong>：チームの通常メンバー権限</li>
+<li><strong>能力</strong>：
+<ul>
+<li>自分のエージェントの作成と管理</li>
+<li>チームタスクへの参加</li>
+<li>チーム共有のエージェントとテンプレートの使用</li>
+<li>チーム基本情報の閲覧</li>
+</ul>
+</li>
+</ul>
+<h4 id="viewer閲覧者">Viewer（閲覧者）</h4>
+<ul>
+<li><strong>権限</strong>：読み取り専用権限</li>
+<li><strong>能力</strong>：
+<ul>
+<li>チーム情報の閲覧</li>
+<li>チームエージェントとタスクの閲覧（変更不可）</li>
+<li>チーム統計の閲覧</li>
+</ul>
+</li>
+</ul>
+<h3 id="メンバーロールの変更">メンバーロールの変更</h3>
+<ol>
+<li>チーム設定 &gt; メンバー管理に進む</li>
+<li>ロールを変更するメンバーを見つける</li>
+<li>そのメンバーの右側にある「ロール」ドロップダウンメニューをクリック</li>
+<li>新しいロールを選択</li>
+<li>変更を確認</li>
+</ol>
+<p><strong>注意</strong>：OwnerとAdminのみがメンバーのロールを変更可能。</p>
+<h3 id="メンバーの削除">メンバーの削除</h3>
+<ol>
+<li>チーム設定 &gt; メンバー管理に進む</li>
+<li>削除するメンバーを見つける</li>
+<li>「その他の操作」 &gt; 「メンバー削除」をクリック</li>
+<li>削除を確認</li>
+</ol>
+<p><strong>注意</strong>：</p>
+<ul>
+<li>メンバー削除後、そのメンバーはチームリソースへのアクセス権を失います</li>
+<li>そのメンバーが作成したエージェントは、他のメンバーへの移管、チーム内に保持、または削除を選択可能</li>
+<li>Ownerは削除不可（まず所有権を移管する必要があります）</li>
+</ul>
+<h3 id="チームからの退出">チームからの退出</h3>
+<p>チームから退出したい場合：</p>
+<ol>
+<li>チーム設定 &gt; 自分の設定に進む</li>
+<li>ページ下部までスクロール</li>
+<li>「チーム退出」をクリック</li>
+<li>退出を確認</li>
+</ol>
+<p><strong>注意</strong>：チーム退出後、そのチームリソースへのアクセス権を失います。</p>
+<h2 id="チームエージェント管理">チームエージェント管理</h2>
+<h3 id="エージェントの共有">エージェントの共有</h3>
+<p>個人で作成したエージェントをチームに共有：</p>
+<ol>
+<li>共有するエージェントを見つける</li>
+<li>「その他の操作」 &gt; 「チームに共有」をクリック</li>
+<li>共有するチームを選択</li>
+<li>共有権限を設定：
+<ul>
+<li><strong>読み取り専用</strong>：チームメンバーは閲覧および使用可能、変更不可</li>
+<li><strong>編集可能</strong>：チームメンバーは閲覧、使用、変更可能</li>
+<li><strong>管理可能</strong>：チームメンバーは完全制御権を持つ</li>
+</ul>
+</li>
+<li>共有を確認</li>
+</ol>
+<h3 id="チームエージェントライブラリ">チームエージェントライブラリ</h3>
+<p>チームには共有エージェントライブラリがあります：</p>
+<ul>
+<li><strong>閲覧</strong>：すべてのチームメンバーがチームエージェントライブラリを閲覧可能</li>
+<li><strong>使用</strong>：権限に基づいてチームエージェントを使用</li>
+<li><strong>管理</strong>：権限に基づいてチームエージェントを管理</li>
+</ul>
+<h3 id="エージェント使用統計">エージェント使用統計</h3>
+<p>チーム管理者は、エージェント使用統計を閲覧可能：</p>
+<ul>
+<li>各エージェントが使用された回数</li>
+<li>各メンバーのエージェント使用状況</li>
+<li>エージェントのリソース消費統計</li>
+</ul>
+<h2 id="チーム協力機能">チーム協力機能</h2>
+<h3 id="チームタスク">チームタスク</h3>
+<h4 id="チームタスクの作成">チームタスクの作成</h4>
+<p>チームタスクは、チーム全体に表示されるタスク：</p>
+<ol>
+<li>タスクを作成する際、「チームタスク」を選択</li>
+<li>ターゲットチームを選択</li>
+<li>タスク情報を入力</li>
+<li>タスクの表示範囲を選択：
+<ul>
+<li><strong>チーム全体に表示</strong>：すべてのチームメンバーが閲覧可能</li>
+<li><strong>指定メンバーのみ表示</strong>：指定されたメンバーのみ閲覧可能</li>
+</ul>
+</li>
+<li>タスクを送信</li>
+</ol>
+<h4 id="タスク割り当て戦略">タスク割り当て戦略</h4>
+<p>チームタスクは、以下の割り当て戦略を使用：</p>
+<ul>
+<li><strong>手動割り当て</strong>：管理者または作成者による手動割り当て</li>
+<li><strong>自己申請</strong>：チームメンバーがタスクを自己申請可能</li>
+<li><strong>自動割り当て</strong>：負荷とスキルに基づいてシステムが自動割り当て</li>
+<li><strong>ラウンドロビン</strong>：チームメンバーが順番にタスクを申請</li>
+</ul>
+<h3 id="チーム通知">チーム通知</h3>
+<h4 id="通知設定">通知設定</h4>
+<p>チームメンバーは、通知受信方法を設定：</p>
+<ul>
+<li><strong>タスク割り当て通知</strong>：タスクが自分に割り当てられた時</li>
+<li><strong>タスクステータス変更通知</strong>：注目しているタスクのステータスが変更された時</li>
+<li><strong>エージェントステータス通知</strong>：チームエージェントのステータスが変更された時</li>
+<li><strong>チームメンバー変更通知</strong>：メンバーが参加または退出した時</li>
+</ul>
+<h4 id="通知チャネル">通知チャネル</h4>
+<ul>
+<li><strong>アプリ内通知</strong>：Alius Agent Teamアプリ内に表示</li>
+<li><strong>メール通知</strong>：登録メールアドレスに送信</li>
+<li><strong>WeChat通知</strong>：WeChatサービスアカウントから送信（バインドが必要）</li>
+<li><strong>Watch通知</strong>：Apple Watchにプッシュ（ペアリングが必要）</li>
+</ul>
+<h3 id="チームアクティビティログ">チームアクティビティログ</h3>
+<p>チーム管理者は、チームアクティビティログを閲覧可能：</p>
+<ul>
+<li>メンバーの参加/退出</li>
+<li>エージェントの作成/変更/削除</li>
+<li>タスクの作成/割り当て/完了</li>
+<li>設定の変更</li>
+</ul>
+<p>アクティビティログは90日間保持され、監査と問題切り分けに使用可能。</p>
+<h2 id="チームテンプレートと設定共有">チームテンプレートと設定共有</h2>
+<h3 id="プロンプトテンプレートの共有">プロンプトテンプレートの共有</h3>
+<p>チームメンバーは、プロンプトテンプレートを共有：</p>
+<ol>
+<li>プロンプトテンプレートを作成または編集</li>
+<li>「表示設定」で「チーム表示」を選択</li>
+<li>テンプレートを保存</li>
+<li>すべてのチームメンバーがこのテンプレートを使用可能</li>
+</ol>
+<h3 id="設定スキームの共有">設定スキームの共有</h3>
+<p>同様に、エージェント設定スキームを共有可能：</p>
+<ol>
+<li>エージェント設定をスキームとして保存</li>
+<li>スキームを「チーム表示」に設定</li>
+<li>他のチームメンバーがこのスキームに基づいてエージェントを迅速に作成</li>
+</ol>
+<h2 id="チーム請求とサブスクリプション">チーム請求とサブスクリプション</h2>
+<h3 id="請求モデル">請求モデル</h3>
+<p>Alius Agent Teamは、以下の請求モデルを提供：</p>
+<ul>
+<li><strong>席数請求</strong>：チームメンバー数に基づいて請求</li>
+<li><strong>リソース請求</strong>：チームが使用するリソース（エージェント数、API呼び出し回数など）に基づいて請求</li>
+<li><strong>ハイブリッド請求</strong>：基本料金 + リソース使用料</li>
+</ul>
+<h3 id="サブスクリプション管理">サブスクリプション管理</h3>
+<h4 id="現在のサブスクリプションを閲覧">現在のサブスクリプションを閲覧</h4>
+<ol>
+<li>チーム設定 &gt; 請求とサブスクリプションに進む</li>
+<li>現在のサブスクリプションプランを閲覧</li>
+<li>リソース使用状況とクォータを閲覧</li>
+</ol>
+<h4 id="サブスクリプションのアップグレード">サブスクリプションのアップグレード</h4>
+<ol>
+<li>請求ページで、「アップグレード」をクリック</li>
+<li>新しいサブスクリプションプランを選択</li>
+<li>支払いを確認</li>
+<li>サブスクリプションは即時有効</li>
+</ol>
+<h4 id="サブスクリプションのキャンセル">サブスクリプションのキャンセル</h4>
+<ol>
+<li>請求ページで、「サブスクリプション管理」をクリック</li>
+<li>「サブスクリプションキャンセル」を選択</li>
+<li>キャンセルを確認</li>
+<li>サブスクリプションは現在の請求サイクル終了時に失効</li>
+</ol>
+<h3 id="請求書管理">請求書管理</h3>
+<ol>
+<li>チーム設定 &gt; 請求とサブスクリプション &gt; 請求書管理に進む</li>
+<li>履歴請求書を閲覧</li>
+<li>請求書の発行を申請</li>
+<li>請求書受信メールを設定</li>
+</ol>
+<h2 id="チームデータエクスポート">チームデータエクスポート</h2>
+<h3 id="チームデータのエクスポート">チームデータのエクスポート</h3>
+<p>チームOwnerとAdminは、チームデータをエクスポート可能：</p>
+<ol>
+<li>チーム設定 &gt; 高度 &gt; データエクスポートに進む</li>
+<li>エクスポートするデータを選択：
+<ul>
+<li>チーム基本情報</li>
+<li>メンバーリスト</li>
+<li>エージェントリストと設定</li>
+<li>タスク履歴</li>
+<li>アクティビティログ</li>
+</ul>
+</li>
+<li>エクスポート形式を選択（JSON、CSV、PDF）</li>
+<li>「エクスポート」をクリック</li>
+<li>システムがエクスポートファイルを生成しダウンロードリンクを送信</li>
+</ol>
+<h2 id="チームの削除">チームの削除</h2>
+<p><strong>警告</strong>：チームの削除は永続的な操作であり、復元不可。</p>
+<h3 id="削除前の準備">削除前の準備</h3>
+<p>チーム削除前に：</p>
+<ol>
+<li><strong>データのバックアップ</strong>：重要なチームデータをエクスポート</li>
+<li><strong>エージェントの処理</strong>：チームエージェントの所属を決定
+<ul>
+<li>特定メンバーに移管</li>
+<li>個人エージェントとして保持</li>
+<li>削除</li>
+</ul>
+</li>
+<li><strong>メンバーへの通知</strong>：事前にチームメンバーに通知</li>
+<li><strong>費用の決済</strong>：未支払いの費用がないことを確認</li>
+</ol>
+<h3 id="削除手順">削除手順</h3>
+<ol>
+<li>Ownerとしてログイン</li>
+<li>チーム設定 &gt; 高度 &gt; チーム削除に進む</li>
+<li>削除警告を閲覧</li>
+<li>チーム名を入力して確認</li>
+<li>「チームを永久削除」をクリック</li>
+<li>チームは「削除済み」とマークされ、30日後にデータが永久消去</li>
+</ol>
+<h2 id="ベストプラクティス">ベストプラクティス</h2>
+<h3 id="チーム構造設計">チーム構造設計</h3>
+<h4 id="小規模チーム-10人">小規模チーム（&lt; 10人）</h4>
+<ul>
+<li>1 Owner</li>
+<li>1-2 Admin</li>
+<li>その他はMember</li>
+<li>オプション：Viewerを追加（例：インターン、研修生）</li>
+</ul>
+<h4 id="中規模チーム10-50人">中規模チーム（10-50人）</h4>
+<ul>
+<li>1 Owner</li>
+<li>3-5 Admin（分野別に担当）</li>
+<li>複数のMember（プロジェクトまたは職能別にグループ）</li>
+<li>オプション：Viewerを追加</li>
+</ul>
+<h4 id="大規模チーム50人以上">大規模チーム（50人以上）</h4>
+<ul>
+<li>複数のサブチームの作成を考慮</li>
+<li>各サブチームに独立したOwnerとAdmin</li>
+<li>明確な権限と承認フローを確立</li>
+</ul>
+<h3 id="命名規約">命名規約</h3>
+<p>チームリソースに命名規約を確立することを推奨：</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>エージェント命名：{チーム}-{プロジェクト}-{目的}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>例：</span></span>
+<span class="line"><span>- alius-web-codegen</span></span>
+<span class="line"><span>- alius-mobile-test</span></span>
+<span class="line"><span>- alius-data-analysis</span></span></code></pre>
+<h3 id="定期的な監査">定期的な監査</h3>
+<p>定期的なチーム監査を推奨：</p>
+<ul>
+<li><strong>メンバー監査</strong>：季度ごとにメンバーリストを確認し、非アクティブメンバーを削除</li>
+<li><strong>権限監査</strong>：季度ごとにメンバー権限を確認し、最小権限原則を確保</li>
+<li><strong>リソース監査</strong>：月次ごとにエージェント使用状況を確認し、不要なエージェントを整理</li>
+<li><strong>セキュリティ監査</strong>：月次ごとにアクティビティログを確認し、異常行動を発見</li>
+</ul>
+<h2 id="api参照">API参照</h2>
+<p>詳細なチーム管理APIドキュメントについては、<a href="/docs/agent-team/ja/api-reference">API参照</a>の章を参照してください。</p>  </article> <!-- Previous / Next navigation --> <nav class="mt-16 pt-8 border-t border-surface-200 dark:border-surface-700 flex items-center justify-between gap-4"> <a href="/ja/docs/agent-team/task-management" class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M19 12H5M12 19l-7-7 7-7"></path> </svg> <span class="font-medium">タスク管理</span> </a> <a href="/ja/docs/agent-team/security" class="flex items-center gap-2 text-sm text-surface-600 dark:text-surface-400 hover:text-brand-600 dark:hover:text-brand-400 transition-colors group text-right"> <span class="font-medium">セキュリティと権限</span> <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"> <path d="M5 12h14M12 5l7 7-7 7"></path> </svg> </a> </nav> </div> </main> <!-- Right sidebar (TOC) --> <aside class="hidden xl:block w-56 flex-shrink-0"> <div class="sticky top-16 h-[calc(100vh-4rem)] overflow-y-auto px-4 py-10"> <nav><h4 class="text-xs font-semibold text-surface-400 dark:text-surface-500 uppercase tracking-wider mb-3">このページの内容</h4><ul class="space-y-1.5" id="toc-list"><li><a href="#チームの概念" data-toc-slug="チームの概念" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">チームの概念</a></li><li><a href="#チームとは" data-toc-slug="チームとは" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">チームとは</a></li><li><a href="#チームの利点" data-toc-slug="チームの利点" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">チームの利点</a></li><li><a href="#チームの作成" data-toc-slug="チームの作成" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">チームの作成</a></li><li><a href="#新しいチームを作成" data-toc-slug="新しいチームを作成" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">新しいチームを作成</a></li><li><a href="#チーム設定" data-toc-slug="チーム設定" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">チーム設定</a></li><li><a href="#チームメンバーの管理" data-toc-slug="チームメンバーの管理" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">チームメンバーの管理</a></li><li><a href="#メンバーを招待" data-toc-slug="メンバーを招待" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">メンバーを招待</a></li><li><a href="#メンバーロールと権限" data-toc-slug="メンバーロールと権限" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">メンバーロールと権限</a></li><li><a href="#メンバーロールの変更" data-toc-slug="メンバーロールの変更" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">メンバーロールの変更</a></li><li><a href="#メンバーの削除" data-toc-slug="メンバーの削除" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">メンバーの削除</a></li><li><a href="#チームからの退出" data-toc-slug="チームからの退出" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">チームからの退出</a></li><li><a href="#チームエージェント管理" data-toc-slug="チームエージェント管理" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">チームエージェント管理</a></li><li><a href="#エージェントの共有" data-toc-slug="エージェントの共有" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">エージェントの共有</a></li><li><a href="#チームエージェントライブラリ" data-toc-slug="チームエージェントライブラリ" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">チームエージェントライブラリ</a></li><li><a href="#エージェント使用統計" data-toc-slug="エージェント使用統計" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">エージェント使用統計</a></li><li><a href="#チーム協力機能" data-toc-slug="チーム協力機能" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">チーム協力機能</a></li><li><a href="#チームタスク" data-toc-slug="チームタスク" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">チームタスク</a></li><li><a href="#チーム通知" data-toc-slug="チーム通知" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">チーム通知</a></li><li><a href="#チームアクティビティログ" data-toc-slug="チームアクティビティログ" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">チームアクティビティログ</a></li><li><a href="#チームテンプレートと設定共有" data-toc-slug="チームテンプレートと設定共有" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">チームテンプレートと設定共有</a></li><li><a href="#プロンプトテンプレートの共有" data-toc-slug="プロンプトテンプレートの共有" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">プロンプトテンプレートの共有</a></li><li><a href="#設定スキームの共有" data-toc-slug="設定スキームの共有" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">設定スキームの共有</a></li><li><a href="#チーム請求とサブスクリプション" data-toc-slug="チーム請求とサブスクリプション" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">チーム請求とサブスクリプション</a></li><li><a href="#請求モデル" data-toc-slug="請求モデル" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">請求モデル</a></li><li><a href="#サブスクリプション管理" data-toc-slug="サブスクリプション管理" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">サブスクリプション管理</a></li><li><a href="#請求書管理" data-toc-slug="請求書管理" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">請求書管理</a></li><li><a href="#チームデータエクスポート" data-toc-slug="チームデータエクスポート" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">チームデータエクスポート</a></li><li><a href="#チームデータのエクスポート" data-toc-slug="チームデータのエクスポート" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">チームデータのエクスポート</a></li><li><a href="#チームの削除" data-toc-slug="チームの削除" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">チームの削除</a></li><li><a href="#削除前の準備" data-toc-slug="削除前の準備" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">削除前の準備</a></li><li><a href="#削除手順" data-toc-slug="削除手順" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">削除手順</a></li><li><a href="#ベストプラクティス" data-toc-slug="ベストプラクティス" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">ベストプラクティス</a></li><li><a href="#チーム構造設計" data-toc-slug="チーム構造設計" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">チーム構造設計</a></li><li><a href="#命名規約" data-toc-slug="命名規約" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">命名規約</a></li><li><a href="#定期的な監査" data-toc-slug="定期的な監査" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 pl-3 text-surface-500 dark:text-surface-400">定期的な監査</a></li><li><a href="#api参照" data-toc-slug="api参照" class="block text-sm transition-colors hover:text-brand-600 dark:hover:text-brand-400 text-surface-500 dark:text-surface-400">API参照</a></li></ul></nav><script type="module">function l(){const c=document.getElementById("toc-list");if(!c)return;const a=c.querySelectorAll("[data-toc-slug]");if(a.length===0)return;const n=[];if(a.forEach(d=>{const s=d.getAttribute("data-toc-slug"),t=document.getElementById(s||"");t&&n.push(t)}),n.length===0)return;let e=null;function o(){let s=0;for(let i=n.length-1;i>=0;i--)if(n[i].getBoundingClientRect().top<=100){s=i;break}const t=a[s];t!==e&&(e&&(e.classList.remove("text-brand-600","dark:text-brand-400","font-medium"),e.classList.add("text-surface-500","dark:text-surface-400")),t.classList.add("text-brand-600","dark:text-brand-400","font-medium"),t.classList.remove("text-surface-500","dark:text-surface-400"),e=t)}o();let r=!1;window.addEventListener("scroll",()=>{r||(requestAnimationFrame(()=>{o(),r=!1}),r=!0)},{passive:!0})}l();document.addEventListener("astro:page-load",l);</script> </div> </aside> </div> </div> </div> <div data-pagefind-ignore> <footer class="bg-surface-900 dark:bg-surface-950 text-surface-300 dark:text-surface-400"> <div class="max-w-7xl mx-auto px-6 pt-16 pb-8"> <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-8 mb-12"> <!-- Brand column --> <div class="col-span-2 md:col-span-1"> <a href="/ja/" class="flex items-center gap-2.5 mb-4"> <div class="w-8 h-8 bg-brand-500 dark:bg-brand-600 rounded-lg flex items-center justify-center"> <svg class="w-5 h-5 text-white" viewBox="0 0 1254 1254" fill="currentColor"> <path d="M 724.500 257.681 C 653.011 263.851, 596.450 286.096, 552.842 325.196 C 526.718 348.619, 504.076 385.367, 495.662 418 C 490.377 438.500, 489.841 444.119, 488.990 488 C 488.241 526.596, 488.012 530.305, 485.720 541 C 480.488 565.412, 470.577 586.090, 446.176 623.500 C 419.896 663.790, 417 668.902, 417 674.999 C 417 684.972, 422.785 690.700, 441.926 699.682 C 461.465 708.850, 463.666 710.080, 468.039 714.275 C 477.891 723.725, 478.404 734.135, 469.861 751.221 C 465.594 759.755, 466.212 766.445, 471.810 772.312 C 473.285 773.858, 477.986 777.365, 482.257 780.104 L 490.022 785.085 486.997 788.293 C 477.778 798.069, 477.830 811.145, 487.115 817.580 C 492.428 821.261, 496.839 826.425, 499.391 831.949 C 501.239 835.949, 501.502 838.439, 501.562 852.500 C 501.641 871.026, 502.653 875.318, 509.271 885.191 C 520.290 901.629, 541.944 909.250, 573 907.620 C 609.539 905.701, 640.124 893.708, 660.990 873.115 C 666.221 867.953, 669.990 863.546, 669.367 863.321 C 668.744 863.096, 662.894 864.250, 656.367 865.886 C 617.558 875.616, 588.645 879.071, 572.749 875.878 C 564.128 874.147, 557.075 870.149, 552.903 864.630 C 547.893 858.001, 546.632 853.243, 547.039 842.500 C 547.974 817.834, 546.907 814.078, 536.032 803.739 C 528.569 796.645, 527.095 793.272, 528.973 787.583 C 530.264 783.670, 533.306 781.160, 544.250 774.979 C 548.513 772.572, 552 770.328, 552 769.994 C 552 769.659, 548.737 768.560, 544.750 767.550 C 530.731 764.002, 519.300 758.149, 517.143 753.415 C 515.178 749.101, 515.811 743.996, 519.016 738.317 C 524.409 728.762, 526.425 716.439, 523.830 708.899 C 520.688 699.772, 514.681 694.497, 501.168 688.998 C 487.709 683.520, 481.241 680.043, 476.465 675.717 C 472.523 672.147, 471.730 670.799, 471.294 666.926 C 470.672 661.397, 471.493 659.645, 483.721 640.427 C 510.115 598.944, 520.233 579.092, 525.688 558.085 C 527.883 549.633, 528.274 545.368, 528.992 522 C 529.890 492.768, 531.161 483.297, 536.606 465.263 C 548.221 426.795, 568.988 393.128, 600.987 360.895 C 655.132 306.351, 731.811 270.026, 814.928 259.545 C 821.763 258.683, 827.576 257.758, 827.845 257.489 C 828.385 256.949, 730.887 257.130, 724.500 257.681 M 594.691 505.093 C 574.985 507.975, 555.799 520.107, 541.959 538.438 C 536.940 545.085, 536.703 544.135, 546.280 555.742 C 556.587 568.233, 571.755 578.343, 588 583.550 C 598.883 587.037, 615.804 587.964, 626.644 585.666 C 646.931 581.366, 665.500 569.650, 682.089 550.685 L 690.123 541.500 684.811 536.566 C 674.416 526.908, 652.033 513.948, 637.347 509.083 C 623.806 504.596, 608.120 503.130, 594.691 505.093 M 594.782 529.553 C 587.417 531.338, 578.568 535.850, 573.500 540.403 L 569.500 543.997 573.723 547.861 C 578.482 552.215, 588.779 557.845, 597 560.590 C 600.953 561.909, 605.314 562.407, 612.500 562.359 C 620.991 562.302, 623.556 561.873, 629.500 559.513 C 636.685 556.660, 648.219 549.626, 651.307 546.213 C 652.977 544.368, 652.897 544.197, 649.191 541.745 C 631.708 530.175, 611.184 525.576, 594.782 529.553 M 735.424 737.418 C 733.733 738.154, 730.727 740.967, 728.744 743.667 C 711.731 766.844, 678.312 782.304, 640.309 784.580 C 627.059 785.373, 623.722 786.858, 621.957 792.750 C 620.452 797.773, 622.553 803.116, 627.190 806.054 C 630.206 807.966, 631.484 808.101, 641.593 807.581 C 670.537 806.090, 695.762 798.168, 718.036 783.574 C 734.351 772.884, 751 754.806, 751 747.779 C 751 743.675, 748.445 739.282, 745.033 737.517 C 741.482 735.681, 739.461 735.660, 735.424 737.418" fill-rule="evenodd"></path> </svg> </div> <span class="text-xl font-bold text-white dark:text-surface-100 tracking-tight">Alius</span> </a> <p class="text-sm text-surface-400 dark:text-surface-500 leading-relaxed"> ロボット + AI エージェントプラットフォーム。ハードウェア。ソフトウェア。インテリジェンス。 </p> <div class="flex items-center gap-4 mt-6"> <a href="https://github.com/AliusTech/alius" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="GitHub"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"></path></svg> </a> <a href="https://twitter.com/alius_tech" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="Twitter"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg> </a> <a href="https://discord.gg/alius" target="_blank" rel="noopener" class="text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors" aria-label="Discord"> <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.492c-1.53-.69-3.17-1.2-4.885-1.49a.075.075 0 00-.079.036c-.21.369-.444.85-.608 1.23a18.566 18.566 0 00-5.487 0 12.36 12.36 0 00-.617-1.23A.077.077 0 008.562 3c-1.714.29-3.354.8-4.885 1.491a.07.07 0 00-.032.027C.533 9.093-.32 13.555.099 17.961a.08.08 0 00.031.055 20.03 20.03 0 005.993 2.98.078.078 0 00.084-.026c.462-.62.874-1.275 1.226-1.963.021-.04.001-.088-.041-.104a13.201 13.201 0 01-1.872-.878.075.075 0 01-.008-.125c.126-.093.252-.19.372-.287a.075.075 0 01.078-.01c3.927 1.764 8.18 1.764 12.061 0a.075.075 0 01.079.009c.12.098.245.195.372.288a.075.075 0 01-.006.125c-.598.344-1.22.635-1.873.877a.075.075 0 00-.041.105c.36.687.772 1.341 1.225 1.962a.077.077 0 00.084.028 19.963 19.963 0 006.002-2.981.076.076 0 00.032-.054c.5-5.094-.838-9.52-3.549-13.442a.06.06 0 00-.031-.028zM8.02 15.278c-1.182 0-2.157-1.069-2.157-2.38 0-1.312.956-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.956 2.38-2.157 2.38zm7.975 0c-1.183 0-2.157-1.069-2.157-2.38 0-1.312.955-2.38 2.157-2.38 1.21 0 2.176 1.077 2.157 2.38 0 1.312-.946 2.38-2.157 2.38z"></path></svg> </a> </div> </div> <!-- Link columns --> <div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">ハードウェア</h3> <ul class="space-y-3"> <li> <a href="/ja/products/joint-module" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ロボット関節モジュール </a> </li><li> <a href="/ja/products/mocap-device" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> モーションキャプチャシステム </a> </li><li> <a href="/ja/products/dcu-controller" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ロボット DCU ドメインコントローラー </a> </li><li> <a href="/ja/products/usb2can-debugger" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> USB2CAN デュアルチャンネルデバッガー </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">ソフトウェア</h3> <ul class="space-y-3"> <li> <a href="/ja/products/ai-agent" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Alius Agent </a> </li><li> <a href="/ja/product" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Agent CLI </a> </li><li> <a href="/ja/products/agent-team" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> Agent Team </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">リソース</h3> <ul class="space-y-3"> <li> <a href="/docs" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ドキュメント </a> </li><li> <a href="/docs/api" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> API リファレンス </a> </li><li> <a href="/docs/examples" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> サンプル </a> </li><li> <a href="/community" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> コミュニティ </a> </li> </ul> </div><div> <h3 class="text-sm font-semibold text-white dark:text-surface-100 mb-4">会社</h3> <ul class="space-y-3"> <li> <a href="/ja/about" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 概要 </a> </li><li> <a href="/ja/solutions" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ソリューション </a> </li><li> <a href="/blog" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> ブログ </a> </li><li> <a href="/careers" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> 採用情報 </a> </li><li> <a href="/ja/faq" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> よくある質問 </a> </li><li> <a href="/ja/contact" class="text-sm text-surface-400 dark:text-surface-500 hover:text-white dark:hover:text-surface-100 transition-colors"> お問い合わせ </a> </li> </ul> </div> </div> <div class="border-t border-surface-800 dark:border-surface-900 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"> <p class="text-sm text-surface-500 dark:text-surface-600">&copy; 2026 Alius Tech. All rights reserved.</p> <div class="flex items-center gap-6"> <a href="/privacy" class="text-sm text-surface-500 dark:text-surface-600 hover:text-surface-300 dark:hover:text-surface-400 transition-colors">プライバシー</a> <a href="/terms" class="text-sm text-surface-500 dark:text-surface-600 hover:text-surface-300 dark:hover:text-surface-400 transition-colors">利用規約</a> </div> </div> </div> </footer> </div>  <div id="docs-search" class="hidden fixed inset-0 z-50"> <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" id="search-backdrop"></div> <div class="relative max-w-2xl mx-auto mt-24 px-4"> <div class="bg-white dark:bg-surface-800 rounded-2xl shadow-2xl overflow-hidden border border-surface-200 dark:border-surface-700"> <div id="pagefind-search" class="p-4"></div> </div> </div> </div>  <script src="/pagefind/pagefind.js" async></script> </body> </html> <script type="module">const l=document.getElementById("sidebar-toggle"),n=document.getElementById("sidebar-panel");l?.addEventListener("click",()=>{n?.classList.toggle("hidden"),n?.classList.toggle("fixed"),n?.classList.toggle("inset-0"),n?.classList.toggle("z-40"),n?.classList.toggle("bg-white"),n?.classList.toggle("dark:bg-surface-800"),n?.classList.toggle("overflow-y-auto")});const g=document.getElementById("docs-search-btn"),a=document.getElementById("docs-search"),u=document.getElementById("search-backdrop");let c=!1;async function i(){if(a?.classList.remove("hidden"),!c){await new Promise(t=>{if(window.PagefindUI){t();return}const o=document.createElement("script");o.src="/pagefind/pagefind-ui.js",o.onload=()=>t(),o.onerror=()=>t(),document.head.appendChild(o)});const e=window.PagefindUI;e&&(new e({element:"#pagefind-search",showSubResults:!0,showImages:!1}),c=!0)}setTimeout(()=>{document.querySelector("#pagefind-search input")?.focus()},100)}g?.addEventListener("click",i);u?.addEventListener("click",()=>{a?.classList.add("hidden")});document.addEventListener("keydown",e=>{e.key==="Escape"&&a?.classList.add("hidden"),(e.ctrlKey||e.metaKey)&&e.key==="k"&&(e.preventDefault(),i())});function r(){document.querySelectorAll("pre").forEach(e=>{if(e.querySelector(".code-copy-btn"))return;e.style.position="relative";const t=document.createElement("button");t.className="code-copy-btn absolute top-2 right-2 px-2 py-1 text-xs rounded-md bg-surface-200/80 text-surface-600 hover:bg-surface-300 hover:text-surface-800 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100",t.setAttribute("aria-label","Copy code"),t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',e.classList.add("group"),e.appendChild(t),t.addEventListener("click",async()=>{const s=e.querySelector("code")?.textContent||e.textContent||"";try{await navigator.clipboard.writeText(s),t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>',t.classList.add("text-green-600"),setTimeout(()=>{t.innerHTML='<svg class="inline w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>',t.classList.remove("text-green-600")},2e3)}catch{}})})}function d(){document.querySelectorAll("[data-color-copy]").forEach(e=>{e.dataset.colorCopyInit||(e.dataset.colorCopyInit="true",e.addEventListener("click",async()=>{const t=e.getAttribute("data-color-copy");if(t)try{await navigator.clipboard.writeText(t);const o=e.querySelector(".color-hex");if(o){const s=o.textContent;o.textContent="Copied!",o.classList.add("!text-green-600","!font-semibold"),setTimeout(()=>{o.textContent=s,o.classList.remove("!text-green-600","!font-semibold")},1200)}}catch{}}))})}r();d();document.addEventListener("astro:page-load",r);document.addEventListener("astro:page-load",d);</script>
